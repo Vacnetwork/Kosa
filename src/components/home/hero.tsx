@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { HeroSeam } from "@/components/motion/hero-seam";
 import { KOSA } from "@/lib/brand";
 
 /**
@@ -33,6 +34,7 @@ export function Hero() {
     <section aria-labelledby="hero-title" className="relative isolate h-[86svh] min-h-[520px] w-full overflow-hidden">
       <div className="absolute inset-x-0 top-0 h-[54%] bg-paper md:h-1/2" aria-hidden="true" />
       <div className="absolute inset-x-0 bottom-0 h-[46%] bg-navy md:h-1/2" aria-hidden="true" />
+      <HeroSeam />
 
       <div className="relative z-10 flex h-full flex-col justify-center px-[var(--margin)]">
         <div className="relative w-full">

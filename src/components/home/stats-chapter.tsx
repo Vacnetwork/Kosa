@@ -1,3 +1,4 @@
+import { CountUp } from "@/components/motion/count-up";
 import { Reveal } from "@/components/motion/reveal";
 import { DemoTag } from "@/components/ui/demo-tag";
 import type { ImpactStats } from "@/lib/types";
@@ -8,7 +9,6 @@ import type { ImpactStats } from "@/lib/types";
  * closes the bottom-right corner.
  */
 export function StatsChapter({ stats }: { stats: ImpactStats }) {
-  const figure = stats.active_members.toLocaleString("en-GB");
   return (
     <section aria-labelledby="impact-heading" className="bg-gold px-[var(--margin)] py-14 md:py-20 lg:min-h-[88svh]">
       <div className="mx-auto flex h-full w-full max-w-[1440px] flex-col">
@@ -22,7 +22,7 @@ export function StatsChapter({ stats }: { stats: ImpactStats }) {
 
         <Reveal delay={80}>
           <p className="t-figure text-navy">
-            {figure}
+            <CountUp value={stats.active_members} />
             <span className="ml-2 align-super font-[family-name:var(--font-display)] text-[clamp(26px,3.6vw,56px)] font-extrabold">
               members
             </span>

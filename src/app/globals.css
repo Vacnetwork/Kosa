@@ -141,8 +141,14 @@ p { text-wrap: pretty; }
 }
 .js .reveal[data-shown="true"] { opacity: 1; transform: none; }
 
+/* The hero's seam hairline: drawn by default, then swept in by Anime.js when
+   the script runs and motion is welcome. Never a blank seam without JS. */
+.hero-seam { transform: scaleX(1); transform-origin: center; }
+.js .hero-seam { transform: scaleX(0); }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .js .hero-seam { transform: scaleX(1); }
   .line-mask > span, .fade-up { animation: none !important; }
   .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
   *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }

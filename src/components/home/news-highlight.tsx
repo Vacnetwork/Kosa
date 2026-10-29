@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ClipReveal } from "@/components/motion/clip-reveal";
 import { Reveal } from "@/components/motion/reveal";
 import { DemoTag } from "@/components/ui/demo-tag";
 import { Button } from "@/components/ui/button";
@@ -21,16 +22,18 @@ export function NewsHighlight({ post }: { post: NewsPost }) {
       <div className="mx-auto grid w-full max-w-[1440px] md:grid-cols-12">
         {cover ? (
           <div className="relative aspect-[4/3] overflow-hidden bg-paper-dim md:col-span-7 md:aspect-auto md:min-h-[62svh]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <ClipReveal className="absolute inset-0">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
               src={cover.src}
               alt={cover.alt}
               width={cover.width}
               height={cover.height}
               loading="eager"
               decoding="async"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </ClipReveal>
             <p className="absolute bottom-0 left-0 bg-navy/80 px-3 py-2 text-[11px] leading-none text-white/85">
               AI-generated illustration · not a photograph of the school
             </p>

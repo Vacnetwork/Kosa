@@ -58,6 +58,27 @@ families only: Manrope (display, 700/800) and Inter (text, 400–600).
   lower one clipped to the navy field, so the letterforms split at the waterline.
   The lower copy is `aria-hidden` so the title is announced once.
 
+## Motion
+
+One authored beat per page, then quiet. Three moments use **Anime.js**; every
+other entrance stays on the CSS `Reveal` so a blocked bundle never leaves the
+page blank.
+
+- **`HeroSeam`** — a gold hairline sweeps along the waterline once the two
+  headline lines have landed (920 ms, `outExpo`, 560 ms delay). It names the
+  seam the letterforms cross. Decorative, `aria-hidden`, drawn by default in CSS
+  and only wound back when the script runs.
+- **`CountUp`** — the impact figure counts to its value the first time it comes
+  into view. The server markup already holds the final number, so no JavaScript,
+  reduced motion and a failed bundle all show the real figure.
+- **`ClipReveal`** — the lead-story picture opens across the frame (clip wipe)
+  while settling from a 1.06 crop. Used once, on the homepage highlight.
+
+Rules: no bounce or elastic easing (`outExpo` is the house curve), nothing that
+hides content by default, no animation of layout properties, and every effect
+has a `prefers-reduced-motion` path that keeps the finished state. Do not add a
+reveal to a section that already has one.
+
 ## Adding a section
 
 1. Pick its field colour so it differs in **lightness** from its neighbours.
