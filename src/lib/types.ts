@@ -128,6 +128,8 @@ export interface NewsPost {
   author_name: string;
   published_at: string;
   is_published: boolean;
+  /** Set on fixture rows only, so real stories never carry a Demo label. */
+  is_fixture?: boolean;
 }
 
 export interface GalleryItem {

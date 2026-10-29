@@ -33,7 +33,7 @@ export async function generateMetadata({
 
 export default async function NewsStoryPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const { rows, demo } = await getPublishedNews();
+  const { rows } = await getPublishedNews();
   const post = rows.find((row) => row.slug === slug);
 
   if (!post) {
@@ -75,7 +75,7 @@ export default async function NewsStoryPage({ params }: { params: Promise<{ slug
             <h1 className="mt-4 max-w-[40ch] text-[clamp(20px,3.4vw,34px)] font-[family-name:var(--font-display)] font-extrabold leading-[1.1] tracking-tight text-navy">
               {displayTitle(post.title)}
             </h1>
-            {demo ? <DemoTag className="mt-5" label="Demo story" /> : null}
+            {post.is_fixture ? <DemoTag className="mt-5" label="Demo story" /> : null}
             <p className="mt-6 max-w-[56ch] text-[18px] leading-relaxed text-slate md:text-[19px]">
               {post.excerpt}
             </p>

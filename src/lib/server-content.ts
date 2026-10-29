@@ -15,6 +15,7 @@ import {
   DEMO_NEWS,
   DEMO_PROJECTS,
 } from "@/content/demo";
+import { OFFICIAL_NEWS } from "@/content/stories";
 import type { Announcement, EventRow, GalleryItem, ImpactStats, NewsPost } from "@/lib/types";
 
 const url = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
@@ -51,8 +52,25 @@ export async function getPublishedEvents(): Promise<{ rows: EventRow[]; demo: bo
 
 export async function getPublishedNews(): Promise<{ rows: NewsPost[]; demo: boolean }> {
   const rows = await rest<NewsPost[]>("news_posts?is_published=eq.true&order=published_at.desc");
-  if (!rows) return { rows: DEMO_NEWS, demo: true };
-  return { rows, demo: false };
+  if (!rows) {
+    // No backend: real stories first, then the labelled fixtures.
+    const byNewest = (a: NewsPost, b: NewsPost) => Date.parse(b.published_at) - Date.parse(a.published_at);
+    const merged = [
+      ...[...OFFICIAL_NEWS].sort(byNewest),
+      ...DEMO_NEWS.map((post) => ({ ...post, is_fixture: true })).sort(byNewest),
+    ];
+    return { rows: merged, demo: merged.some((post) => post.is_fixture) };
+  }
+  // Seeded fixtures are recognisable by their slug prefix, so a real story is
+  // never mistaken for one (and never picked as the homepage highlight).
+  const marked = rows.map((post) => ({ ...post, is_fixture: post.slug.startsWith("demo-") }));
+  return { rows: marked, demo: marked.some((post) => post.is_fixture) };
+}
+
+/** The story the homepage highlights: the newest one the association filed. */
+export async function getLeadStory(): Promise<NewsPost | null> {
+  const { rows } = await getPublishedNews();
+  return rows.find((post) => !post.is_fixture) ?? rows[0] ?? null;
 }
 
 export async function getPublishedGallery(): Promise<{ rows: GalleryItem[]; demo: boolean }> {

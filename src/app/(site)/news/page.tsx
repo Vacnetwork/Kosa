@@ -30,7 +30,7 @@ export default async function NewsPage() {
         lede="Reports written by the desk that did the work: what the bursary fund paid for, what came out of a clinic, and what was handed over when a project finished."
         photo={PHOTOS.market}
       >
-        {demo ? <DemoTag label="Demo stories" /> : null}
+        {demo ? <DemoTag label="Includes demo stories" /> : null}
       </PageHero>
 
       <section aria-labelledby="stories-heading" className="bg-white px-[var(--margin)] py-16 md:py-24">

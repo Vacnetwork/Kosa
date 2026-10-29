@@ -155,7 +155,19 @@ The committee lists each award, the term it covers and the receipts it expects. 
    'This is demonstration copy. No real mentorship programme is described.
 
 Members publish an offer from their dashboard; students and younger alumni send a short message through the site.',
-   '/photos/gulu-city.webp', 'Demo Desk', now() - interval '21 days', true)
+   '/photos/gulu-city.webp', 'Demo Desk', now() - interval '21 days', true),
+-- Real story, supplied by the association: the Diamond Jubilee Hall dinner.
+('e2000000-0000-4000-8000-000000000003', 'diamond-jubilee-hall-fundraising-dinner',
+'Diamond Jubilee Hall project unveiled at a Bugolobi fundraising dinner',
+'Old students, board members and friends of Kakoma Secondary School came together at Royal Suites, Bugolobi on 15 August 2026 in support of the Diamond Jubilee Hall Project — a new hall for the school, timed to mark its 60th anniversary on 14 November 2026.',
+'On 15 August 2026, old students, board members and friends of Kakoma Secondary School came together at Royal Suites, Bugolobi for an evening fundraising dinner in support of the Diamond Jubilee Hall Project — a new hall for the school, timed to mark our 60th anniversary on 14 November 2026.
+
+Board Chairman Dr. Isaac Nsereko welcomed guests and thanked old students for continuing to "labour for success" long after leaving Kakoma''s gates. Head Teacher Bbale David spoke about the Board''s vision for the Jubilee Hall and thanked old students for their generosity.
+
+The evening''s highlight was the unveiling of the Diamond Jubilee Hall Project board: a visual journey "from where we are" — the school''s current, aging facilities — "to where we want to be" — a modern hall pictured in architectural renders.
+
+Old students, including a guest from the Class of 1968, shared memories from their own years at Kakoma before pledging their support.',
+'/photos/alumni.webp', 'KOSA Secretariat', '2026-08-15T21:00:00+03:00', true)
 on conflict (id) do nothing;
 
 -- ----------------------------------------------------------- gallery

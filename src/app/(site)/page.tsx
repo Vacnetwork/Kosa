@@ -1,5 +1,11 @@
 import { HomeChapters } from "@/components/home/home-chapters";
-import { getImpactStats, getPublicCohorts, getPublishedEvents, getPublishedGallery } from "@/lib/server-content";
+import {
+  getImpactStats,
+  getLeadStory,
+  getPublicCohorts,
+  getPublishedEvents,
+  getPublishedGallery,
+} from "@/lib/server-content";
 
 /**
  * The homepage is pre-rendered at build time: published content is read from
@@ -7,15 +13,17 @@ import { getImpactStats, getPublicCohorts, getPublishedEvents, getPublishedGalle
  * labelled demo content when no backend is configured.
  */
 export default async function HomePage() {
-  const [events, gallery, impact, yearTotals] = await Promise.all([
+  const [events, gallery, impact, yearTotals, leadStory] = await Promise.all([
     getPublishedEvents(),
     getPublishedGallery(),
     getImpactStats(),
     getPublicCohorts(),
+    getLeadStory(),
   ]);
 
   return (
     <HomeChapters
+      leadStory={leadStory}
       events={events.rows}
       eventsDemo={events.demo}
       gallery={gallery.rows}
