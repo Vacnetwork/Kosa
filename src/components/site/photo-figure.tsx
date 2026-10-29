@@ -9,7 +9,7 @@ const ASPECT = {
 
 /**
  * Photographs are never illustrative stand-ins: each one is the real file in
- * public/photos, described in its alt text and credited with the photographer
+ * public/photos, described in its alt text and credited as an illustration
  * and licence directly beneath it.
  */
 export function photoBySource(src: string | null | undefined): Photo | undefined {

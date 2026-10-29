@@ -176,7 +176,7 @@ function GalleryScreen() {
             <Field
               id="gallery-credit"
               label="Credit"
-              hint="Photographer, archive or source. Leave blank only if it is genuinely unknown."
+              hint="Photographer, archive or sourcece. Leave blank only if it is genuinely unknown."
               error={form.formState.errors.credit?.message}
             >
               {(field) => <Input {...field} {...form.register("credit")} className="text-[15px]" placeholder="Photograph by …" />}

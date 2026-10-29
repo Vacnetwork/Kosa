@@ -13,7 +13,7 @@ import { getPublishedGallery } from "@/lib/server-content";
 export const metadata: Metadata = {
   title: "Gallery",
   description:
-    "A photo wall of Gulu and Acholi life, album by album, with the photographer credited on every picture. Members add pictures to their own year once signed in.",
+    "A picture wall for the association, album by album. Every tile is an AI-generated illustration, labelled as such, and members add their own photographs to their year once signed in.",
   alternates: { canonical: "/gallery/" },
 };
 
@@ -25,7 +25,7 @@ export default async function GalleryPage() {
       <PageHero
         id="gallery-title"
         lines={["Gallery"]}
-        lede="Pictures of the town, the market and the gatherings around the school, credited to the photographers who made them and sorted into albums."
+        lede="Illustrations of the school, the town around it and the gatherings that bring members back — sorted into albums, and labelled so nobody mistakes them for photographs."
         photo={PHOTOS.classroom}
       >
         {demo ? <DemoTag label="Demo pictures" /> : null}
