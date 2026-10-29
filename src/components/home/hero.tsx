@@ -48,8 +48,8 @@ export function Hero() {
         <div className="absolute inset-x-0 bottom-0 px-[var(--margin)] pb-7">
           <div className="fade-up mx-auto flex max-w-[62ch] flex-col items-center gap-3 text-center">
             <p className="text-[17px] leading-relaxed text-white/90 md:text-[20px]">
-              An alumni association for everyone who passed through Kakoma: find your cohort again,
-              support the students behind you, and carry the school forward together.
+              The alumni association of {KOSA.school}, Rakai District. Find your cohort again, support
+              the students behind you, and carry the school forward together.
             </p>
             <p className="font-[family-name:var(--font-display)] text-[13px] font-bold text-gold">
               {KOSA.tagline}

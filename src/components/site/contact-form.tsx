@@ -9,8 +9,9 @@ import { Field, Input, Textarea } from "@/components/ui/field";
 import { Notice } from "@/components/ui/notice";
 import { ApiError, sendContactMessage } from "@/lib/api";
 import { contactSchema, type ContactInput } from "@/lib/validation";
+import { KOSA } from "@/lib/brand";
 
-const SECRETARIAT_ADDRESS = process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() ?? "";
+const SECRETARIAT_ADDRESS = process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() || KOSA.contact.email;
 
 /**
  * The site's only general-purpose form. It writes through the api layer, so the

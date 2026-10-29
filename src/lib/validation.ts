@@ -52,6 +52,11 @@ export const applicationSchema = z.object({
   fullName: z.string().trim().min(3, "Enter your full name").max(120),
   graduationYear,
   cohortNote: z.string().trim().max(160).optional().or(z.literal("")),
+  membershipCategory: z.enum(["former_student", "former_staff", "associate", "other"], {
+    message: "Choose the category that fits you",
+  }),
+  areasOfInterest: z.array(z.string().trim().max(60)).max(8, "Choose up to eight").default([]),
+  communicationPreference: z.enum(["whatsapp", "email", "sms", "all"]),
   motivation: z
     .string()
     .trim()

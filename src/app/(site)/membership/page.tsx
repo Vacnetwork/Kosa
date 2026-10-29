@@ -5,6 +5,7 @@ import { PageHero } from "@/components/site/page-hero";
 import { PhotoBand } from "@/components/site/photo-band";
 import { PHOTOS } from "@/content/demo";
 import { Button } from "@/components/ui/button";
+import { JOIN_STEPS, KOSA, MEMBERSHIP_CATEGORIES } from "@/lib/brand";
 import { Notice } from "@/components/ui/notice";
 
 export const metadata: Metadata = {
@@ -14,24 +15,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/membership/" },
 };
 
-const STEPS = [
-  {
-    name: "Create an account",
-    body: "Register with your name, an email address and a password. Nothing else is asked at this point, and nothing is decided here.",
-  },
-  {
-    name: "Verify your email",
-    body: "A link arrives by email. Open it and the account is confirmed. An application cannot be submitted until the address is verified, because every decision note goes to it.",
-  },
-  {
-    name: "Submit an application",
-    body: "Give your full name as it was at school, your graduation year, and a short paragraph on why you are applying. A cohort note helps if the exact year is unclear.",
-  },
-  {
-    name: "Officer review and approval",
-    body: "The membership officer reads the application and approves it, declines it, or returns it with a note asking for one more thing. Approval makes the membership active and opens the portal.",
-  },
-];
+/* The six steps below are the association's own "How to join KOSA" guideline. */
+const STEPS = JOIN_STEPS.map((step) => ({ name: step.title, body: step.body }));
 
 const PREPARE = [
   {
@@ -97,6 +82,34 @@ export default function MembershipPage() {
         </Button>
       </PageHero>
 
+      <section aria-labelledby="eligibility-heading" className="bg-navy px-[var(--margin)] py-14 md:py-20">
+        <div className="mx-auto grid w-full max-w-[1440px] gap-8 md:grid-cols-12 md:gap-12">
+          <Reveal className="md:col-span-5">
+            <h2 id="eligibility-heading" className="t-h2 max-w-[20ch] text-white">
+              Who can join
+            </h2>
+            <p className="mt-4 max-w-[38ch] text-[17px] leading-relaxed text-white/80">
+              The association is open beyond former students: staff who taught here and long-term friends of
+              the school are members too. Choose your category when you apply.
+            </p>
+          </Reveal>
+          <ul className="md:col-span-7">
+            {MEMBERSHIP_CATEGORIES.map((category, index) => (
+              <Reveal
+                as="li"
+                key={category.value}
+                delay={index * 60}
+                className={`px-5 py-5 ${index % 2 === 0 ? "bg-white/10" : "bg-white/5"}`}
+              >
+                <p className="font-[family-name:var(--font-display)] text-[19px] font-bold leading-snug text-white">
+                  {category.label}
+                </p>
+              </Reveal>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       <section aria-labelledby="why-heading" className="bg-white px-[var(--margin)] py-16 md:py-24">
         <div className="mx-auto w-full max-w-[1440px]">
           <Reveal>
@@ -136,13 +149,14 @@ export default function MembershipPage() {
           <div className="grid gap-8 md:grid-cols-12 md:gap-12">
             <Reveal className="md:col-span-5">
               <h2 id="steps-heading" className="t-h1 text-navy">
-                Four steps
+                How to join
               </h2>
             </Reveal>
             <Reveal delay={80} className="md:col-span-7">
               <p className="max-w-[54ch] text-[18px] leading-relaxed text-slate">
-                The application is short on purpose. Most of it is what the membership officer needs to place
-                you in a cohort, and none of it is published to anyone else without your consent.
+                Six steps, in the association&rsquo;s own order: eligibility, the form, the subscription,
+                the communication platforms, taking part, and keeping your record current. None of it is
+                published to anyone else without your consent.
               </p>
             </Reveal>
           </div>
@@ -229,21 +243,53 @@ export default function MembershipPage() {
         <div className="mx-auto grid w-full max-w-[1440px] gap-8 md:grid-cols-12 md:gap-12">
           <Reveal className="md:col-span-5">
             <h2 id="fees-heading" className="t-h1 text-navy">
-              Fees
+              Subscription and payment
             </h2>
+            <p className="mt-5 max-w-[38ch] text-[17px] leading-relaxed text-slate">
+              {KOSA.payments.note}
+            </p>
+            <p className="mt-4 max-w-[38ch] text-[16px] leading-relaxed text-slate">
+              {KOSA.payments.receiptNote} Pay the association directly — this site collects no money and
+              stores no card details.
+            </p>
           </Reveal>
           <div className="md:col-span-7">
-            <Reveal delay={80}>
-              <p className="max-w-[58ch] text-[18px] leading-relaxed text-navy md:text-[19px]">
-                Any subscription is set by the association and agreed by its members. No amount is published
-                in this build, and this site collects no money.
-              </p>
-            </Reveal>
-            <Reveal delay={140} className="mt-6">
-              <Notice tone="info" title="Nothing is charged here">
-                When the association sets a fee, it will be shown in your portal with the period it covers,
-                and the receipt will appear in your contributions history. Until then, no figure on this site
-                should be read as one.
+            <Reveal delay={80} className="bg-white px-6 py-7 md:px-8">
+              <h3 className="t-h3 text-navy">Bank transfer</h3>
+              <dl className="mt-4 flex flex-col gap-3 text-[16px] leading-relaxed">
+                <div className="flex flex-wrap justify-between gap-2">
+                  <dt className="text-slate">Account name</dt>
+                  <dd className="font-semibold text-navy">{KOSA.payments.accountName}</dd>
+                </div>
+                <div className="flex flex-wrap justify-between gap-2">
+                  <dt className="text-slate">Account number</dt>
+                  <dd className="font-[family-name:var(--font-display)] text-[19px] font-extrabold tracking-tight text-navy">
+                    {KOSA.payments.accountNumber}
+                  </dd>
+                </div>
+                <div className="flex flex-wrap justify-between gap-2">
+                  <dt className="text-slate">Bank</dt>
+                  <dd className="font-semibold text-navy">{KOSA.payments.bank}</dd>
+                </div>
+              </dl>
+
+              <h3 className="mt-8 t-h3 text-navy">Mobile money</h3>
+              <dl className="mt-4 flex flex-col gap-3 text-[16px] leading-relaxed">
+                {KOSA.payments.treasurerMobile.map((line) => (
+                  <div key={line.network} className="flex flex-wrap justify-between gap-2">
+                    <dt className="text-slate">{line.network}</dt>
+                    <dd className="font-semibold text-navy">{line.number}</dd>
+                  </div>
+                ))}
+                <div className="flex flex-wrap justify-between gap-2">
+                  <dt className="text-slate">Treasurer</dt>
+                  <dd className="text-navy">{KOSA.payments.treasurerName}</dd>
+                </div>
+              </dl>
+
+              <Notice tone="info" className="mt-7" title="Ask for a receipt">
+                Send the reference or a photo of the receipt to {KOSA.contact.email} so the treasurer can
+                record it against your name in the contribution records.
               </Notice>
             </Reveal>
           </div>

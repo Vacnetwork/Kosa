@@ -215,12 +215,18 @@ export async function submitApplication(input: {
   graduationYear: number;
   cohortNote?: string;
   motivation: string;
+  membershipCategory?: "former_student" | "former_staff" | "associate" | "other";
+  areasOfInterest?: string[];
+  communicationPreference?: "whatsapp" | "email" | "sms" | "all";
 }): Promise<string> {
   return rpc<string>("submit_membership_application", {
     p_full_name: input.fullName,
     p_graduation_year: input.graduationYear,
     p_cohort_note: input.cohortNote || null,
     p_motivation: input.motivation,
+    p_membership_category: input.membershipCategory ?? "former_student",
+    p_areas_of_interest: input.areasOfInterest ?? [],
+    p_communication_preference: input.communicationPreference ?? "all",
   });
 }
 

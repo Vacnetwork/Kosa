@@ -21,6 +21,7 @@ import { Checkbox, Field, Input, Select, Textarea } from "@/components/ui/field"
 import { Notice } from "@/components/ui/notice";
 import { PageLoading } from "@/components/ui/spinner";
 import { getMyApplication, submitApplication } from "@/lib/api";
+import { AREAS_OF_INTEREST, MEMBERSHIP_CATEGORIES } from "@/lib/brand";
 import { useAuth } from "@/lib/auth";
 import { formatDate, formatDateTime } from "@/lib/format";
 import { applicationSchema, type ApplicationInput } from "@/lib/validation";
@@ -63,6 +64,9 @@ function ApplicationScreen() {
       fullName: "",
       graduationYear: undefined,
       cohortNote: "",
+      membershipCategory: "former_student",
+      areasOfInterest: [],
+      communicationPreference: "all",
       motivation: "",
       consent: false,
     },
@@ -79,6 +83,9 @@ function ApplicationScreen() {
       fullName: record.full_name,
       graduationYear: record.graduation_year ?? undefined,
       cohortNote: record.cohort_note ?? "",
+      membershipCategory: record.membership_category ?? "former_student",
+      areasOfInterest: record.areas_of_interest ?? [],
+      communicationPreference: record.communication_preference ?? "all",
       motivation: record.motivation,
       consent: false,
     });
@@ -108,6 +115,9 @@ function ApplicationScreen() {
         graduationYear: values.graduationYear,
         cohortNote: values.cohortNote || undefined,
         motivation: values.motivation,
+        membershipCategory: values.membershipCategory,
+        areasOfInterest: values.areasOfInterest,
+        communicationPreference: values.communicationPreference,
       });
       toast.success("Application submitted");
       application.reload();
@@ -239,6 +249,85 @@ function ApplicationScreen() {
                   {(props) => <Input {...props} {...register("cohortNote")} placeholder="e.g. S6 Sciences, 2004" />}
                 </Field>
               </div>
+
+              <div className="grid gap-5 sm:grid-cols-2">
+                <Field
+                  id="membershipCategory"
+                  label="Category of membership"
+                  required
+                  hint="As listed on the association's application form."
+                  error={errors.membershipCategory?.message}
+                >
+                  {(props) => (
+                    <Select {...props} {...register("membershipCategory")}>
+                      {MEMBERSHIP_CATEGORIES.map((category) => (
+                        <option key={category.value} value={category.value}>
+                          {category.label}
+                        </option>
+                      ))}
+                    </Select>
+                  )}
+                </Field>
+
+                <Field
+                  id="communicationPreference"
+                  label="How should the association reach you?"
+                  required
+                  hint="Used for notices and events, not for the directory."
+                  error={errors.communicationPreference?.message}
+                >
+                  {(props) => (
+                    <Select {...props} {...register("communicationPreference")}>
+                      <option value="all">WhatsApp, email and SMS</option>
+                      <option value="whatsapp">WhatsApp</option>
+                      <option value="email">Email</option>
+                      <option value="sms">SMS</option>
+                    </Select>
+                  )}
+                </Field>
+              </div>
+
+              <fieldset className="flex flex-col gap-3">
+                <legend className="font-[family-name:var(--font-display)] text-[15px] font-bold text-navy">
+                  Areas you want to be involved in
+                </legend>
+                <p className="text-[14px] leading-relaxed text-slate">
+                  Optional. These are the association&rsquo;s own programme areas; the officers use them to
+                  know who to ask.
+                </p>
+                <div className="grid gap-2 sm:grid-cols-2">
+                  {AREAS_OF_INTEREST.map((area) => {
+                    const selected = (watch("areasOfInterest") ?? []).includes(area);
+                    return (
+                      <label
+                        key={area}
+                        className={`flex cursor-pointer items-start gap-3 px-4 py-3 text-[15px] leading-snug ${
+                          selected ? "bg-paper text-navy quiet-border" : "bg-white text-navy quiet-border"
+                        }`}
+                      >
+                        <input
+                          type="checkbox"
+                          className="mt-1 h-4 w-4 shrink-0 accent-[var(--color-navy)]"
+                          checked={selected}
+                          onChange={(event) => {
+                            const current = getValues("areasOfInterest") ?? [];
+                            const next = event.target.checked
+                              ? [...current, area].slice(0, 8)
+                              : current.filter((item) => item !== area);
+                            setValue("areasOfInterest", next, { shouldValidate: true });
+                          }}
+                        />
+                        {area}
+                      </label>
+                    );
+                  })}
+                </div>
+                {errors.areasOfInterest?.message ? (
+                  <p role="alert" className="text-[14px] font-semibold text-[#8f2018]">
+                    {errors.areasOfInterest.message}
+                  </p>
+                ) : null}
+              </fieldset>
 
               <Field
                 id="motivation"

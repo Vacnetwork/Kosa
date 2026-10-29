@@ -192,7 +192,7 @@ function buildTests() {
     name: 'submits one membership application through the RPC',
     session: as.C,
     run: async (c) => {
-      const first = await c.try('select public.submit_membership_application($1, $2, $3, $4) as id', [
+      const first = await c.try('select public.submit_membership_application($1::text, $2::int, $3::text, $4::text, null, null, null) as id', [
         'Christine Lamwaka',
         2015,
         'Day scholar',
@@ -201,7 +201,7 @@ function buildTests() {
       if (!first.ok) return fail(`application rejected: ${short(first.error.message)}`);
       const id = first.rows[0].id;
       const status = await c.scalar('select status from public.membership_applications where id = $1', [id]);
-      const second = await c.try('select public.submit_membership_application($1, $2, $3, $4) as id', [
+      const second = await c.try('select public.submit_membership_application($1::text, $2::int, $3::text, $4::text, null, null, null) as id', [
         'Christine Lamwaka',
         2015,
         null,
@@ -229,7 +229,7 @@ function buildTests() {
       name: 'a brand-new account can apply on its first visit',
       session: as.K,
       run: async (c) => {
-        const res = await c.try('select public.submit_membership_application($1, $2, null, $3) as id', [
+        const res = await c.try('select public.submit_membership_application($1::text, $2::int, null, $3::text, null, null, null) as id', [
           'Kevin Omara',
           2018,
           'I have just signed up and would like to join the alumni association.',
@@ -629,7 +629,7 @@ function buildTests() {
     session: as.K,
     commit: true,
     run: async (c) => {
-      const res = await c.try('select public.submit_membership_application($1, $2, $3, $4) as id', [
+      const res = await c.try('select public.submit_membership_application($1::text, $2::int, $3::text, $4::text, null, null, null) as id', [
         'Kevin Omara',
         2018,
         null,
@@ -709,7 +709,7 @@ function buildTests() {
     session: owner,
     run: async (c) => {
       const signatures = [
-        'public.submit_membership_application(text,integer,text,text)',
+        'public.submit_membership_application(text,integer,text,text,text,text[],text)',
         'public.decide_membership_application(uuid,text,text)',
         'public.set_member_status(uuid,text,text)',
         'public.set_user_role(uuid,text,boolean)',

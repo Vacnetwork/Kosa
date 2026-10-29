@@ -56,6 +56,9 @@ export interface MembershipApplication {
   reviewed_at: string | null;
   reviewed_by: string | null;
   review_note: string | null;
+  membership_category: "former_student" | "former_staff" | "associate" | "other";
+  areas_of_interest: string[];
+  communication_preference: "whatsapp" | "email" | "sms" | "all";
 }
 
 export interface Membership {

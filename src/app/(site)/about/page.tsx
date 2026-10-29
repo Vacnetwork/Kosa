@@ -7,7 +7,7 @@ import { PhotoFigure } from "@/components/site/photo-figure";
 import { Button } from "@/components/ui/button";
 import { DemoTag } from "@/components/ui/demo-tag";
 import { DEMO_PROJECTS, PHOTOS } from "@/content/demo";
-import { KOSA } from "@/lib/brand";
+import { KOSA, OBJECTIVES } from "@/lib/brand";
 
 export const metadata: Metadata = {
   title: "About",
@@ -68,7 +68,7 @@ export default function AboutPage() {
       <PageHero
         id="about-title"
         lines={["About", "KOSA"]}
-        lede="Kakoma Old Students Association is the alumni body for everyone who passed through Kakoma: one register, one welfare desk, and one fund for the students who come after us."
+        lede={`${KOSA.name} is the alumni body of ${KOSA.school}, Rakai District: one register, one welfare desk, and one fund for the students who come after us.`}
         photo={PHOTOS.dancers}
       />
 
@@ -174,7 +174,71 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section aria-labelledby="work-heading" className="bg-paper px-[var(--margin)] py-16 md:py-24">
+      <section aria-labelledby="purpose-heading" className="bg-white px-[var(--margin)] py-16 md:py-24">
+        <div className="mx-auto w-full max-w-[1440px]">
+          <div className="grid gap-10 md:grid-cols-12 md:gap-12">
+            <Reveal className="md:col-span-6">
+              <h2 id="purpose-heading" className="t-h1 max-w-[14ch] text-navy">
+                Vision and mission
+              </h2>
+            </Reveal>
+            <div className="md:col-span-6">
+              <Reveal delay={60}>
+                <h3 className="t-h3 text-slate">Vision</h3>
+                <p className="mt-2 max-w-[46ch] text-[18px] leading-relaxed text-navy">{KOSA.vision}</p>
+              </Reveal>
+              <Reveal delay={110} className="mt-8">
+                <h3 className="t-h3 text-slate">Mission</h3>
+                <p className="mt-2 max-w-[46ch] text-[18px] leading-relaxed text-navy">{KOSA.mission}</p>
+              </Reveal>
+            </div>
+          </div>
+
+          <Reveal delay={60} className="mt-14">
+            <h3 className="t-h2 text-navy">Core values</h3>
+          </Reveal>
+          <ul className="mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
+            {KOSA.coreValues.map((value, index) => (
+              <Reveal as="li" key={value.name} delay={index * 50} className="bg-paper px-5 py-5">
+                <p className="font-[family-name:var(--font-display)] text-[19px] font-bold text-navy">{value.name}</p>
+                <p className="mt-2 text-[15px] leading-relaxed text-slate">{value.note}</p>
+              </Reveal>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section aria-labelledby="objectives-heading" className="bg-paper px-[var(--margin)] py-16 md:py-24">
+        <div className="mx-auto w-full max-w-[1440px]">
+          <div className="grid gap-8 md:grid-cols-12 md:gap-12">
+            <Reveal className="md:col-span-4">
+              <h2 id="objectives-heading" className="t-h1 max-w-[12ch] text-navy">
+                Our objectives
+              </h2>
+              <p className="mt-4 max-w-[34ch] text-[16px] leading-relaxed text-slate">
+                As published by the association — the ten things KOSA exists to do, from welfare and
+                mentorship to governance and the school&rsquo;s own development.
+              </p>
+            </Reveal>
+            <ol className="md:col-span-8">
+              {OBJECTIVES.map((objective, index) => (
+                <Reveal
+                  as="li"
+                  key={objective}
+                  delay={index * 30}
+                  className={`px-5 py-4 text-[16px] leading-relaxed text-navy md:text-[17px] ${
+                    index % 2 === 0 ? "bg-white" : "bg-paper"
+                  }`}
+                >
+                  {objective}
+                </Reveal>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="work-heading" className="bg-white px-[var(--margin)] py-16 md:py-24">
         <div className="mx-auto w-full max-w-[1440px]">
           <Reveal>
             <h2 id="work-heading" className="t-h1 text-navy">

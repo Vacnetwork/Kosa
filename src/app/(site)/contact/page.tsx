@@ -6,6 +6,7 @@ import { PageHero } from "@/components/site/page-hero";
 import { PhotoBand } from "@/components/site/photo-band";
 import { PHOTOS } from "@/content/demo";
 import { Button } from "@/components/ui/button";
+import { KOSA } from "@/lib/brand";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -20,7 +21,12 @@ export default function ContactPage() {
       <PageHero
         id="contact-title"
         lines={["Contact"]}
-        lede="The association's official address and telephone number are not published in this build. Messages written here are held for the secretariat, which reads them in the portal."
+        lede={
+          <>
+            The secretariat: {KOSA.contact.postal}. Telephone {KOSA.contact.phone}, email{" "}
+            {KOSA.contact.email}. Messages written here are also held for the secretariat in the portal.
+          </>
+        }
         photo={PHOTOS.skyline}
       />
 
@@ -60,9 +66,23 @@ export default function ContactPage() {
                 </p>
               </div>
               <div className="bg-navy px-6 py-6">
-                <p className="max-w-[38ch] text-[17px] leading-relaxed text-white/85">
-                  No address or telephone number is invented anywhere on this site. Until the association
-                  supplies one, the form is the only route in.
+                <h3 className="t-h3 text-gold">The secretariat</h3>
+                <address className="mt-3 flex flex-col gap-2 text-[16px] not-italic leading-relaxed text-white/90">
+                  <span>{KOSA.contact.postal}</span>
+                  <a href={`tel:${KOSA.contact.phone}`} className="underline decoration-gold decoration-2 underline-offset-4">
+                    {KOSA.contact.phone}
+                  </a>
+                  <a href={`mailto:${KOSA.contact.email}`} className="underline decoration-gold decoration-2 underline-offset-4">
+                    {KOSA.contact.email}
+                  </a>
+                  <a href={KOSA.contact.websiteUrl} rel="noopener" className="underline decoration-gold decoration-2 underline-offset-4">
+                    {KOSA.contact.website}
+                  </a>
+                </address>
+                <p className="mt-4 max-w-[36ch] text-[14px] leading-relaxed text-white/70">
+                  Registered postal address and telephone number as published by the association. Payments
+                  go to the association&rsquo;s account — see the membership page for the bank and mobile
+                  money details.
                 </p>
               </div>
             </Reveal>

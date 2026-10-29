@@ -36,12 +36,21 @@ export function SiteFooter() {
           <p className="text-[15px] text-navy">Uganda</p>
           <LocalTime />
         </div>
-        <div className="flex flex-col justify-between bg-white px-6 py-7 md:col-span-3 md:min-h-[220px]">
-          <p className="mb-4 font-[family-name:var(--font-display)] text-[13px] font-bold text-slate">Secretariat</p>
-          <p className="text-[15px] leading-relaxed text-navy">
-            The association&rsquo;s official address is not published in this build.
-          </p>
-          <Link href="/contact/" className="mt-4 font-[family-name:var(--font-display)] text-[17px] font-bold text-navy underline decoration-gold decoration-2 underline-offset-4">
+        <div className="flex flex-col justify-between gap-3 bg-white px-6 py-7 md:col-span-3 md:min-h-[220px]">
+          <p className="font-[family-name:var(--font-display)] text-[13px] font-bold text-slate">Secretariat</p>
+          <address className="flex flex-col gap-2 text-[15px] not-italic leading-relaxed text-navy">
+            <span>{KOSA.contact.postal}</span>
+            <a href={`tel:${KOSA.contact.phone}`} className="underline decoration-transparent decoration-2 underline-offset-4 hover:decoration-gold">
+              {KOSA.contact.phone}
+            </a>
+            <a href={`mailto:${KOSA.contact.email}`} className="underline decoration-transparent decoration-2 underline-offset-4 hover:decoration-gold">
+              {KOSA.contact.email}
+            </a>
+            <a href={KOSA.contact.websiteUrl} className="underline decoration-transparent decoration-2 underline-offset-4 hover:decoration-gold" rel="noopener">
+              {KOSA.contact.website}
+            </a>
+          </address>
+          <Link href="/contact/" className="font-[family-name:var(--font-display)] text-[15px] font-bold text-navy underline decoration-gold decoration-2 underline-offset-4">
             Write to the secretariat
           </Link>
         </div>
