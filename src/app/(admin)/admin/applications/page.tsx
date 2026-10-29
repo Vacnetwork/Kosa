@@ -137,7 +137,7 @@ function ApplicationsScreen() {
             <span>
               Membership is {activation.membership.status}
               {activation.membership.member_no ? `, member number ${activation.membership.member_no}` : ", number not yet issued"}
-              {activation.membership.cohort_year ? `, cohort ${activation.membership.cohort_year}` : ""}.
+              {activation.membership.cohort_year ? `, year ${activation.membership.cohort_year}` : ""}.
             </span>
           ) : (
             <span>
@@ -223,9 +223,9 @@ function ApplicationsScreen() {
                         Graduation year {application.graduation_year ?? "—"} · submitted {formatDateTime(application.submitted_at)}
                       </p>
                       {application.cohort_note ? (
-                        <p className="mt-1 text-[13px] text-slate">Cohort note: {application.cohort_note}</p>
+                        <p className="mt-1 text-[13px] text-slate">Year note: {application.cohort_note}</p>
                       ) : (
-                        <p className="mt-1 text-[13px] text-slate">No cohort note given.</p>
+                        <p className="mt-1 text-[13px] text-slate">No year note given.</p>
                       )}
                     </div>
                     <StatusPill label={humanStatus(application.status)} tone={statusTone(application.status)} />

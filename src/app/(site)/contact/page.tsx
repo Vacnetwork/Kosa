@@ -27,7 +27,7 @@ export default function ContactPage() {
             {KOSA.contact.email}. Messages written here are also held for the secretariat in the portal.
           </>
         }
-        photo={PHOTOS.skyline}
+        photo={PHOTOS.compound}
       />
 
       <section aria-labelledby="write-heading" className="bg-white px-[var(--margin)] py-16 md:py-24">
@@ -190,8 +190,8 @@ export default function ContactPage() {
         </div>
       </section>
       <PhotoBand
-        keys={["dancers", "marketWomen", "elephant"]}
-        caption="Photographs of Gulu and Acholi life from Wikimedia Commons (CC BY-SA 4.0 / CC0). They show the world around KOSA, not the association itself."
+        keys={["gathering", "alumni", "students"]}
+        caption="AI-generated illustrations, not photographs: no photograph of the school or its members was supplied, so these stand in and must be replaced with the association's own pictures."
       />
     </>
   );

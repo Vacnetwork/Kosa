@@ -81,7 +81,7 @@ stays in one reviewable place.
   the directory can never leak them. Owner and administrators only.
 - `membership_applications` — the queue the membership officer works through.
 - `memberships` — the outcome: status (`pending`/`active`/`lapsed`/`suspended`),
-  member number, cohort year.
+  member number, year of completion.
 - `user_roles` — `super_admin`, `membership_officer`, `event_manager`,
   `treasurer`, `member`. Only `super_admin` may change roles.
 - `events` / `event_registrations`, `announcements`, `news_posts`,

@@ -366,10 +366,18 @@ export async function getImpactStats(): Promise<ImpactStats> {
   const supabase = getSupabase();
   if (!supabase) return DEMO_IMPACT;
   try {
-    const data = await rpc<Array<ImpactStats>>("get_impact_stats");
+    const data = await rpc<
+      Array<{ active_members: number; cohorts: number; projects: number; bursaries_awarded: number }>
+    >("get_impact_stats");
     const row = data?.[0];
     if (!row) return DEMO_IMPACT;
-    return { ...row, demo: false };
+    return {
+      active_members: Number(row.active_members),
+      years: Number(row.cohorts),
+      projects: Number(row.projects),
+      bursaries_awarded: Number(row.bursaries_awarded),
+      demo: false,
+    };
   } catch {
     return DEMO_IMPACT;
   }

@@ -16,8 +16,8 @@ import type { ApplicationStatus, EventRegistration, EventRow, Membership, Profil
 
 type MemberRow = Membership & { profiles: Partial<Profile> | null };
 
-interface CohortRow {
-  cohort: string;
+interface YearRow {
+  year: string;
   active: number;
   lapsed: number;
   suspended: number;
@@ -67,7 +67,7 @@ export default function AdminReportsPage() {
 
       <div className="space-y-4">
         <InlineGate permission="manage_members">
-          <CohortReport />
+          <YearReport />
         </InlineGate>
 
         <InlineGate permission="approve_members">
@@ -94,45 +94,45 @@ export default function AdminReportsPage() {
   );
 }
 
-function CohortReport() {
+function YearReport() {
   const { data, loading, error, reload } = useAdminData<MemberRow[]>(() => listMembers(), [], []);
 
-  const rows = React.useMemo<CohortRow[]>(() => {
-    const map = new Map<string, CohortRow>();
+  const rows = React.useMemo<YearRow[]>(() => {
+    const map = new Map<string, YearRow>();
     data.forEach((member) => {
-      const year = member.cohort_year ?? member.profiles?.graduation_year ?? null;
-      const cohort = year ? String(year) : "Not set";
-      const row = map.get(cohort) ?? { cohort, active: 0, lapsed: 0, suspended: 0, pending: 0, total: 0 };
+      const rawYear = member.cohort_year ?? member.profiles?.graduation_year ?? null;
+      const yearKey = rawYear ? String(rawYear) : "Not set";
+      const row = map.get(yearKey) ?? { year: yearKey, active: 0, lapsed: 0, suspended: 0, pending: 0, total: 0 };
       row.total += 1;
       if (member.status === "active") row.active += 1;
       else if (member.status === "lapsed") row.lapsed += 1;
       else if (member.status === "suspended") row.suspended += 1;
       else row.pending += 1;
-      map.set(cohort, row);
+      map.set(yearKey, row);
     });
     return Array.from(map.values()).sort((a, b) => {
-      if (a.cohort === "Not set") return 1;
-      if (b.cohort === "Not set") return -1;
-      return b.cohort.localeCompare(a.cohort);
+      if (a.year === "Not set") return 1;
+      if (b.year === "Not set") return -1;
+      return b.year.localeCompare(a.year);
     });
   }, [data]);
 
   return (
     <TableSection
-      caption="Membership by cohort"
-      description="Cohort year first, then the member's graduation year, then a single 'Not set' row for records with neither."
-      head={["Cohort", "Active", "Lapsed", "Suspended", "Pending", "Total"]}
+      caption="Membership by year"
+      description="The membership year first, then the member's graduation year, then a single 'Not set' row for records with neither."
+      head={["Year", "Active", "Lapsed", "Suspended", "Pending", "Total"]}
       rowCount={rows.length}
       loading={loading}
       error={error}
       onRetry={reload}
       emptyTitle="The register is empty"
-      emptyBody="Once applications are approved, cohort totals appear here."
-      actions={<CsvExportButton rows={rows.map((row) => ({ ...row }))} filename="kosa-report-membership-by-cohort.csv" />}
+      emptyBody="Once applications are approved, year totals appear here."
+      actions={<CsvExportButton rows={rows.map((row) => ({ ...row }))} filename="kosa-report-membership-by-year.csv" />}
     >
       {rows.map((row) => (
-        <tr key={row.cohort}>
-          <Td className="font-semibold tabular-nums">{row.cohort}</Td>
+        <tr key={row.year}>
+          <Td className="font-semibold tabular-nums">{row.year}</Td>
           <Td className="tabular-nums">{row.active}</Td>
           <Td className="tabular-nums">{row.lapsed}</Td>
           <Td className="tabular-nums">{row.suspended}</Td>

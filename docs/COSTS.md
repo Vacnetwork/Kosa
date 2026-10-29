@@ -16,7 +16,7 @@ usage-based resource is enabled anywhere in this stack.
 | **GitHub** (source control, private repo) | Free | Unlimited private repos; 2,000 Actions minutes/month (only if CI is added) | CI stops until the next month if Actions are used heavily | Only if CI minutes exceed 2,000/month |
 | **Transactional email** — Supabase's built-in sender, or Resend free | Free | Supabase built-in: ~2 emails/hour, for project members first; Resend free: 3,000 emails/month, 100/day | Email stops for the period; auth emails bounce | Custom SMTP is needed for real member volumes: Resend free covers a 486-member association comfortably; beyond 3,000/month → $20/mo |
 | **Fonts** (Manrope, Inter) | Open source (SIL OFL) | Self-hosted at build time by `next/font` | n/a | None |
-| **Photographs** | Wikimedia Commons, CC BY-SA 4.0 | Free with credit (credit line is rendered in the footer and under each picture) | n/a | None |
+| **Imagery** | AI-generated (Pollinations free tier, Sana model) | Free, no key, rate-limited to roughly one image every 45 seconds per IP — plenty for a one-off set | Generation queues or refuses under load; retry | None (or a paid key for unlimited generation, not needed) |
 
 ## Deliberate non-choices (and why)
 

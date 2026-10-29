@@ -137,7 +137,7 @@ export default async function NewsStoryPage({ params }: { params: Promise<{ slug
             </h2>
             <p className="mt-3 max-w-[54ch] text-[17px] leading-relaxed text-white/80">
               Members see each report as it is published, along with the dates, the welfare desk and the
-              register of their own cohort.
+              register of their own year.
             </p>
           </div>
           <div className="md:col-span-4 md:justify-self-end">

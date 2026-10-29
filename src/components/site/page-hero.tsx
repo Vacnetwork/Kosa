@@ -16,7 +16,7 @@ const TONE: Record<Tone, { field: string; head: string; lede: string; credit: st
  * The page's name is set as an authored block of one or two lines at display
  * size — the page's focal point — with the sentence that explains it directly
  * beneath (never off-screen on a phone, so a bare name is never the whole
- * first screen). A real photograph, credited, fills the right third of the
+ * first screen). An image, credited, fills the right third of the
  * chapter; it is the same picture language as the homepage's chapters.
  */
 export function PageHero({
@@ -77,7 +77,7 @@ export function PageHero({
               />
             </div>
             <p className={cn("mt-2 text-[13px] leading-relaxed", colours.credit)}>
-              {photo.credit} · {photo.licence}
+              AI-generated illustration · not a photograph
             </p>
           </div>
         ) : null}

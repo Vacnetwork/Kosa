@@ -21,7 +21,7 @@ const STEPS = JOIN_STEPS.map((step) => ({ name: step.title, body: step.body }));
 const PREPARE = [
   {
     name: "Your graduation year",
-    body: "The year you left Kakoma. If you are not certain, say so in the cohort note; the officer checks it during review.",
+    body: "The year you left Kakoma. If you are not certain, say so in the year note; the officer checks it during review.",
   },
   {
     name: "Your name as it was at school",
@@ -36,7 +36,7 @@ const PREPARE = [
     body: "Why you are applying, in your own words. Forty characters is the minimum; two or three sentences is plenty.",
   },
   {
-    name: "A cohort note, if needed",
+    name: "A year note, if needed",
     body: "The class or stream you were in, or the name of a teacher, if your year is unclear.",
   },
 ];
@@ -75,7 +75,7 @@ export default function MembershipPage() {
         id="membership-title"
         lines={["Membership"]}
         lede="Membership is open to anyone who attended Kakoma, in any year. It takes an account, a verified email address and one application; an officer reads the rest."
-        photo={PHOTOS.elephant}
+        photo={PHOTOS.students}
       >
         <Button asChild variant="onDark" size="md">
           <Link href="/register/">Create an account</Link>
@@ -130,7 +130,7 @@ export default function MembershipPage() {
               },
               {
                 name: "Be counted",
-                body: "A cohort that is on the register can be reached, invited and represented. An empty year cannot.",
+                body: "A year that is on the register can be reached, invited and represented. An empty year cannot.",
               },
             ].map((item, index) => (
               <Reveal key={item.name} delay={index * 70}>
@@ -368,8 +368,8 @@ export default function MembershipPage() {
         </div>
       </section>
       <PhotoBand
-        keys={["skyline", "marketWomen", "market"]}
-        caption="Photographs of Gulu and Acholi life from Wikimedia Commons (CC BY-SA 4.0 / CC0). They show the world around KOSA, not the association itself."
+        keys={["compound", "alumni", "market"]}
+        caption="AI-generated illustrations, not photographs: no photograph of the school or its members was supplied, so these stand in and must be replaced with the association's own pictures."
       />
     </>
   );

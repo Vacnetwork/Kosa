@@ -7,7 +7,7 @@ import { getImpactStats, getPublicCohorts, getPublishedEvents, getPublishedGalle
  * labelled demo content when no backend is configured.
  */
 export default async function HomePage() {
-  const [events, gallery, impact, cohorts] = await Promise.all([
+  const [events, gallery, impact, yearTotals] = await Promise.all([
     getPublishedEvents(),
     getPublishedGallery(),
     getImpactStats(),
@@ -20,7 +20,7 @@ export default async function HomePage() {
       eventsDemo={events.demo}
       gallery={gallery.rows}
       impact={impact}
-      cohorts={cohorts.length > 0 ? cohorts : [{ year: 1999, members: 34 }]}
+      yearTotals={yearTotals.length > 0 ? yearTotals : [{ year: 1999, members: 34 }]}
     />
   );
 }

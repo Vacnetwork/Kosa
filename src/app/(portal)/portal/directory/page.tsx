@@ -81,7 +81,7 @@ function MemberDetail({ id, onClose }: { id: string; onClose: () => void }) {
             <div className="flex flex-col gap-4">
               <dl className="grid gap-x-6 gap-y-2 text-[15px] sm:grid-cols-2">
                 <div>
-                  <dt className="text-[13px] font-semibold uppercase tracking-wide text-slate">Cohort</dt>
+                  <dt className="text-[13px] font-semibold uppercase tracking-wide text-slate">Year</dt>
                   <dd className="text-navy">{member.graduation_year ?? "Not recorded"}</dd>
                 </div>
                 <div>
@@ -178,7 +178,7 @@ function DirectoryScreen() {
   const debouncedProfession = useDebounced(profession, 300);
   const debouncedLocation = useDebounced(location, 300);
 
-  const cohorts = useLoad("directory-cohorts", () => listCohorts());
+  const years = useLoad("directory-cohorts", () => listCohorts());
 
   const params = React.useMemo(
     () => ({
@@ -214,7 +214,7 @@ function DirectoryScreen() {
     <>
       <PageTitle
         title="Alumni directory"
-        lede="Active members, searchable by cohort, profession and place. Each person controls what appears here."
+        lede="Active members, searchable by year, profession and place. Each person controls what appears here."
       />
 
       <Panel
@@ -258,13 +258,13 @@ function DirectoryScreen() {
               }}
             >
               <option value="">Any year</option>
-              {(cohorts.data ?? []).map((cohort) => (
-                <option key={cohort.year} value={cohort.year}>
-                  {cohort.year}
+              {(years.data ?? []).map((year) => (
+                <option key={year.year} value={year.year}>
+                  {year.year}
                 </option>
               ))}
             </Select>
-            {cohorts.error ? (
+            {years.error ? (
               <p className="text-[13px] text-slate">Years could not be loaded; other filters still work.</p>
             ) : null}
           </div>
@@ -365,7 +365,7 @@ function DirectoryScreen() {
           <thead>
             <tr>
               <Th>Member</Th>
-              <Th>Cohort</Th>
+              <Th>Year</Th>
               <Th>Profession</Th>
               <Th>City</Th>
               <Th>

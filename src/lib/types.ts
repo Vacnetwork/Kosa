@@ -217,7 +217,7 @@ export interface AlumniCard {
 
 export interface ImpactStats {
   active_members: number;
-  cohorts: number;
+  years: number;
   projects: number;
   bursaries_awarded: number;
   demo: boolean;

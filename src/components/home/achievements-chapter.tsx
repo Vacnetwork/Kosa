@@ -3,7 +3,7 @@ import { DemoTag } from "@/components/ui/demo-tag";
 import type { Achievement } from "@/content/demo";
 
 /**
- * Alumni achievements as a plain list of cohorts — no cards, no icons, no
+ * Alumni achievements as a plain list of years — no cards, no icons, no
  * rules: rows are separated by a step in tone.
  */
 export function AchievementsChapter({ achievements }: { achievements: Achievement[] }) {
@@ -16,7 +16,7 @@ export function AchievementsChapter({ achievements }: { achievements: Achievemen
               Where they went
             </h2>
             <p className="mt-4 max-w-[36ch] text-[16px] leading-relaxed text-slate">
-              Four cohorts, four different roads out of the same classroom. These entries are
+              Four years, four different roads out of the same classroom. These entries are
               placeholders until members publish their own records.
             </p>
             <DemoTag className="mt-5" label="Demo content" />

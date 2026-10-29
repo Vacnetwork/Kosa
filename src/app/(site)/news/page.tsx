@@ -152,8 +152,8 @@ export default async function NewsPage() {
         </div>
       </section>
       <PhotoBand
-        keys={["marketWomen", "elephant", "skyline"]}
-        caption="Photographs of Gulu and Acholi life from Wikimedia Commons (CC BY-SA 4.0 / CC0). They show the world around KOSA, not the association itself."
+        keys={["alumni", "students", "compound"]}
+        caption="AI-generated illustrations, not photographs: no photograph of the school or its members was supplied, so these stand in and must be replaced with the association's own pictures."
       />
     </>
   );

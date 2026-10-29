@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     template: `%s — ${KOSA.shortName}`,
   },
   description:
-    "Kakoma Old Students Association connects former students across every cohort: membership, events, welfare, bursaries and community projects. United by our past, committed to our future.",
+    "Kakoma Old Students Association connects former students across every year: membership, events, welfare, bursaries and community projects. United by our past, committed to our future.",
   applicationName: KOSA.shortName,
   keywords: ["KOSA", "Kakoma", "alumni", "Uganda", "old students association", "bursary", "welfare"],
   openGraph: {

@@ -135,7 +135,7 @@ function MembersScreen() {
         <TableSection
           caption="Register"
           description={filtered ? "Filtered view. The CSV export matches these rows." : "Every membership record, most recently updated first."}
-          head={["Member", "Number", "Status", "Cohort", "Updated"]}
+          head={["Member", "Number", "Status", "Year", "Updated"]}
           rowCount={data.length}
           loading={loading}
           error={error}
@@ -181,7 +181,7 @@ function MembersScreen() {
         ) : (
           <Panel title="Member detail" description="Choose a name in the register to open the full record.">
             <p className="text-[14px] leading-relaxed text-slate">
-              The detail panel holds the profile summary, the membership number and cohort year, and the status change
+              The detail panel holds the profile summary, the membership number and year, and the status change
               control.
             </p>
             <p className="mt-2 text-[13px] leading-relaxed text-slate">
@@ -255,7 +255,7 @@ function MemberDetail({
           <DetailItem label="Membership status">
             <StatusPill label={humanStatus(member.status)} tone={statusTone(member.status)} />
           </DetailItem>
-          <DetailItem label="Cohort year">{member.cohort_year ?? "—"}</DetailItem>
+          <DetailItem label="Year of completion">{member.cohort_year ?? "—"}</DetailItem>
           <DetailItem label="Graduation year">{profile?.graduation_year ?? "—"}</DetailItem>
           <DetailItem label="Joined">{member.joined_at ? formatDate(member.joined_at) : "—"}</DetailItem>
           <DetailItem label="Last updated">{formatDateTime(member.updated_at)}</DetailItem>

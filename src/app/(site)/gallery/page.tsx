@@ -13,7 +13,7 @@ import { getPublishedGallery } from "@/lib/server-content";
 export const metadata: Metadata = {
   title: "Gallery",
   description:
-    "A photo wall of Gulu and Acholi life, album by album, with the photographer credited on every picture. Members add pictures to their own cohort once signed in.",
+    "A photo wall of Gulu and Acholi life, album by album, with the photographer credited on every picture. Members add pictures to their own year once signed in.",
   alternates: { canonical: "/gallery/" },
 };
 
@@ -26,7 +26,7 @@ export default async function GalleryPage() {
         id="gallery-title"
         lines={["Gallery"]}
         lede="Pictures of the town, the market and the gatherings around the school, credited to the photographers who made them and sorted into albums."
-        photo={PHOTOS.marketWomen}
+        photo={PHOTOS.classroom}
       >
         {demo ? <DemoTag label="Demo pictures" /> : null}
       </PageHero>
@@ -38,8 +38,9 @@ export default async function GalleryPage() {
               The wall
             </h2>
             <p className="mt-4 max-w-[54ch] text-[17px] leading-relaxed text-slate md:text-[18px]">
-              Choose an album to narrow the wall, or read all of it. Each picture carries the line of the
-              photographer who made it.
+              Choose an album to narrow the wall, or read all of it. Every tile is an AI-generated
+              illustration made for this demonstration build — none is a photograph of the school or its
+              members, and each says so beneath it.
             </p>
           </Reveal>
 
@@ -54,7 +55,7 @@ export default async function GalleryPage() {
           </div>
 
           <p className="mt-8 max-w-[58ch] text-[15px] leading-relaxed text-slate">
-            Signed-in members can add pictures to their own cohort.{" "}
+            Signed-in members can add pictures to their own year.{" "}
             <Link
               href="/login/"
               className="font-semibold text-navy underline decoration-gold decoration-2 underline-offset-4"
@@ -76,7 +77,7 @@ export default async function GalleryPage() {
             </Reveal>
             <Reveal delay={80} className="mt-5">
               <p className="max-w-[40ch] text-[17px] leading-relaxed text-slate">
-                Members can add photographs to their own cohort once signed in. The wall is only as good as
+                Members can add photographs to their own year once signed in. The wall is only as good as
                 what the years send in.
               </p>
             </Reveal>
@@ -99,7 +100,7 @@ export default async function GalleryPage() {
               },
               {
                 name: "The year it belongs to",
-                body: "Tag the cohort so the picture appears on your year's wall and in the album you choose.",
+                body: "Tag the year so the picture appears on your year's wall and in the album you choose.",
               },
             ].map((item, index) => (
               <Reveal as="li" key={item.name} delay={index * 60} className="bg-white px-6 py-6">
@@ -124,8 +125,8 @@ export default async function GalleryPage() {
         </div>
       </div>
       <PhotoBand
-        keys={["elephant", "market", "marketWomen"]}
-        caption="Photographs of Gulu and Acholi life from Wikimedia Commons (CC BY-SA 4.0 / CC0). They show the world around KOSA, not the association itself."
+        keys={["students", "market", "alumni"]}
+        caption="AI-generated illustrations, not photographs: no photograph of the school or its members was supplied, so these stand in and must be replaced with the association's own pictures."
       />
     </>
   );

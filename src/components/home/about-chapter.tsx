@@ -9,7 +9,7 @@ import { PHOTOS } from "@/content/demo";
  * cropped by its own frame, never spilling out of the panel.
  */
 export function AboutChapter() {
-  const photo = PHOTOS.dancers;
+  const photo = PHOTOS.alumni;
   return (
     <section aria-labelledby="about-heading" className="px-[8px] py-[8px] md:px-[16px] md:py-[16px]">
       <div className="bg-navy px-6 py-12 md:px-12 md:py-16 lg:py-20">
@@ -17,7 +17,7 @@ export function AboutChapter() {
           <div className="md:col-span-6">
             <Reveal>
               <h2 id="about-heading" className="t-h1 max-w-[14ch] text-white">
-                Every cohort, on one register
+                Every year, on one register
               </h2>
             </Reveal>
             <Reveal delay={80} className="mt-6">
@@ -43,7 +43,8 @@ export function AboutChapter() {
                 />
               </div>
               <p className="mt-3 max-w-[46ch] text-[13px] leading-relaxed text-white/60">
-                {photo.credit} · {photo.licence} · a photograph of the world around KOSA, not of KOSA itself.
+                AI-generated illustration, not a photograph of the school or of its students. Replace it with
+                the association&rsquo;s own picture when one exists.
               </p>
             </Reveal>
           </div>
@@ -53,7 +54,7 @@ export function AboutChapter() {
               <h3 className="t-h3 text-gold">What the association does</h3>
               <p className="mt-3 max-w-[42ch] text-[16px] leading-relaxed text-white/80 md:text-[17px]">
                 Keeps a verified register of old students by graduation year, so a class can find itself
-                and the executive can reach a cohort without a chain of phone calls.
+                and the executive can reach a year without a chain of phone calls.
               </p>
             </Reveal>
             <Reveal delay={170} className="mt-9">

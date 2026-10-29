@@ -28,7 +28,7 @@ export function StatsChapter({ stats }: { stats: ImpactStats }) {
             </span>
           </p>
           <p className="mt-4 max-w-[34ch] text-[16px] leading-relaxed text-navy/85 md:text-[17px]">
-            on the verified register across {stats.cohorts} graduation years, from the earliest leavers
+            on the verified register across {stats.years} graduation years, from the earliest leavers
             to those who left last year. Every entry is approved by the membership officer before the
             directory shows it.
           </p>

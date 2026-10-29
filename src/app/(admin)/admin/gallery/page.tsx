@@ -157,7 +157,7 @@ function GalleryScreen() {
             ) : null}
 
             <Field id="gallery-title" label="Title" required error={form.formState.errors.title?.message}>
-              {(field) => <Input {...field} {...form.register("title")} className="text-[15px]" placeholder="Prize-giving, 1998 cohort" />}
+              {(field) => <Input {...field} {...form.register("title")} className="text-[15px]" placeholder="Prize-giving, 1998 year" />}
             </Field>
             <Field
               id="gallery-image-url"
@@ -186,8 +186,8 @@ function GalleryScreen() {
             </Field>
 
             <Field
-              id="gallery-cohort"
-              label="Cohort year"
+              id="gallery-year"
+              label="Year of completion"
               hint="Only if the picture belongs to one graduating class."
               error={form.formState.errors.cohortYear?.message}
             >

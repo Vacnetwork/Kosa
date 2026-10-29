@@ -165,7 +165,7 @@ function ApplicationScreen() {
               </MetaRow>
               <MetaRow label="Name on the form">{record.full_name}</MetaRow>
               <MetaRow label="Graduation year">{record.graduation_year ?? "Not given"}</MetaRow>
-              <MetaRow label="Cohort note">
+              <MetaRow label="Year note">
                 {record.cohort_note || <span className="text-slate">None</span>}
               </MetaRow>
               <MetaRow label="Reviewed">
@@ -213,7 +213,7 @@ function ApplicationScreen() {
         <form method="post" onSubmit={handleSubmit(onSubmit)} noValidate className="mt-6 flex flex-col gap-6">
           <Panel
             title={record ? "Submit an updated application" : "Apply for membership"}
-            description="The membership officer uses these answers to confirm your cohort and to welcome you properly."
+            description="The membership officer uses these answers to confirm your year and to welcome you properly."
           >
             <div className="flex flex-col gap-5">
               <Field id="fullName" label="Full name" required error={errors.fullName?.message}>
@@ -243,7 +243,7 @@ function ApplicationScreen() {
                 <Field
                   id="cohortNote"
                   label="Class or house"
-                  hint="Optional — helps the officer place you with the right cohort."
+                  hint="Optional — helps the officer place you with the right year."
                   error={errors.cohortNote?.message}
                 >
                   {(props) => <Input {...props} {...register("cohortNote")} placeholder="e.g. S6 Sciences, 2004" />}

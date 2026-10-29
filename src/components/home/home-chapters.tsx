@@ -15,13 +15,13 @@ export function HomeChapters({
   eventsDemo,
   gallery,
   impact,
-  cohorts,
+  yearTotals,
 }: {
   events: EventRow[];
   eventsDemo: boolean;
   gallery: GalleryItem[];
   impact: ImpactStats;
-  cohorts: { year: number; members: number }[];
+  yearTotals: { year: number; members: number }[];
 }) {
   return (
     <>
@@ -32,7 +32,7 @@ export function HomeChapters({
       <ProjectsChapter projects={DEMO_PROJECTS} />
       <AchievementsChapter achievements={DEMO_ACHIEVEMENTS} />
       <TestimonialChapter />
-      <GalleryChapter items={gallery} cohorts={cohorts} />
+      <GalleryChapter items={gallery} yearTotals={yearTotals} />
       <CtaChapter />
     </>
   );

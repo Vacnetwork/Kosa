@@ -97,7 +97,7 @@ export default function WelfarePage() {
         id="welfare-title"
         lines={["Welfare", "& projects"]}
         lede="Two halves of the same work: a member in difficulty can ask for help without explaining it in public, and the association builds things the whole community uses."
-        photo={PHOTOS.skyline}
+        photo={PHOTOS.compound}
       />
 
       <section aria-labelledby="cover-heading" className="bg-white px-[var(--margin)] py-16 md:py-24">
@@ -306,8 +306,8 @@ export default function WelfarePage() {
         </div>
       </section>
       <PhotoBand
-        keys={["dancers", "market", "marketWomen"]}
-        caption="Photographs of Gulu and Acholi life from Wikimedia Commons (CC BY-SA 4.0 / CC0). They show the world around KOSA, not the association itself."
+        keys={["gathering", "market", "alumni"]}
+        caption="AI-generated illustrations, not photographs: no photograph of the school or its members was supplied, so these stand in and must be replaced with the association's own pictures."
       />
     </>
   );

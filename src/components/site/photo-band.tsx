@@ -2,9 +2,10 @@ import { PHOTOS, type Photo } from "@/content/demo";
 import { cn } from "@/lib/cn";
 
 /**
- * A band of real photographs of the world around KOSA, with their credits.
+ * A band of AI-generated illustrations used as editorial imagery, with a credit line that
+ * says plainly what they are.
  * Used once per inner page so every public chapter carries more than one
- * picture, and so the pictures are never presented as photographs of the
+ * picture, and so the images are never presented as photographs of the
  * association itself.
  */
 export function PhotoBand({
@@ -18,7 +19,7 @@ export function PhotoBand({
 }) {
   const photos = keys.map((key) => PHOTOS[key]) as Photo[];
   return (
-    <section aria-label="Photographs" className={cn("bg-white px-[var(--margin)] pb-4 pt-2", className)}>
+    <section aria-label="Illustrations" className={cn("bg-white px-[var(--margin)] pb-4 pt-2", className)}>
       <div className="mx-auto w-full max-w-[1440px]">
         <ul className="grid gap-2 sm:grid-cols-3">
           {photos.map((photo) => (
@@ -35,9 +36,7 @@ export function PhotoBand({
                   className="h-[220px] w-full object-cover md:h-[260px]"
                 />
               </div>
-              <p className="mt-2 text-[13px] leading-relaxed text-slate">
-                {photo.credit} · {photo.licence}
-              </p>
+              <p className="mt-2 text-[13px] leading-relaxed text-slate">AI-generated illustration · not a photograph</p>
             </li>
           ))}
         </ul>

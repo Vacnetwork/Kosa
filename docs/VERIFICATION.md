@@ -56,10 +56,10 @@ through the UI, not the API:
 2. Redirected to `/portal/` — dashboard correctly said *"You have not applied for
    membership yet"* and *"An account is not a membership"*.
 3. `/portal/application/` — submitted the application (graduation year 2004,
-   cohort note, motivation, declaration).
+   year note, motivation, declaration).
 4. `/portal/directory/` — **locked**: *"The directory is for approved members"*.
 5. Signed in as an officer → `/admin/applications/` — the application appeared with
-   the applicant's cohort note and motivation, plus Approve / Request more
+   the applicant's year note and motivation, plus Approve / Request more
    information / Reject.
 6. Clicked *Approve* → inline confirm → *Approve and activate* → the database
    recorded the decision, issued member number `KOSA-2004-0006`, set the membership
@@ -71,7 +71,7 @@ through the UI, not the API:
 Console output during the journey: no application errors (only dev-server HMR
 websocket noise and the deliberate CORS probe of the local proxy).
 
-Also exercised in the browser: the gallery cohort filter, the contact form's
+Also exercised in the browser: the gallery year filter, the contact form's
 validation and mailto fallback, the anonymous RSVP notice on an event page, the
 `/welfare/#bursary-fund` anchor from the homepage, and the admin section behind a
 non-admin account.
@@ -88,7 +88,7 @@ non-admin account.
 ## 4. Live deployment
 
 - `https://kosa-website.pages.dev` — Cloudflare Pages, static export, HTTP 200,
-  ~75 KB HTML, photographs served as WebP from the same origin.
+  ~84 KB HTML, imagery served as WebP from the same origin.
 - `public/_headers` is deployed, so CSP, HSTS, `X-Frame-Options: DENY`,
   `Referrer-Policy`, `Permissions-Policy` and immutable caching for
   `/_next/static/*` are applied by Cloudflare.

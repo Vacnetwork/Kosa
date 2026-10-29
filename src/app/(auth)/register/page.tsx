@@ -85,7 +85,7 @@ export default function RegisterPage() {
             },
             {
               title: "2. Submit the membership application",
-              body: "A verified account is not yet a membership. The application records your cohort and why you are joining.",
+              body: "A verified account is not yet a membership. The application records your year and why you are joining.",
             },
             {
               title: "3. Wait for the membership officer",

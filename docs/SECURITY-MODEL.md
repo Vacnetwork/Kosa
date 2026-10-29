@@ -65,7 +65,7 @@ is not enough, so a lapsed or suspended member loses the directory immediately
 | Function | Callers | Notes |
 | --- | --- | --- |
 | `submit_membership_application` | authenticated | rate limited 3/hour per account; one open application per person (partial unique index); creates a profile stub if sign-up has not yet |
-| `decide_membership_application` | `super_admin`, `membership_officer` | approved ⇒ active membership with `KOSA-<cohort>-<seq>` member number, `joined_at`, and the `member` role; audited |
+| `decide_membership_application` | `super_admin`, `membership_officer` | approved ⇒ active membership with `KOSA-<year>-<seq>` member number, `joined_at`, and the `member` role; audited |
 | `set_member_status` | `super_admin`, `membership_officer` | audited |
 | `set_user_role` | `super_admin` | refuses self-changes and refuses removing the last `super_admin`; audited |
 | `search_alumni` | active members | returns the `AlumniCard` shape only — no email, no phone |

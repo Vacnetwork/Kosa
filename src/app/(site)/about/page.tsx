@@ -23,7 +23,7 @@ const ROLES = [
   },
   {
     name: "The membership officer",
-    body: "Reads every application, checks the graduation year against the cohort record, and approves, returns or declines it with a note the applicant can read.",
+    body: "Reads every application, checks the graduation year against the year record, and approves, returns or declines it with a note the applicant can read.",
   },
   {
     name: "The event managers",
@@ -38,7 +38,7 @@ const ROLES = [
 const WORK = [
   {
     name: "The register",
-    body: "A verified list of old students by graduation year. It lets a class find itself, and it lets the executive reach a cohort without a chain of phone calls.",
+    body: "A verified list of old students by graduation year. It lets a class find itself, and it lets the executive reach a year without a chain of phone calls.",
   },
   {
     name: "Welfare",
@@ -61,7 +61,7 @@ const WORK = [
 const TIMELINE = [...DEMO_PROJECTS].sort((a, b) => Number(a.year) - Number(b.year));
 
 export default function AboutPage() {
-  const photo = PHOTOS.marketWomen;
+  const photo = PHOTOS.classroom;
 
   return (
     <>
@@ -69,7 +69,7 @@ export default function AboutPage() {
         id="about-title"
         lines={["About", "KOSA"]}
         lede={`${KOSA.name} is the alumni body of ${KOSA.school}, Rakai District: one register, one welfare desk, and one fund for the students who come after us.`}
-        photo={PHOTOS.dancers}
+        photo={PHOTOS.gathering}
       />
 
       <section aria-labelledby="who-heading" className="bg-white px-[var(--margin)] py-16 md:py-24">
@@ -84,7 +84,7 @@ export default function AboutPage() {
               <p className="max-w-[52ch] text-[18px] leading-relaxed text-slate md:text-[19px]">
                 If you sat in a Kakoma classroom, this register is yours. It does not ask which year you
                 left in, which stream you were in, or whether anyone from your class is still in touch with
-                you. It asks for one thing: the year you finished, so your cohort can find you.
+                you. It asks for one thing: the year you finished, so your year can find you.
               </p>
             </Reveal>
             <Reveal delay={140} className="mt-6">
@@ -100,15 +100,15 @@ export default function AboutPage() {
             {[
               {
                 name: "Every year group",
-                body: "From the earliest cohort on the register to the class that left last year, each graduation year gathers in one place.",
+                body: "From the earliest year on the register to the class that left last year, each graduation year gathers in one place.",
               },
               {
                 name: "Every trade and every town",
-                body: "The register records the year, not the rank. Wherever a member has ended up, the cohort is the thing that is shared.",
+                body: "The register records the year, not the rank. Wherever a member has ended up, the year is the thing that is shared.",
               },
               {
                 name: "The students still there",
-                body: "The welfare desk and the bursary fund exist for the families and students behind every cohort, whether or not they have a member in their own house.",
+                body: "The welfare desk and the bursary fund exist for the families and students behind every year, whether or not they have a member in their own house.",
               },
             ].map((item, index) => (
               <Reveal as="li" key={item.name} delay={index * 70} className="bg-paper px-6 py-6">
@@ -130,20 +130,20 @@ export default function AboutPage() {
           <div className="md:col-span-5 md:pt-4">
             <Reveal delay={80}>
               <h2 id="place-heading" className="t-h1 max-w-[16ch] text-white">
-                The photographs
+                The pictures
               </h2>
             </Reveal>
             <Reveal delay={140} className="mt-6">
               <p className="max-w-[44ch] text-[18px] leading-relaxed text-white/85">
-                KOSA has not supplied photographs of its own yet. Until it does, these pages use openly
-                licensed pictures of Gulu and Acholi life, credited with the photographer and the licence
-                wherever they appear.
+                KOSA has not supplied photographs of its own yet. Until it does, these pages use images
+                generated with AI for this build, labelled as illustrations wherever they appear.
               </p>
             </Reveal>
             <Reveal delay={200} className="mt-5">
               <p className="max-w-[44ch] text-[17px] leading-relaxed text-white/80">
-                None of them is presented as a KOSA event, and none is an illustration standing in for a
-                photograph. When the association sends its own pictures, they replace these.
+                None of them is presented as a KOSA event or as a real photograph. When the association
+                sends its own pictures, they replace these — the labelling is driven by the data, so
+                swapping the files and their credits is all it takes.
               </p>
             </Reveal>
           </div>
@@ -380,8 +380,8 @@ export default function AboutPage() {
         </div>
       </section>
       <PhotoBand
-        keys={["skyline", "market", "marketWomen"]}
-        caption="Photographs of Gulu and Acholi life from Wikimedia Commons (CC BY-SA 4.0 / CC0). They show the world around KOSA, not the association itself."
+        keys={["compound", "market", "alumni"]}
+        caption="AI-generated illustrations, not photographs: no photograph of the school or its members was supplied, so these stand in and must be replaced with the association's own pictures."
       />
     </>
   );

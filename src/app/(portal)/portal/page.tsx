@@ -30,9 +30,9 @@ import { useAuth } from "@/lib/auth";
 import { dayParts, formatDate, formatTime, isFuture, relativeDays } from "@/lib/format";
 
 const QUICK_LINKS = [
-  { href: "/portal/profile/", label: "Your profile", note: "Profession, cohort and directory visibility" },
+  { href: "/portal/profile/", label: "Your profile", note: "Profession, year and directory visibility" },
   { href: "/portal/application/", label: "Membership application", note: "Status and reviewer notes" },
-  { href: "/portal/directory/", label: "Alumni directory", note: "Find members by cohort or profession" },
+  { href: "/portal/directory/", label: "Alumni directory", note: "Find members by year or profession" },
   { href: "/portal/events/", label: "Events", note: "RSVP and see your registrations" },
   { href: "/portal/welfare/", label: "Welfare desk", note: "Apply for support, in confidence" },
   { href: "/portal/mentorship/", label: "Mentorship", note: "Offer to mentor or ask for one" },
@@ -150,7 +150,7 @@ function Dashboard() {
               <MetaRow label="Member number">
                 {membership?.member_no ?? <span className="text-slate">Not issued yet</span>}
               </MetaRow>
-              <MetaRow label="Cohort year">
+              <MetaRow label="Year of completion">
                 {membership?.cohort_year ?? profile?.graduation_year ?? (
                   <span className="text-slate">Not recorded</span>
                 )}

@@ -80,7 +80,7 @@ export default async function EventsPage() {
         id="events-title"
         lines={["Events"]}
         lede="Every published KOSA date in one place: the annual meeting, the clinics, the bursary ceremony and the reunions. Signed-in members reserve a place; the rest of the page is open to anyone."
-        photo={PHOTOS.marketWomen}
+        photo={PHOTOS.classroom}
       >
         {demo ? <DemoTag label="Demo events" /> : null}
       </PageHero>
@@ -203,8 +203,8 @@ export default async function EventsPage() {
         </div>
       </section>
       <PhotoBand
-        keys={["skyline", "elephant", "market"]}
-        caption="Photographs of Gulu and Acholi life from Wikimedia Commons (CC BY-SA 4.0 / CC0). They show the world around KOSA, not the association itself."
+        keys={["compound", "students", "market"]}
+        caption="AI-generated illustrations, not photographs: no photograph of the school or its members was supplied, so these stand in and must be replaced with the association's own pictures."
       />
     </>
   );

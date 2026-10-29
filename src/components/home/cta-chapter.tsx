@@ -21,7 +21,7 @@ export function CtaChapter() {
         <div className="mt-12 flex flex-col items-start justify-between gap-8 md:mt-20 md:flex-row md:items-end">
           <Reveal delay={80} className="md:max-w-[44ch]">
             <p className="text-[19px] leading-relaxed text-white/85 md:text-[20px]">
-              Membership is open to anyone who attended Kakoma. Register once, and your cohort, your
+              Membership is open to anyone who attended Kakoma. Register once, and your year, your
               events and the welfare desk are in one place.
             </p>
           </Reveal>

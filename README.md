@@ -60,6 +60,7 @@ npm run test:rls   # boot PostgreSQL, apply migrations, assert every RLS policy
 
 ## Licence
 
-Application code: MIT. Photographs: CC BY-SA 4.0 / CC0 via Wikimedia Commons,
-credited in the footer and beside each picture. Fonts: Manrope and Inter, SIL Open
+Application code: MIT. Imagery: AI-generated illustrations (Pollinations free
+tier), labelled as such everywhere they appear — replace them with the
+association's own photographs when they exist. Fonts: Manrope and Inter, SIL Open
 Font License.

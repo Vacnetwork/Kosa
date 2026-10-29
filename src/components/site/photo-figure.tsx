@@ -53,7 +53,7 @@ export function PhotoFigure({
         )}
       >
         {caption ? <span className={tone === "dark" ? "text-white" : "text-navy"}>{caption} </span> : null}
-        {photo.credit} · {photo.licence} · a photograph of the world around KOSA, not of KOSA itself.
+        AI-generated illustration · not a photograph of the school or of its members.
       </figcaption>
     </figure>
   );

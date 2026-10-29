@@ -62,10 +62,18 @@ export async function getPublishedGallery(): Promise<{ rows: GalleryItem[]; demo
 }
 
 export async function getImpactStats(): Promise<ImpactStats> {
-  const rows = await rest<ImpactStats[]>("rpc/get_impact_stats");
+  const rows = await rest<
+    { active_members: number; cohorts: number; projects: number; bursaries_awarded: number }[]
+  >("rpc/get_impact_stats");
   const row = rows?.[0];
   if (!row) return DEMO_IMPACT;
-  return { ...row, demo: false };
+  return {
+    active_members: Number(row.active_members),
+    years: Number(row.cohorts),
+    projects: Number(row.projects),
+    bursaries_awarded: Number(row.bursaries_awarded),
+    demo: false,
+  };
 }
 
 export async function getPublicCohorts(): Promise<{ year: number; members: number }[]> {

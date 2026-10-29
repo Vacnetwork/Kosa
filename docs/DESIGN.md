@@ -19,7 +19,7 @@ grouping members by graduation year becomes the page's colour chapters — the
 register read as a sequence of years.
 
 **The live thing:** in the gallery chapter, choosing a graduation year changes the
-wall — that cohort's member count and its pictures. It uses the association's real
+wall — that year's member count and its pictures. It uses the association's real
 structure, works with a thumb, degrades to the full wall without JavaScript, and
 never blocks reading.
 
@@ -68,13 +68,19 @@ families only: Manrope (display, 700/800) and Inter (text, 400–600).
 5. No cards on the public chapters; cards and 1px rules belong to the portal and
    admin surfaces (`.app-surface`, `.quiet-border`).
 
-## Photography
+## Imagery
 
-`public/photos/*.webp` are real photographs of Gulu and Acholi life from Wikimedia
-Commons (CC BY-SA 4.0 / CC0), downloaded and credited. They show the world around
-KOSA — never claim they show KOSA itself, and keep the credit lines. Replace them
-with the association's own photographs when they exist, updating the `PHOTOS` map
-in `src/content/demo.ts` and the credit line in the footer.
+`public/photos/*.webp` are **AI-generated illustrations**, produced for this build
+with Pollinations' free tier (Sana model) because no photograph of the school or
+its members was supplied — and inventing a documentary record of a real school
+would misrepresent it. Every one is labelled in the page: the credit line under
+each image, the band caption and the footer all say plainly that it is not a
+photograph.
+
+When the association supplies its own photographs, replace the files in
+`public/photos/`, update the `PHOTOS` map in `src/content/demo.ts` (path, alt
+text, credit, licence), and drop the `generated` marker — the labelling follows
+the data, not the layout.
 
 ## The crest
 

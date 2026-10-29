@@ -75,7 +75,7 @@ export function GalleryWall({ items }: { items: GalleryItem[] }) {
                 ) : null}
               </div>
               <p className="mt-4 text-[13px] leading-relaxed text-slate">
-                {item.credit ?? "Photographer not recorded"}
+                {item.credit ?? "AI-generated illustration"}
                 {item.cohort_year ? ` · Class of ${item.cohort_year}` : ` · ${item.album}`}
               </p>
             </div>

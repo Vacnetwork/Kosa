@@ -9,7 +9,7 @@ import type { GalleryItem } from "@/lib/types";
 /**
  * THE LIVE THING.
  *
- * Pick a graduation year and the wall changes to that cohort: how many members
+ * Pick a graduation year and the wall changes to that year: how many members
  * it holds on the register, and the pictures tagged to it. It is the page's
  * one interactive device, and it is built from the subject itself — an alumni
  * association is organised by year. Without JavaScript the full wall still
@@ -17,18 +17,18 @@ import type { GalleryItem } from "@/lib/types";
  */
 export function GalleryChapter({
   items,
-  cohorts,
+  yearTotals,
 }: {
   items: GalleryItem[];
-  cohorts: { year: number; members: number }[];
+  yearTotals: { year: number; members: number }[];
 }) {
   const [year, setYear] = useState<number | "all">("all");
-  const years = useMemo(() => cohorts.map((cohort) => cohort.year).sort((a, b) => b - a), [cohorts]);
+  const years = useMemo(() => yearTotals.map((row) => row.year).sort((a, b) => b - a), [yearTotals]);
   const visible = useMemo(
     () => (year === "all" ? items : items.filter((item) => item.cohort_year === year)),
     [items, year],
   );
-  const cohortMembers = year === "all" ? null : cohorts.find((c) => c.year === year)?.members ?? 0;
+  const yearMembers = year === "all" ? null : yearTotals.find((row) => row.year === year)?.members ?? 0;
 
   return (
     <section aria-labelledby="gallery-heading" className="bg-white px-[var(--margin)] py-16 md:py-24">
@@ -39,21 +39,21 @@ export function GalleryChapter({
               Pick a year
             </h2>
             <p className="mt-3 max-w-[44ch] text-[17px] leading-relaxed text-slate">
-              The wall changes with the cohort you choose. Every picture is a real photograph of Gulu and
-              Acholi life, credited under the strip.
+              The wall changes with the year you choose. Every tile is an AI-generated illustration for this
+              demonstration build, labelled as such — not a photograph of the school or its members.
             </p>
           </Reveal>
           <div className="flex items-center gap-3">
-            <label htmlFor="cohort-picker" className="text-[15px] font-semibold text-navy">
-              Cohort
+            <label htmlFor="year-picker" className="text-[15px] font-semibold text-navy">
+              Year
             </label>
             <select
-              id="cohort-picker"
+              id="year-picker"
               value={String(year)}
               onChange={(event) => setYear(event.target.value === "all" ? "all" : Number(event.target.value))}
               className="h-12 border-2 border-paper-dim bg-white px-3 text-[16px] text-navy focus:border-navy focus:outline-none"
             >
-              <option value="all">All cohorts</option>
+              <option value="all">All years</option>
               {years.map((option) => (
                 <option key={option} value={option}>
                   Class of {option}
@@ -65,8 +65,8 @@ export function GalleryChapter({
 
         <p aria-live="polite" className="mt-8 text-[15px] text-slate">
           {year === "all"
-            ? `${items.length} pictures across ${years.length} recorded cohorts.`
-            : `Class of ${year}: ${cohortMembers} members on the register, ${visible.length} ${visible.length === 1 ? "picture" : "pictures"}.`}
+            ? `${items.length} pictures across ${years.length} recorded years.`
+            : `Class of ${year}: ${yearMembers} members on the register, ${visible.length} ${visible.length === 1 ? "picture" : "pictures"}.`}
         </p>
 
         {visible.length === 0 ? (
@@ -75,10 +75,10 @@ export function GalleryChapter({
               No pictures are tagged to the Class of {year} yet
             </p>
             <p className="mt-2 max-w-[52ch] text-[15px] text-slate">
-              Members of that cohort can add photographs once signed in. Every other cohort is still on the wall.
+              Members of that year can add photographs once signed in. Every other year is still on the wall.
             </p>
             <Button variant="outline" size="sm" className="mt-5" onClick={() => setYear("all")}>
-              Show all cohorts
+              Show all years
             </Button>
           </div>
         ) : (
@@ -114,7 +114,7 @@ export function GalleryChapter({
           <Button asChild variant="ink" size="md">
             <Link href="/gallery/">Open the full gallery</Link>
           </Button>
-          <p className="text-[14px] text-slate">Signed-in members can add pictures to their own cohort.</p>
+          <p className="text-[14px] text-slate">Signed-in members can add pictures to their own year.</p>
         </div>
       </div>
     </section>

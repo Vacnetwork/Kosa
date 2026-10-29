@@ -13,7 +13,7 @@ export function SiteFooter() {
     <footer className="bg-paper px-[var(--margin)] pb-[var(--margin)]">
       <div className="mx-auto grid w-full max-w-[1440px] gap-2 md:grid-cols-12">
         <div className="flex flex-col justify-between gap-8 bg-white px-6 py-7 md:col-span-4 md:min-h-[220px]">
-          <p className="t-h3 text-navy">One association, every cohort that ever sat in these classrooms.</p>
+          <p className="t-h3 text-navy">One association, every year that ever sat in these classrooms.</p>
           <p className="text-[13px] leading-relaxed text-slate">
             {KOSA.name} is a not-for-profit alumni association. This build is a demonstration: sample
             events, figures and stories are labelled as demo content.
