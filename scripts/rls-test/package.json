@@ -1,0 +1,14 @@
+{
+  "name": "kosa-rls-test",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Login-free RLS harness: boots a local PostgreSQL, applies the KOSA migrations and asserts the RLS matrix.",
+  "type": "commonjs",
+  "scripts": {
+    "test": "node run.js"
+  },
+  "dependencies": {
+    "embedded-postgres": "17.10.0-beta.17",
+    "pg": "^8.13.1"
+  }
+}
