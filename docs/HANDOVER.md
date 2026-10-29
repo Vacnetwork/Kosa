@@ -103,8 +103,9 @@ columns, and cannot be enumerated by anonymous or unverified users.
 | Add a page | new folder under `src/app/(site)/`, `export const metadata`, reuse the chapter idioms |
 | Add a field to profiles | migration + `src/lib/types.ts` + form schema in `src/lib/validation.ts` + the form |
 | Change who can approve members | `supabase/migrations` (role checks) and `ROLE_PERMISSIONS` in `src/lib/auth.tsx` |
-| Replace the placeholder crest | drop the real file at `public/brand/kosa-crest.png` and set `NEXT_PUBLIC_CREST_SRC=/brand/kosa-crest.png` |
+| Replace the crest artwork | overwrite `public/brand/kosa-crest-round.png` (see `docs/DESIGN.md`) |
 | Swap demo content for real content | insert rows through the admin dashboard, or replace `supabase/seed.sql` |
+| Regenerate the "scan to join" QR (e.g. after the domain changes) | `npx qrcode -t svg -e M -w 512 -m 2 -d "#102B60" -l "#FFFFFF" -o public/brand/kosa-join-qr.svg "https://<host>/membership/"` (and the same with `-t png` for print). It is committed as an asset, so no dependency is added to the project |
 
 ## 6. Design constraints worth keeping
 

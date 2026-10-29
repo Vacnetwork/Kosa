@@ -296,6 +296,52 @@ export default function MembershipPage() {
         </div>
       </section>
 
+      <section aria-labelledby="qr-heading" className="bg-white px-[var(--margin)] py-16 md:py-24">
+        <div className="mx-auto grid w-full max-w-[1440px] items-center gap-10 md:grid-cols-12 md:gap-12">
+          <Reveal className="md:col-span-7">
+            <h2 id="qr-heading" className="t-h1 max-w-[14ch] text-navy">
+              Scan to join
+            </h2>
+            <p className="mt-5 max-w-[46ch] text-[18px] leading-relaxed text-navy">
+              The same code the association prints on its joining guideline. Point a phone camera at it and
+              it opens this page, where the application starts.
+            </p>
+            <p className="mt-4 max-w-[46ch] text-[16px] leading-relaxed text-slate">
+              Printed copies keep working from anywhere; the code carries the address{" "}
+              <Link href="/membership/" className="underline decoration-gold decoration-2 underline-offset-4">
+                kosa-website.pages.dev/membership
+              </Link>
+              . When the association&rsquo;s own domain is pointed at this site, the code is regenerated for it
+              with one command (see the handover notes).
+            </p>
+            <Reveal delay={100} className="mt-8">
+              <Button asChild variant="primary" size="md">
+                <Link href="/register/">Start the application</Link>
+              </Button>
+            </Reveal>
+          </Reveal>
+
+          <Reveal delay={80} className="md:col-span-5">
+            <figure className="w-full max-w-[320px] bg-white p-5 quiet-border">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/brand/kosa-join-qr.svg"
+                alt="QR code that opens the KOSA membership page"
+                width={512}
+                height={512}
+                loading="lazy"
+                decoding="async"
+                className="h-auto w-full"
+              />
+              <figcaption className="mt-4 flex flex-col gap-1 font-[family-name:var(--font-display)] text-[15px] font-bold text-navy">
+                Scan to join KOSA
+                <span className="text-[13px] font-medium text-slate">kosa-website.pages.dev/membership</span>
+              </figcaption>
+            </figure>
+          </Reveal>
+        </div>
+      </section>
+
       <section aria-labelledby="actions-heading" className="bg-navy px-[var(--margin)] py-16 md:py-24">
         <div className="mx-auto grid w-full max-w-[1440px] gap-10 md:grid-cols-12 md:items-end md:gap-12">
           <div className="md:col-span-7">
