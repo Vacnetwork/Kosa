@@ -40,7 +40,7 @@ export function SiteHeader({ tone = "paper" }: { tone?: "paper" | "navy" }) {
     >
       <div className="mx-auto flex w-full max-w-[1440px] items-center justify-between gap-6 px-[var(--margin)] py-4">
         <Link href="/" className="flex items-center gap-3" aria-label={`${KOSA.name} home`}>
-          <Crest className="h-10 w-auto md:h-11" />
+          <Crest className="h-12 w-auto md:h-14" />
           <span className="flex flex-col leading-none">
             <span className="font-[family-name:var(--font-display)] text-[17px] font-extrabold tracking-tight md:text-[19px]">
               KOSA

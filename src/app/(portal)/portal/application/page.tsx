@@ -200,7 +200,7 @@ function ApplicationScreen() {
       ) : null}
 
       {needsNewSubmission ? (
-        <form onSubmit={handleSubmit(onSubmit)} noValidate className="mt-6 flex flex-col gap-6">
+        <form method="post" onSubmit={handleSubmit(onSubmit)} noValidate className="mt-6 flex flex-col gap-6">
           <Panel
             title={record ? "Submit an updated application" : "Apply for membership"}
             description="The membership officer uses these answers to confirm your cohort and to welcome you properly."

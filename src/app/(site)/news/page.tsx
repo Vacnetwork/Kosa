@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Reveal } from "@/components/motion/reveal";
 import { PageHero } from "@/components/site/page-hero";
+import { PhotoBand } from "@/components/site/photo-band";
+import { PHOTOS } from "@/content/demo";
 import { photoBySource } from "@/components/site/photo-figure";
 import { Button } from "@/components/ui/button";
 import { DemoTag } from "@/components/ui/demo-tag";
@@ -26,6 +28,7 @@ export default async function NewsPage() {
         id="news-title"
         lines={["News", "& stories"]}
         lede="Reports written by the desk that did the work: what the bursary fund paid for, what came out of a clinic, and what was handed over when a project finished."
+        photo={PHOTOS.market}
       >
         {demo ? <DemoTag label="Demo stories" /> : null}
       </PageHero>
@@ -148,6 +151,10 @@ export default async function NewsPage() {
           </Reveal>
         </div>
       </section>
+      <PhotoBand
+        keys={["marketWomen", "elephant", "skyline"]}
+        caption="Photographs of Gulu and Acholi life from Wikimedia Commons (CC BY-SA 4.0 / CC0). They show the world around KOSA, not the association itself."
+      />
     </>
   );
 }

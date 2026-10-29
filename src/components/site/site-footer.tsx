@@ -47,7 +47,7 @@ export function SiteFooter() {
         </div>
 
         <div className="flex flex-col items-center justify-center gap-3 bg-navy px-6 py-10 md:col-span-8 md:min-h-[260px]">
-          <Crest className="h-14 w-auto" />
+          <Crest className="h-20 w-auto" />
           <p className="text-center font-[family-name:var(--font-display)] text-[clamp(30px,6vw,64px)] font-extrabold leading-none tracking-tight text-white">
             KOSA
           </p>

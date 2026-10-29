@@ -140,7 +140,7 @@ export default function RegisterPage() {
         </Notice>
       ) : null}
 
-      <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-5">
+      <form method="post" onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-5">
         <Field id="fullName" label="Full name" required error={errors.fullName?.message}>
           {(props) => (
             <Input {...props} {...register("fullName")} autoComplete="name" placeholder="As it appears on your records" />

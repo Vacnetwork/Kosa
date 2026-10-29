@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Reveal } from "@/components/motion/reveal";
 import { PageHero } from "@/components/site/page-hero";
+import { PhotoBand } from "@/components/site/photo-band";
 import { PhotoFigure } from "@/components/site/photo-figure";
 import { Button } from "@/components/ui/button";
 import { DemoTag } from "@/components/ui/demo-tag";
@@ -68,6 +69,7 @@ export default function AboutPage() {
         id="about-title"
         lines={["About", "KOSA"]}
         lede="Kakoma Old Students Association is the alumni body for everyone who passed through Kakoma: one register, one welfare desk, and one fund for the students who come after us."
+        photo={PHOTOS.dancers}
       />
 
       <section aria-labelledby="who-heading" className="bg-white px-[var(--margin)] py-16 md:py-24">
@@ -259,7 +261,6 @@ export default function AboutPage() {
                 taken from the demo project record, in the order the projects appear there, and they stand in
                 for a history that only the association can write.
               </p>
-              <DemoTag className="mt-5" label="Demo timeline" />
             </Reveal>
           </div>
 
@@ -286,6 +287,7 @@ export default function AboutPage() {
               </Reveal>
             ))}
           </ol>
+          <DemoTag className="mt-6" label="Demo timeline" />
         </div>
       </section>
 
@@ -313,6 +315,10 @@ export default function AboutPage() {
           </Reveal>
         </div>
       </section>
+      <PhotoBand
+        keys={["skyline", "market", "marketWomen"]}
+        caption="Photographs of Gulu and Acholi life from Wikimedia Commons (CC BY-SA 4.0 / CC0). They show the world around KOSA, not the association itself."
+      />
     </>
   );
 }

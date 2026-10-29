@@ -92,7 +92,7 @@ function AnnouncementsScreen() {
       />
 
       <Panel title="New announcement" description="Title and body are required. Pinned notices stay at the top of the list." className="mb-4">
-        <form onSubmit={submit} noValidate>
+        <form method="post" onSubmit={submit} noValidate>
           <div className="grid gap-3 md:grid-cols-2">
             <Field id="announcement-title" label="Title" required error={form.formState.errors.title?.message} className="md:col-span-2">
               {(field) => <Input {...field} {...form.register("title")} className="text-[15px]" placeholder="Renewal window opens on 1 November" />}

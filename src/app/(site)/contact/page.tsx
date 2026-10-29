@@ -3,6 +3,8 @@ import Link from "next/link";
 import { Reveal } from "@/components/motion/reveal";
 import { ContactForm } from "@/components/site/contact-form";
 import { PageHero } from "@/components/site/page-hero";
+import { PhotoBand } from "@/components/site/photo-band";
+import { PHOTOS } from "@/content/demo";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
@@ -19,6 +21,7 @@ export default function ContactPage() {
         id="contact-title"
         lines={["Contact"]}
         lede="The association's official address and telephone number are not published in this build. Messages written here are held for the secretariat, which reads them in the portal."
+        photo={PHOTOS.skyline}
       />
 
       <section aria-labelledby="write-heading" className="bg-white px-[var(--margin)] py-16 md:py-24">
@@ -166,6 +169,10 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+      <PhotoBand
+        keys={["dancers", "marketWomen", "elephant"]}
+        caption="Photographs of Gulu and Acholi life from Wikimedia Commons (CC BY-SA 4.0 / CC0). They show the world around KOSA, not the association itself."
+      />
     </>
   );
 }

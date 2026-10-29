@@ -98,7 +98,7 @@ export default function LoginPage() {
         </Notice>
       ) : null}
 
-      <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-5">
+      <form method="post" onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-5">
         <Field id="email" label="Email address" required error={errors.email?.message}>
           {(props) => (
             <Input {...props} {...register("email")} type="email" autoComplete="email" inputMode="email" />

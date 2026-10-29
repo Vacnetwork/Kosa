@@ -89,7 +89,7 @@ export default function VerifyEmailPage() {
         </Notice>
       ) : null}
 
-      <form onSubmit={handleResend} noValidate className="flex flex-col gap-5">
+      <form method="post" onSubmit={handleResend} noValidate className="flex flex-col gap-5">
         <Field
           id="email"
           label="Email address"

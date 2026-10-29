@@ -158,7 +158,7 @@ function ProfileScreen() {
       ) : null}
 
       <div className="grid gap-6 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)]">
-        <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-6">
+        <form method="post" onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-6">
           <Panel title="Your details" description="Used in the directory and on association records.">
             <div className="flex flex-col gap-5">
               <Field id="fullName" label="Full name" required error={errors.fullName?.message}>

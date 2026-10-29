@@ -123,7 +123,7 @@ function GalleryScreen() {
       />
 
       <Panel title="Add a picture" description="Upload first, then describe it. The item is not published until you save." className="mb-4">
-        <form onSubmit={submit} noValidate>
+        <form method="post" onSubmit={submit} noValidate>
           <div className="grid gap-3 md:grid-cols-2">
             <div className="md:col-span-2">
               <label htmlFor="gallery-file" className="mb-1 block text-[15px] font-bold text-navy">

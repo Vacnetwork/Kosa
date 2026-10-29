@@ -176,7 +176,7 @@ function MentorshipScreen() {
             title={myOffer ? "Your mentorship offer" : "Offer to mentor"}
             description="Being listed is voluntary and can be withdrawn at any time."
           >
-            <form onSubmit={handleSubmit(saveOffer)} noValidate className="flex flex-col gap-5">
+            <form method="post" onSubmit={handleSubmit(saveOffer)} noValidate className="flex flex-col gap-5">
               <Field
                 id="expertise"
                 label="What can you help with?"

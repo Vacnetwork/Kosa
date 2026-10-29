@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Reveal } from "@/components/motion/reveal";
 import { PageHero } from "@/components/site/page-hero";
+import { PhotoBand } from "@/components/site/photo-band";
+import { PHOTOS } from "@/content/demo";
 import { Button } from "@/components/ui/button";
 import { Notice } from "@/components/ui/notice";
 
@@ -88,6 +90,7 @@ export default function MembershipPage() {
         id="membership-title"
         lines={["Membership"]}
         lede="Membership is open to anyone who attended Kakoma, in any year. It takes an account, a verified email address and one application; an officer reads the rest."
+        photo={PHOTOS.elephant}
       >
         <Button asChild variant="onDark" size="md">
           <Link href="/register/">Create an account</Link>
@@ -272,6 +275,10 @@ export default function MembershipPage() {
           </Reveal>
         </div>
       </section>
+      <PhotoBand
+        keys={["skyline", "marketWomen", "market"]}
+        caption="Photographs of Gulu and Acholi life from Wikimedia Commons (CC BY-SA 4.0 / CC0). They show the world around KOSA, not the association itself."
+      />
     </>
   );
 }

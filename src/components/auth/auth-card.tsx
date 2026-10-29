@@ -24,6 +24,13 @@ export function AuthCard({
       </h1>
       {lede ? <div className="mt-2 max-w-prose text-[15px] leading-relaxed text-slate">{lede}</div> : null}
       <div className="mt-6">{children}</div>
+      <noscript>
+        <p className="mt-6 bg-[#fdf6e3] px-4 py-3 text-[14px] leading-relaxed text-[#5a4408]">
+          This portal needs JavaScript to sign you in securely: the browser talks to the association&rsquo;s
+          database directly, and the page never posts your details anywhere else. Enable JavaScript and
+          reload.
+        </p>
+      </noscript>
       {footer ? (
         <div className="mt-6 border-t border-paper-dim pt-4 text-[14px] leading-relaxed text-slate">
           {footer}

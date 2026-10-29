@@ -87,7 +87,7 @@ export function ContactForm() {
         </Notice>
       ) : null}
 
-      <form noValidate onSubmit={handleSubmit(onSubmit)} className="flex max-w-[640px] flex-col gap-6">
+      <form method="post" noValidate onSubmit={handleSubmit(onSubmit)} className="flex max-w-[640px] flex-col gap-6">
         <Field id="contact-name" label="Your name" required error={errors.name?.message}>
           {(field) => <Input {...field} {...register("name")} autoComplete="name" />}
         </Field>

@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Reveal } from "@/components/motion/reveal";
 import { PageHero } from "@/components/site/page-hero";
+import { PhotoBand } from "@/components/site/photo-band";
 import { Button } from "@/components/ui/button";
 import { DemoTag } from "@/components/ui/demo-tag";
-import { DEMO_PROJECTS } from "@/content/demo";
+import { DEMO_PROJECTS, PHOTOS} from "@/content/demo";
 
 export const metadata: Metadata = {
   title: "Welfare & projects",
@@ -96,6 +97,7 @@ export default function WelfarePage() {
         id="welfare-title"
         lines={["Welfare", "& projects"]}
         lede="Two halves of the same work: a member in difficulty can ask for help without explaining it in public, and the association builds things the whole community uses."
+        photo={PHOTOS.skyline}
       />
 
       <section aria-labelledby="cover-heading" className="bg-white px-[var(--margin)] py-16 md:py-24">
@@ -303,6 +305,10 @@ export default function WelfarePage() {
           </Reveal>
         </div>
       </section>
+      <PhotoBand
+        keys={["dancers", "market", "marketWomen"]}
+        caption="Photographs of Gulu and Acholi life from Wikimedia Commons (CC BY-SA 4.0 / CC0). They show the world around KOSA, not the association itself."
+      />
     </>
   );
 }

@@ -204,7 +204,7 @@ function EventsScreen() {
           ) : null
         }
       >
-        <form onSubmit={submit} noValidate>
+        <form method="post" onSubmit={submit} noValidate>
           <div className="grid gap-3 md:grid-cols-2">
             <Field id="event-title" label="Title" required error={form.formState.errors.title?.message}>
               {(field) => <Input {...field} {...form.register("title")} className="text-[15px]" placeholder="Annual general meeting" />}

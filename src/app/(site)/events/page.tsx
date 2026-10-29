@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Reveal } from "@/components/motion/reveal";
 import { PageHero } from "@/components/site/page-hero";
+import { PhotoBand } from "@/components/site/photo-band";
+import { PHOTOS } from "@/content/demo";
 import { Button } from "@/components/ui/button";
 import { DemoTag } from "@/components/ui/demo-tag";
 import { EmptyState } from "@/components/ui/empty-state";
@@ -78,6 +80,7 @@ export default async function EventsPage() {
         id="events-title"
         lines={["Events"]}
         lede="Every published KOSA date in one place: the annual meeting, the clinics, the bursary ceremony and the reunions. Signed-in members reserve a place; the rest of the page is open to anyone."
+        photo={PHOTOS.marketWomen}
       >
         {demo ? <DemoTag label="Demo events" /> : null}
       </PageHero>
@@ -199,6 +202,10 @@ export default async function EventsPage() {
           </Reveal>
         </div>
       </section>
+      <PhotoBand
+        keys={["skyline", "elephant", "market"]}
+        caption="Photographs of Gulu and Acholi life from Wikimedia Commons (CC BY-SA 4.0 / CC0). They show the world around KOSA, not the association itself."
+      />
     </>
   );
 }

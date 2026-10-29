@@ -124,7 +124,7 @@ export default function ResetPasswordPage() {
         </span>
       }
     >
-      <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-5">
+      <form method="post" onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-5">
         <Field
           id="password"
           label="New password"

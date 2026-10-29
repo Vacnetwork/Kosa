@@ -210,7 +210,7 @@ function ContributionsScreen() {
         </Notice>
       ) : (
         <Panel title="Record a contribution" description="Amount, campaign, currency and date are required." className="mb-4">
-          <form onSubmit={submit} noValidate>
+          <form method="post" onSubmit={submit} noValidate>
             <div className="grid gap-3 md:grid-cols-3">
               <Field
                 id="contribution-member"

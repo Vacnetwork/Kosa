@@ -78,8 +78,16 @@ in `src/content/demo.ts` and the credit line in the footer.
 
 ## The crest
 
-The official crest was not supplied. `src/components/brand/crest.tsx` draws a
-placeholder shield in the brand colours with the same function (mark + initials +
-motto band), documented as such. Drop the real crest at
-`public/brand/kosa-crest.png` and set `NEXT_PUBLIC_CREST_SRC=/brand/kosa-crest.png`
-— every appearance of the mark updates at once.
+The association's official crest is supplied and used everywhere the mark
+appears (header, hero-adjacent bar on small screens, footer tile, app icon):
+
+| File | Use |
+| --- | --- |
+| `public/brand/kosa-crest-round.png` | the default: the supplied artwork cut to a circle with transparent corners, so it sits on navy, gold and paper fields without a white square |
+| `public/brand/kosa-crest.png` | the full square artwork, for print, social and press use |
+| `public/brand/kosa-crest-source.jpg` | the original supplied file, kept so the derivatives can be regenerated |
+| `src/app/icon.png` | favicon/app icon, derived from the crest |
+
+All of it is rendered by `src/components/brand/crest.tsx`; set
+`NEXT_PUBLIC_CREST_SRC` to swap the artwork without touching components.
+Regenerate the circle with ffmpeg (the exact command is in `docs/HANDOVER.md`).

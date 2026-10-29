@@ -183,7 +183,7 @@ function WelfareScreen() {
               title="Submit a request"
               description="Write plainly. The desk would rather have context than polished wording."
             >
-              <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-5">
+              <form method="post" onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-5">
                 <Field
                   id="category"
                   label="What is this about?"

@@ -3,6 +3,8 @@ import Link from "next/link";
 import { GalleryWall } from "@/components/gallery/gallery-wall";
 import { Reveal } from "@/components/motion/reveal";
 import { PageHero } from "@/components/site/page-hero";
+import { PhotoBand } from "@/components/site/photo-band";
+import { PHOTOS } from "@/content/demo";
 import { Button } from "@/components/ui/button";
 import { DemoTag } from "@/components/ui/demo-tag";
 import { EmptyState } from "@/components/ui/empty-state";
@@ -24,6 +26,7 @@ export default async function GalleryPage() {
         id="gallery-title"
         lines={["Gallery"]}
         lede="Pictures of the town, the market and the gatherings around the school, credited to the photographers who made them and sorted into albums."
+        photo={PHOTOS.marketWomen}
       >
         {demo ? <DemoTag label="Demo pictures" /> : null}
       </PageHero>
@@ -120,6 +123,10 @@ export default async function GalleryPage() {
           </p>
         </div>
       </div>
+      <PhotoBand
+        keys={["elephant", "market", "marketWomen"]}
+        caption="Photographs of Gulu and Acholi life from Wikimedia Commons (CC BY-SA 4.0 / CC0). They show the world around KOSA, not the association itself."
+      />
     </>
   );
 }
