@@ -115,6 +115,11 @@ begin
     raise exception 'Application not found' using errcode = 'P0002';
   end if;
 
+  -- A committee member cannot approve their own application.
+  if v_app.user_id = v_uid then
+    raise exception 'You cannot decide your own application' using errcode = '42501';
+  end if;
+
   update public.membership_applications
   set status = p_decision,
       reviewed_at = now(),
@@ -132,9 +137,9 @@ begin
     values (v_app.user_id, v_member_no, 'active', v_app.graduation_year, now())
     on conflict (user_id) do update
       set status = 'active',
-          joined_at = coalesce(public.memberships.joined_at, now()),
-          cohort_year = coalesce(public.memberships.cohort_year, excluded.cohort_year),
-          member_no = coalesce(public.memberships.member_no, excluded.member_no),
+          joined_at = coalesce(memberships.joined_at, now()),
+          cohort_year = coalesce(memberships.cohort_year, excluded.cohort_year),
+          member_no = coalesce(memberships.member_no, excluded.member_no),
           updated_at = now();
 
     insert into public.user_roles (user_id, role, granted_by)

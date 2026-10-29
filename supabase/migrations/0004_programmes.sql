@@ -36,6 +36,26 @@ create trigger welfare_requests_set_updated_at
   before update on public.welfare_requests
   for each row execute function private.set_updated_at();
 
+-- The dashboard form does not send user_id; attribute the request to the
+-- signed-in member. The RLS WITH CHECK still requires user_id = auth.uid().
+create or replace function private.set_welfare_owner()
+returns trigger
+language plpgsql
+security definer
+set search_path = ''
+as $$
+begin
+  if new.user_id is null then
+    new.user_id := auth.uid();
+  end if;
+  return new;
+end;
+$$;
+
+create trigger welfare_requests_set_owner
+  before insert on public.welfare_requests
+  for each row execute function private.set_welfare_owner();
+
 create table public.contributions (
   id uuid primary key default gen_random_uuid(),
   member_id uuid references public.profiles (id) on delete set null,

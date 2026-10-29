@@ -184,55 +184,54 @@ export function registrationTone(status: RegistrationStatus): PillTone {
 
 /* ------------------------------------------------------------ data hook */
 
-interface Loaded<T> {
-  data: T | null;
-  loading: boolean;
-  error: string | null;
-}
-
 /**
  * Loads a client-side collection with explicit loading / error states and a
  * `reload()` for after a mutation. `key` is the cache identity: change it and
  * the data is fetched again (used for filters and pagination).
+ *
+ * "Loading" is derived from whether the identity of the finished request
+ * matches the current one, so the effect never has to set state synchronously.
  */
 export function useLoad<T>(key: string, load: () => Promise<T>) {
   const loadRef = React.useRef(load);
-  loadRef.current = load;
+  React.useEffect(() => {
+    loadRef.current = load;
+  });
 
-  const [state, setState] = React.useState<Loaded<T>>({ data: null, loading: true, error: null });
   const [nonce, setNonce] = React.useState(0);
+  const identity = `${key}#${nonce}`;
+  const [state, setState] = React.useState<{ identity: string; data: T | null; error: string | null }>({
+    identity: "",
+    data: null,
+    error: null,
+  });
 
   React.useEffect(() => {
     let alive = true;
-    setState((previous) => ({ ...previous, loading: true, error: null }));
     loadRef
       .current()
       .then((data) => {
-        if (alive) setState({ data, loading: false, error: null });
+        if (alive) setState({ identity, data, error: null });
       })
       .catch((error: unknown) => {
         if (!alive) return;
         const message =
           error instanceof Error && error.message ? error.message : "Something went wrong. Try again.";
-        setState({ data: null, loading: false, error: message });
+        setState({ identity, data: null, error: message });
       });
     return () => {
       alive = false;
     };
-  }, [key, nonce]);
+  }, [identity]);
 
   const reload = React.useCallback(() => setNonce((value) => value + 1), []);
 
-  return { ...state, reload };
-}
-
-/** Re-renders a component when the browser's query string is available. */
-export function useQueryString(): URLSearchParams | null {
-  const [params, setParams] = React.useState<URLSearchParams | null>(null);
-  React.useEffect(() => {
-    setParams(new URLSearchParams(window.location.search));
-  }, []);
-  return params;
+  return {
+    data: state.data,
+    error: state.error,
+    loading: state.identity !== identity,
+    reload,
+  };
 }
 
 /** Debounces a rapidly-changing value (search boxes). */

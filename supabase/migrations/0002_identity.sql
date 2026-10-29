@@ -70,6 +70,7 @@ create table public.membership_applications (
   reviewed_at timestamptz,
   reviewed_by uuid references public.profiles (id) on delete set null,
   review_note text,
+  created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
   constraint membership_applications_full_name_len check (char_length(btrim(full_name)) between 2 and 120),
   constraint membership_applications_graduation_year_range check (graduation_year is null or graduation_year between 1950 and 2100),
@@ -124,6 +125,7 @@ create table public.user_roles (
   role text not null,
   granted_at timestamptz not null default now(),
   granted_by uuid references public.profiles (id) on delete set null,
+  created_at timestamptz not null default now(),
   constraint user_roles_role_values check (
     role in ('super_admin', 'membership_officer', 'event_manager', 'treasurer', 'member')
   ),

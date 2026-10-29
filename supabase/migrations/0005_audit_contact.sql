@@ -34,6 +34,7 @@ create table public.contact_messages (
   message text not null,
   handled_at timestamptz,
   created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
   constraint contact_messages_name_len check (char_length(btrim(name)) between 2 and 120),
   constraint contact_messages_email_shape check (email ~* '^[^@[:space:]]+@[^@[:space:]]+\.[^@[:space:]]+$'),
   constraint contact_messages_subject_len check (char_length(btrim(subject)) between 3 and 160),
@@ -41,6 +42,10 @@ create table public.contact_messages (
 );
 
 create index contact_messages_created_at_idx on public.contact_messages (created_at desc);
+
+create trigger contact_messages_set_updated_at
+  before update on public.contact_messages
+  for each row execute function private.set_updated_at();
 
 -- Ledger read exclusively by assert_rate_limit() (SECURITY DEFINER). No policy
 -- is defined for anon or authenticated, so RLS denies every direct access.
