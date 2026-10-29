@@ -10,7 +10,7 @@ Two independent harnesses, because they prove different things.
 | What | Command | Result |
 | --- | --- | --- |
 | Schema, RLS policies, functions, triggers — asserted directly in PostgreSQL | `npm run test:rls` (`scripts/rls-test/run.sh`, boots a portable PostgreSQL 17, no Docker, no root) | **145 / 145 assertions PASS**, exit code 0 |
-| The same policies through the real HTTP path the browser uses — PostgREST + GoTrue + JWTs | local Supabase-compatible stack, `node e2e-api.mjs` | **26 / 26 assertions PASS** |
+| The same policies through the real HTTP path the browser uses — PostgREST + GoTrue + JWTs | a development-time local Supabase-compatible stack (PostgreSQL + GoTrue + PostgREST behind a proxy), 26 assertions | **26 / 26 assertions PASS** |
 
 The second harness signs real users up through GoTrue, gets real JWTs, and calls
 PostgREST exactly as the app does. What it asserted, and saw:
@@ -94,7 +94,20 @@ non-admin account.
   `/_next/static/*` are applied by Cloudflare.
 - `robots.txt` and `sitemap.xml` are generated at build time.
 
-## 5. What was **not** verified, honestly
+## 5. Reproducing this
+
+`npm run test:rls` ships in the repository and re-runs the 145 schema/RLS
+assertions anywhere Node 22 runs — no Docker, no root, no network.
+
+The second harness (GoTrue + PostgREST through a proxy, and the browser journey
+above) was a development-time tool: it downloaded the GoTrue and PostgREST release
+binaries, pointed the app at them, and drove Chromium. It is **not vendored** in
+this repository, because it exists to verify the build once rather than to run in
+CI. To repeat it, stand up any Supabase-compatible endpoint (a hosted Supabase
+project is the obvious one), set `NEXT_PUBLIC_SUPABASE_URL` and
+`NEXT_PUBLIC_SUPABASE_ANON_KEY`, run the migrations, and walk the same seven steps.
+
+## 6. What was **not** verified, honestly
 
 - **A hosted Supabase project.** No Supabase credentials existed in this
   environment, so the schema was proved against PostgreSQL 17 with a faithful
