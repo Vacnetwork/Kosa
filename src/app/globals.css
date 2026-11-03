@@ -141,6 +141,22 @@ p { text-wrap: pretty; }
 }
 .js .reveal[data-shown="true"] { opacity: 1; transform: none; }
 
+/* The printable application form: the browser's own print command produces the
+   sheet the association hands out, without the site's chrome. Sections are kept
+   whole so a numbered block never splits across two sheets. */
+@media print {
+  header, footer, nav, .no-print { display: none !important; }
+  html, body { background: #fff !important; }
+  .print-sheet {
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+  }
+  .form-section { break-inside: avoid; page-break-inside: avoid; }
+  @page { size: A4; margin: 12mm; }
+}
+
 /* The hero's seam hairline: drawn by default, then swept in by Anime.js when
    the script runs and motion is welcome. Never a blank seam without JS. */
 .hero-seam { transform: scaleX(1); transform-origin: center; }

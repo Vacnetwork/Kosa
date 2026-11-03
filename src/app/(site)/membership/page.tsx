@@ -342,6 +342,52 @@ export default function MembershipPage() {
         </div>
       </section>
 
+      <section aria-labelledby="legacy-heading" className="bg-gold px-[var(--margin)] py-16 md:py-24">
+        <div className="mx-auto grid w-full max-w-[1440px] gap-10 md:grid-cols-12 md:gap-12">
+          <Reveal className="md:col-span-7">
+            <p className="text-[13px] font-bold uppercase tracking-[0.16em] text-navy/70">Be part of the legacy</p>
+            <h2
+              id="legacy-heading"
+              className="mt-4 text-[clamp(30px,5.2vw,64px)] font-extrabold uppercase leading-[0.95] tracking-[-0.02em] text-navy"
+            >
+              <span className="block">Connect</span>
+              <span className="block">Support</span>
+              <span className="block">Empower</span>
+            </h2>
+            <p className="mt-6 max-w-[46ch] text-[18px] leading-relaxed text-navy md:text-[19px]">
+              Join hands with fellow Old Students to transform our school and create a better future for
+              generations to come.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button asChild variant="ink" size="lg">
+                <Link href="/register/">Start an application</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg">
+                <Link href="/membership/application/">Get the printed form</Link>
+              </Button>
+            </div>
+          </Reveal>
+
+          <Reveal delay={100} className="md:col-span-5">
+            <div className="bg-white/70 px-6 py-6">
+              <h3 className="font-[family-name:var(--font-display)] text-[16px] font-bold text-navy">
+                Prefer paper?
+              </h3>
+              <p className="mt-2 text-[15px] leading-relaxed text-navy/85">
+                The association&rsquo;s own application form is on this site, word for word, ready to print and
+                hand to a classmate at a reunion. Completed forms go to the secretariat with proof of payment.
+              </p>
+              <Link
+                href="/membership/application/"
+                className="mt-4 inline-flex min-h-11 items-center font-[family-name:var(--font-display)] text-[15px] font-bold text-navy underline decoration-2 underline-offset-4"
+              >
+                Open the printable form
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       <section aria-labelledby="actions-heading" className="bg-navy px-[var(--margin)] py-16 md:py-24">
         <div className="mx-auto grid w-full max-w-[1440px] gap-10 md:grid-cols-12 md:items-end md:gap-12">
           <div className="md:col-span-7">

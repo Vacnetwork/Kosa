@@ -72,6 +72,32 @@ export const AREAS_OF_INTEREST = [
   "Events and reunions",
 ] as const;
 
+/**
+ * How an applicant found the association, exactly as the printed application
+ * form asks it ("How did you hear about KOSA?").
+ */
+export const HEARD_ABOUT_OPTIONS = [
+  "School event",
+  "KOSA member",
+  "Friend or classmate",
+  "Other (please specify)",
+] as const;
+
+/** How a member wants to hear from the association, as the form offers it. */
+export const COMMUNICATION_OPTIONS = [
+  { value: "whatsapp", label: "WhatsApp" },
+  { value: "email", label: "Email" },
+  { value: "sms", label: "SMS" },
+  { value: "all", label: "All of the above" },
+] as const;
+
+/**
+ * The postal channel for a completed paper form, printed on the application
+ * form itself. It is a submission address, not the association's main contact
+ * address (that is KOSA.contact.email).
+ */
+export const PAPER_APPLICATION_EMAIL = "MUUSA.2012@gmail.com";
+
 /** The association's objectives, from its published material. */
 export const OBJECTIVES = [
   "Promote unity and networking among all Kakoma Old Students, regardless of their year of completion or location.",
