@@ -101,7 +101,7 @@ export const PAPER_APPLICATION_EMAIL = "MUUSA.2012@gmail.com";
 /** The association's objectives, from its published material. */
 export const OBJECTIVES = [
   "Promote unity and networking among all Kakoma Old Students, regardless of their year of completion or location.",
-  "Support Kakoma Senior Secondary School through fundraising, mentorship, infrastructure development, academic support and other initiatives that enhance the school's growth.",
+  "Support Kakoma Senior Secondary School through fundraising, mentorship, infrastructure development, and educational initiatives that enhance the school's growth.",
   "Promote professional and personal development through mentorship, skills development, career guidance, knowledge sharing and networking opportunities.",
   "Establish a strong welfare and solidarity system to support members during important life events and times of need.",
   "Mobilise resources and partnerships to finance sustainable projects benefiting KOSA members, the school and surrounding communities.",
