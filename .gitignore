@@ -37,6 +37,10 @@ yarn-error.log*
 # design review artefacts (local only)
 .taste-skill/
 
+# Personal data never enters the repository: register exports (names, telephone
+# numbers) stay outside the checkout or in this folder, which git ignores.
+/data/
+
 # local database harness artefacts
 scripts/rls-test/node_modules/
 scripts/rls-test/.pgdata/

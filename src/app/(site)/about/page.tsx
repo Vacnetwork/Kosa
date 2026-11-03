@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { DemoTag } from "@/components/ui/demo-tag";
 import { DEMO_PROJECTS, PHOTOS } from "@/content/demo";
 import { KOSA, OBJECTIVES } from "@/lib/brand";
+import { getRegister } from "@/lib/server-content";
 
 export const metadata: Metadata = {
   title: "About",
@@ -60,7 +61,8 @@ const WORK = [
 
 const TIMELINE = [...DEMO_PROJECTS].sort((a, b) => Number(a.year) - Number(b.year));
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const register = await getRegister();
   const photo = PHOTOS.classroom;
 
   return (
@@ -271,6 +273,100 @@ export default function AboutPage() {
               </Link>
             </Reveal>
           </ul>
+        </div>
+      </section>
+
+      <section aria-labelledby="register-heading" className="bg-white px-[var(--margin)] py-16 md:py-24">
+        <div className="mx-auto w-full max-w-[1440px]">
+          <div className="grid gap-8 md:grid-cols-12 md:gap-12">
+            <Reveal className="md:col-span-5">
+              <h2 id="register-heading" className="t-h1 max-w-[14ch] text-navy">
+                The register
+              </h2>
+              <p className="mt-4 max-w-[44ch] text-[17px] leading-relaxed text-slate md:text-[18px]">
+                The association keeps its own list of old students, by year of entry and year of
+                completion. It is a working list, not a directory: the names and telephone numbers
+                stay with the committee, and nobody is published here.
+              </p>
+              <p className="mt-4 max-w-[44ch] text-[16px] leading-relaxed text-slate">
+                What is published is the shape of the register — how many people it holds for each
+                year, and how many of those the committee can still reach by telephone. That is what
+                tells the association which years to go looking for.
+              </p>
+            </Reveal>
+
+            <div className="md:col-span-7">
+              <dl className="grid grid-cols-2 gap-2 md:grid-cols-4">
+                {[
+                  { label: "Alumni recorded", value: register.totals.alumni.toLocaleString("en-GB") },
+                  { label: "Year groups", value: register.totals.years.toLocaleString("en-GB") },
+                  { label: "With a phone number", value: register.totals.with_phone.toLocaleString("en-GB") },
+                  {
+                    label: "Years covered",
+                    value:
+                      register.totals.earliest && register.totals.latest
+                        ? `${register.totals.earliest}–${register.totals.latest}`
+                        : "—",
+                  },
+                ].map((figure, index) => (
+                  <Reveal key={figure.label} delay={index * 60} className="bg-paper px-4 py-5">
+                    <dt className="text-[13px] leading-snug text-slate">{figure.label}</dt>
+                    <dd className="mt-2 font-[family-name:var(--font-display)] text-[clamp(20px,2.2vw,28px)] font-extrabold leading-none text-navy">
+                      {figure.value}
+                    </dd>
+                  </Reveal>
+                ))}
+              </dl>
+
+              <Reveal delay={120} className="mt-8">
+                <h3 className="font-[family-name:var(--font-display)] text-[15px] font-bold uppercase tracking-[0.12em] text-slate">
+                  By year of completion
+                </h3>
+                <ul className="mt-4 grid gap-x-8 gap-y-1 sm:grid-cols-2">
+                  {register.years.map((row) => {
+                    const widest = Math.max(...register.years.map((entry) => entry.alumni));
+                    const width = Math.max(4, Math.round((row.alumni / widest) * 100));
+                    return (
+                      <li
+                        key={row.year}
+                        className="flex items-center gap-3 border-b border-paper-dim py-[5px] text-[15px] text-navy"
+                      >
+                        <span className="w-11 shrink-0 tabular-nums text-slate">{row.year}</span>
+                        <span aria-hidden="true" className="h-[6px] shrink-0 bg-gold" style={{ width: `${width * 0.42}%` }} />
+                        <span className="shrink-0 tabular-nums">{row.alumni}</span>
+                        <span className="shrink-0 text-[13px] text-slate">
+                          {row.with_phone === row.alumni
+                            ? "all reachable"
+                            : row.with_phone === 0
+                              ? "no number yet"
+                              : `${row.with_phone} with a number`}
+                        </span>
+                      </li>
+                    );
+                  })}
+                </ul>
+                {register.totals.unplaced > 0 ? (
+                  <p className="mt-4 max-w-[54ch] text-[15px] leading-relaxed text-slate">
+                    {register.totals.unplaced} more {register.totals.unplaced === 1 ? "name has" : "names have"} no
+                    year recorded yet; the committee is placing them.
+                  </p>
+                ) : null}
+              </Reveal>
+
+              <Reveal delay={160} className="mt-8 flex flex-wrap items-center gap-4">
+                <Button asChild variant="ink" size="md">
+                  <Link href="/membership/">Join the register</Link>
+                </Button>
+                <p className="text-[14px] text-slate">
+                  Signed in as a committee member? The full register is in the{" "}
+                  <Link href="/admin/register/" className="font-semibold text-navy underline decoration-2 underline-offset-4">
+                    administration area
+                  </Link>
+                  .
+                </p>
+              </Reveal>
+            </div>
+          </div>
         </div>
       </section>
 

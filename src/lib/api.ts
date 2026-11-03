@@ -25,6 +25,7 @@ import {
 } from "@/content/demo";
 import type {
   AlumniCard,
+  AlumniRosterPerson,
   Announcement,
   ApplicationStatus,
   AuditLog,
@@ -41,6 +42,7 @@ import type {
   NewsPost,
   Profile,
   Role,
+  RosterTotals,
   WelfareRequest,
   WelfareStatus,
 } from "@/lib/types";
@@ -747,6 +749,56 @@ export async function listAuditLogs(filters?: { action?: string; entity?: string
   const { data, error } = await query;
   if (error) fail(error, "Could not load the audit log.");
   return (data ?? []) as AuditLog[];
+}
+
+/* --------------------------------------------------------- alumni register */
+
+/**
+ * The association's own list of old students, as imported from its records.
+ * Committee only: the table is protected by RLS (`private.is_admin`), so a
+ * member calling this sees the database's refusal, not the register.
+ */
+export async function listAlumniRoster(filter?: {
+  query?: string;
+  year?: number | "all";
+  limit?: number;
+}): Promise<AlumniRosterPerson[]> {
+  const supabase = getSupabase();
+  if (!supabase) throw new ApiError("The backend is not configured.");
+  let query = supabase
+    .from("alumni_roster")
+    .select("id, first_name, last_name, start_year, end_year, phone, notes, source, updated_at")
+    .order("start_year", { ascending: false, nullsFirst: false })
+    .order("last_name", { ascending: true })
+    .limit(filter?.limit ?? 500);
+  if (filter?.year && filter.year !== "all") {
+    query = query.or(`start_year.eq.${filter.year},end_year.eq.${filter.year}`);
+  }
+  const { data, error } = await query;
+  if (error) fail(error, "Could not load the alumni register.");
+  const rows = (data ?? []) as AlumniRosterPerson[];
+  const needle = (filter?.query ?? "").trim().toLowerCase();
+  if (!needle) return rows;
+  return rows.filter((row) =>
+    `${row.first_name} ${row.last_name} ${row.phone ?? ""} ${row.notes ?? ""}`.toLowerCase().includes(needle),
+  );
+}
+
+export async function updateAlumniRosterPerson(
+  id: string,
+  patch: Partial<Pick<AlumniRosterPerson, "first_name" | "last_name" | "start_year" | "end_year" | "phone" | "notes">>,
+) {
+  const supabase = getSupabase();
+  if (!supabase) throw new ApiError("The backend is not configured.");
+  const { error } = await supabase.from("alumni_roster").update(patch).eq("id", id);
+  if (error) fail(error, "Could not save this person.");
+}
+
+export async function alumniRosterTotals(): Promise<RosterTotals> {
+  const rows = await rpc<RosterTotals[]>("alumni_roster_totals");
+  const row = rows?.[0];
+  if (!row) throw new ApiError("The register totals could not be read.");
+  return row;
 }
 
 /* ---------------------------------------------------------------- contact */

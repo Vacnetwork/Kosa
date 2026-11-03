@@ -132,6 +132,35 @@ export interface NewsPost {
   is_fixture?: boolean;
 }
 
+/** A person in the association's alumni register (committee-only in the DB). */
+export interface AlumniRosterPerson {
+  id: string;
+  first_name: string;
+  last_name: string;
+  start_year: number | null;
+  end_year: number | null;
+  phone: string | null;
+  notes: string | null;
+  source: string;
+  updated_at?: string;
+}
+
+/** Aggregates the public pages are allowed to see. */
+export interface RosterYear {
+  year: number;
+  alumni: number;
+  with_phone: number;
+}
+
+export interface RosterTotals {
+  alumni: number;
+  years: number;
+  with_phone: number;
+  earliest: number | null;
+  latest: number | null;
+  unplaced: number;
+}
+
 export interface GalleryItem {
   id: string;
   title: string;

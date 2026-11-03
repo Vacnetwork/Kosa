@@ -44,6 +44,13 @@ export const ADMIN_SECTIONS: AdminSection[] = [
     summary: "The register, status changes and CSV export",
   },
   {
+    href: "/admin/register/",
+    label: "Alumni register",
+    group: "Register",
+    permissions: ["manage_members"],
+    summary: "The association's own list of old students, by year",
+  },
+  {
     href: "/admin/events/",
     label: "Events",
     group: "Programme",

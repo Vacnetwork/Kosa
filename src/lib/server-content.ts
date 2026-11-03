@@ -15,8 +15,17 @@ import {
   DEMO_NEWS,
   DEMO_PROJECTS,
 } from "@/content/demo";
+import { REGISTER_TOTALS, REGISTER_YEARS } from "@/content/register";
 import { OFFICIAL_NEWS } from "@/content/stories";
-import type { Announcement, EventRow, GalleryItem, ImpactStats, NewsPost } from "@/lib/types";
+import type {
+  Announcement,
+  EventRow,
+  GalleryItem,
+  ImpactStats,
+  NewsPost,
+  RosterTotals,
+  RosterYear,
+} from "@/lib/types";
 
 const url = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
 const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
@@ -105,3 +114,31 @@ export async function getPublicAnnouncements(): Promise<Announcement[]> {
 }
 
 export const PROJECTS = DEMO_PROJECTS;
+
+/**
+ * The alumni register as counts. The database is the source of truth once a
+ * backend is configured; `src/content/register.ts` holds the aggregate fallback
+ * (never names) so the public page still reports the register it holds.
+ */
+export async function getRegister(): Promise<{ totals: RosterTotals; years: RosterYear[]; live: boolean }> {
+  const [stats, totalsRows] = await Promise.all([
+    rest<RosterYear[]>("rpc/alumni_roster_stats"),
+    rest<RosterTotals[]>("rpc/alumni_roster_totals"),
+  ]);
+  const totals = totalsRows?.[0];
+  if (!stats || stats.length === 0 || !totals) {
+    return { totals: REGISTER_TOTALS, years: REGISTER_YEARS, live: false };
+  }
+  return {
+    totals: {
+      alumni: Number(totals.alumni),
+      years: Number(totals.years),
+      with_phone: Number(totals.with_phone),
+      earliest: totals.earliest === null ? null : Number(totals.earliest),
+      latest: totals.latest === null ? null : Number(totals.latest),
+      unplaced: Number(totals.unplaced),
+    },
+    years: stats.map((row) => ({ year: Number(row.year), alumni: Number(row.alumni), with_phone: Number(row.with_phone) })),
+    live: true,
+  };
+}
