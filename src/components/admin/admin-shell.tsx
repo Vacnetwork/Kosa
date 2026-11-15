@@ -190,7 +190,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
                             aria-current={active ? "page" : undefined}
                             title={section.summary}
                             className={cn(
-                              "block whitespace-nowrap px-2.5 py-1.5 text-[14px] leading-tight transition-colors md:border-l-2 md:px-4 md:py-2",
+                              "flex min-h-11 items-center whitespace-nowrap px-2.5 text-[14px] leading-tight transition-colors md:border-l-2 md:px-4",
                               active
                                 ? "bg-paper font-semibold text-navy md:border-navy"
                                 : "text-slate hover:bg-paper hover:text-navy md:border-transparent",
@@ -210,7 +210,10 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
             <p className="text-[13px] leading-relaxed text-slate">
               Sections are listed by role. Every write is checked again by the database, which records it in the audit log.
             </p>
-            <Link href="/" className="mt-2 inline-block text-[13px] text-navy underline decoration-2 underline-offset-4">
+            <Link
+              href="/"
+              className="mt-2 inline-flex min-h-11 items-center text-[13px] text-navy underline decoration-2 underline-offset-4"
+            >
               Public site
             </Link>
           </div>

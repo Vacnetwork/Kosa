@@ -46,7 +46,7 @@ export function Field({ id, label, hint, error, required, children, className }:
 }
 
 const controlBase =
-  "w-full border-2 border-paper-dim bg-white px-3 py-3 text-[16px] text-navy placeholder:text-slate/70 focus:border-navy focus:outline-none disabled:bg-paper";
+  "w-full border-2 border-paper-dim bg-white px-3 py-3 text-[16px] text-navy placeholder:text-slate focus:border-navy focus:outline-none disabled:bg-paper";
 
 export const Input = React.forwardRef<HTMLInputElement, React.InputHTMLAttributes<HTMLInputElement>>(
   ({ className, ...props }, ref) => <input ref={ref} className={cn(controlBase, "h-12", className)} {...props} />,

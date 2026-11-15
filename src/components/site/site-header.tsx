@@ -60,7 +60,7 @@ export function SiteHeader({ tone = "paper" }: { tone?: "paper" | "navy" }) {
                 href={link.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "font-[family-name:var(--font-display)] text-[15px] font-bold transition-colors",
+                  "inline-flex min-h-11 items-center font-[family-name:var(--font-display)] text-[15px] font-bold transition-colors",
                   onDark ? "text-white/85 hover:text-white" : "text-navy/80 hover:text-navy",
                   active && (onDark ? "text-white underline decoration-gold decoration-2 underline-offset-4" : "text-navy underline decoration-gold decoration-2 underline-offset-4"),
                 )}
@@ -75,7 +75,7 @@ export function SiteHeader({ tone = "paper" }: { tone?: "paper" | "navy" }) {
           <Link
             href="/login/"
             className={cn(
-              "hidden text-[14px] underline decoration-2 underline-offset-4 md:inline",
+              "hidden min-h-11 items-center text-[14px] underline decoration-2 underline-offset-4 md:inline-flex",
               onDark ? "text-white/80 decoration-transparent hover:decoration-gold" : "text-navy/80 decoration-transparent hover:decoration-gold",
             )}
           >

@@ -30,6 +30,10 @@
   --color-danger-deep: #74170f;
   --color-paper-warm: #fdf6e3;
   --color-notice-ink: #5a4408;
+  /* Gold as TEXT on a light field. The brand gold is a field colour: at 13px on
+     paper it measures 2.5:1, so small gold type on white uses this darker step
+     (5.7:1) and the field gold stays reserved for surfaces and the dark chapters. */
+  --color-gold-ink: #7a5c0f;
 
   --font-display: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
@@ -187,7 +191,9 @@ p { text-wrap: pretty; }
   .js .hero-seam { transform: scaleX(1); }
   .line-mask > span, .fade-up { animation: none !important; }
   .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
-  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  /* Decorative motion is off; state feedback (colour, opacity, outline) stays,
+     because a control that cannot show it was pressed is harder to use. */
+  .hero-seam, .drift { animation: none !important; }
 }
 
 /* One slow drift on the one moving picture (motion layer, part 4). */
@@ -198,6 +204,26 @@ p { text-wrap: pretty; }
 }
 .drift { animation: kosa-drift 26s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) { .drift { animation: none; } }
+
+/* Browser surfaces: the parts the design did not draw still carry it. */
+::selection {
+  background: var(--color-gold);
+  color: var(--color-navy);
+}
+html {
+  caret-color: var(--color-navy);
+  accent-color: var(--color-navy);
+  scrollbar-color: var(--color-slate) var(--color-paper);
+  scrollbar-width: thin;
+}
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--color-paper); }
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-slate);
+  border: 2px solid var(--color-paper);
+}
+:focus-visible { outline: 3px solid var(--color-navy); outline-offset: 3px; }
+.on-dark :focus-visible, .bg-navy :focus-visible { outline-color: var(--color-gold); }
 
 /* App screens (portal/admin) run on a quieter surface: quiet borders are
    normal there, unlike on the public chapters. */

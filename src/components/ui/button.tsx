@@ -20,7 +20,7 @@ const buttonVariants = cva(
         danger: "bg-danger text-white hover:bg-danger-deep active:bg-danger-deep",
       },
       size: {
-        sm: "h-10 px-4",
+        sm: "h-11 px-4",
         md: "h-12 px-6",
         lg: "h-14 px-8 text-base",
         block: "h-14 w-full px-6 text-base",

@@ -83,7 +83,7 @@ export default function ApplicationFormPage() {
             <div className="flex items-center gap-4">
               <Crest className="h-20 w-auto md:h-24" />
               <div>
-                <p className="font-[family-name:var(--font-display)] text-[13px] font-bold text-gold">
+                <p className="font-[family-name:var(--font-display)] text-[13px] font-bold text-gold-ink">
                   Kakoma Old Students&rsquo; Association
                 </p>
                 <h2 className="mt-1 font-[family-name:var(--font-display)] text-[26px] font-extrabold leading-none tracking-tight text-navy md:text-[32px]">
@@ -270,7 +270,7 @@ export default function ApplicationFormPage() {
                 <p className="font-[family-name:var(--font-display)] text-[14px] font-bold text-navy">
                   a lifelong community.
                 </p>
-                <p className="mt-1 font-[family-name:var(--font-display)] text-[13px] font-bold text-gold">
+                <p className="mt-1 font-[family-name:var(--font-display)] text-[13px] font-bold text-gold-ink">
                   {KOSA.tagline}
                 </p>
               </div>

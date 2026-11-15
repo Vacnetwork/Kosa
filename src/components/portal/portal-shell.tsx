@@ -305,7 +305,10 @@ export function PortalShell({ children }: { children: React.ReactNode }) {
           <span>
             {KOSA.name} · {KOSA.motto}
           </span>
-          <Link href="/" className="underline decoration-1 underline-offset-4 hover:text-navy">
+          <Link
+            href="/"
+            className="inline-flex min-h-11 items-center underline decoration-1 underline-offset-4 hover:text-navy"
+          >
             Back to the public site
           </Link>
         </div>

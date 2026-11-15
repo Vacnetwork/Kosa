@@ -193,7 +193,7 @@ export function AuditPanel({
                   <Button
                     variant="quiet"
                     size="sm"
-                    className="h-8 px-0 text-[13px]"
+                    className="h-11 px-2 text-[13px]"
                     aria-expanded={isOpen}
                     onClick={() => setExpanded(isOpen ? null : row.id)}
                   >
