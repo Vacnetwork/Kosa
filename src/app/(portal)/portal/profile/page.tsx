@@ -169,7 +169,7 @@ function ProfileScreen() {
                 <Field
                   id="preferredName"
                   label="Preferred name"
-                  hint="Optional — what you would like to be called."
+                  hint="Optional, what you would like to be called."
                   error={errors.preferredName?.message}
                 >
                   {(props) => <Input {...props} {...register("preferredName")} autoComplete="nickname" />}
@@ -266,7 +266,7 @@ function ProfileScreen() {
               </div>
 
               <div className="border-t border-paper-dim pt-4">
-                <p className="font-[family-name:var(--font-display)] text-[13px] font-bold uppercase tracking-[0.08em] text-slate">
+                <p className="font-[family-name:var(--font-display)] text-[13px] font-bold text-slate">
                   Sign-in email
                 </p>
                 <p className="mt-1 text-[15px] text-navy">{session?.user.email ?? "—"}</p>
@@ -286,7 +286,7 @@ function ProfileScreen() {
               <Field
                 id="directoryVisibility"
                 label="Listing in the alumni directory"
-                hint="Active members only — applicants cannot browse the directory."
+                hint="Active members only, applicants cannot browse the directory."
                 error={errors.directoryVisibility?.message}
               >
                 {(props) => (
@@ -316,7 +316,7 @@ function ProfileScreen() {
                   </li>
                   <li>
                     {allowContact && visibility === "members"
-                      ? "Your email address and phone number — only to signed-in active members."
+                      ? "Your email address and phone number, only to signed-in active members."
                       : "No email address or phone number."}
                   </li>
                   <li>
@@ -356,7 +356,7 @@ function ProfileScreen() {
             <p className="text-[15px] leading-relaxed text-navy">
               There is no server in this deployment. Every read and write goes straight to Supabase, where
               row-level security decides what you may see or change. Hiding a field here would not protect
-              it — the database rules are what protect it.
+              it, the database rules are what protect it.
             </p>
             <p className="mt-3 text-[14px] leading-relaxed text-slate">
               That also means the visibility switches above are enforced on the server, not just drawn on

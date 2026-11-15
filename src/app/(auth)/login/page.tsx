@@ -15,7 +15,7 @@ import { signIn } from "@/lib/api";
 import { useAuth } from "@/lib/auth";
 import { signInSchema, type SignInInput } from "@/lib/validation";
 
-/** Internal paths only — an open redirect is not worth the convenience. */
+/** Internal paths only, an open redirect is not worth the convenience. */
 function safeNext(raw: string | null): string {
   if (!raw) return "/portal/";
   if (!raw.startsWith("/") || raw.startsWith("//")) return "/portal/";
@@ -94,7 +94,7 @@ export default function LoginPage() {
           <Link href="/portal/" className="underline decoration-2 underline-offset-4">
             member portal
           </Link>
-          , or sign in below with another account.
+          {", "}or sign in below with another account.
         </Notice>
       ) : null}
 

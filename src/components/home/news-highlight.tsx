@@ -11,7 +11,7 @@ import type { NewsPost } from "@/lib/types";
 /**
  * The lead story, given the whole width of the page: picture on the left, the
  * headline and the opening of the report in the ink block on the right. One
- * highlight only — the newest story the association filed — so the homepage
+ * highlight only, the newest story the association filed, so the homepage
  * never turns into a second news page.
  */
 export function NewsHighlight({ post }: { post: NewsPost }) {
@@ -47,7 +47,7 @@ export function NewsHighlight({ post }: { post: NewsPost }) {
         >
           <div>
             <div className="flex flex-wrap items-center gap-3">
-              <p className="text-[13px] font-bold uppercase tracking-[0.14em] text-gold">Latest from KOSA</p>
+              <p className="text-[13px] font-bold text-gold">Latest from KOSA</p>
               {post.is_fixture ? <DemoTag className="bg-gold text-navy" label="Demo story" /> : null}
             </div>
             <p className="mt-4 text-[15px] text-white/70">

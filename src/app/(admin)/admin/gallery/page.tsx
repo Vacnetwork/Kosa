@@ -150,7 +150,7 @@ function GalleryScreen() {
 
             {imageUrl ? (
               <div className="md:col-span-2">
-                <p className="mb-1 text-[13px] font-semibold uppercase tracking-[0.08em] text-slate">Uploaded</p>
+                <p className="mb-1 text-[13px] font-semibold text-slate">Uploaded</p>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={imageUrl} alt="" className="h-44 w-full max-w-[420px] object-cover quiet-border" />
               </div>

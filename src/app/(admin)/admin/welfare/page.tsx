@@ -159,7 +159,7 @@ function WelfareScreen() {
           </Notice>
           <p className="mt-2 text-[13px] text-slate">
             If the refusal says the function or policy is not permitted, your account does not hold the welfare role the
-            database requires — this screen hides it in the navigation for that reason.
+            database requires, this screen hides it in the navigation for that reason.
           </p>
           <Button variant="outline" size="sm" className="mt-3" onClick={reload}>
             Try again
@@ -218,7 +218,7 @@ function WelfareScreen() {
 
                   {request.decision_note || request.handled_by ? (
                     <div className="border-t border-paper-dim px-4 py-3">
-                      <p className="text-[13px] font-semibold uppercase tracking-[0.08em] text-slate">Last decision</p>
+                      <p className="text-[13px] font-semibold text-slate">Last decision</p>
                       <p className="mt-1 text-[14px] leading-relaxed text-navy">
                         {request.decision_note ?? "No note was left with this decision."}
                       </p>

@@ -42,7 +42,7 @@ export function ProjectsChapter({ projects }: { projects: ProjectCard[] }) {
                           height={photo.height}
                           loading="lazy"
                           decoding="async"
-                          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-125"
+                          className="h-full w-full object-cover"
                         />
                       </span>
                     ) : null}

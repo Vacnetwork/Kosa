@@ -120,7 +120,7 @@ export const JOIN_STEPS = [
   },
   {
     title: "Complete the membership form",
-    body: "Fill in the KOSA membership application in the portal — your year of completion or service, your category of membership and how you would like to be involved.",
+    body: "Fill in the KOSA membership application in the portal, your year of completion or service, your category of membership and how you would like to be involved.",
   },
   {
     title: "Pay the membership fee",

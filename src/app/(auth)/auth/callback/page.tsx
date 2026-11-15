@@ -18,7 +18,7 @@ import { getSupabase } from "@/lib/supabase";
  * Landing point for emailed links (email verification, magic links, recovery).
  *
  * Supabase parses the session out of the URL on client initialisation; this
- * component waits for that session to exist, then forwards to the portal — or
+ * component waits for that session to exist, then forwards to the portal, or
  * to the password form when the link is a recovery link. It renders no content
  * of its own beyond that wait.
  */

@@ -21,7 +21,7 @@ export default function AdminAuditPage() {
       />
 
       <Notice tone="info" className="mb-4">
-        The detail column holds the arguments the function recorded, as JSON. It is shown as stored — nothing here is
+        The detail column holds the arguments the function recorded, as JSON. It is shown as stored, nothing here is
         reformatted into a friendlier story.
       </Notice>
 

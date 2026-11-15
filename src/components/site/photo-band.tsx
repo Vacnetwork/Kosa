@@ -31,7 +31,8 @@ export function PhotoBand({
                   alt={photo.alt}
                   width={photo.width}
                   height={photo.height}
-                  loading="lazy"
+                  loading="eager"
+                  fetchPriority="high"
                   decoding="async"
                   className="h-[220px] w-full object-cover md:h-[260px]"
                 />

@@ -62,7 +62,7 @@ export function GalleryWall({ items }: { items: GalleryItem[] }) {
                 height={600}
                 loading={index < 3 ? "eager" : "lazy"}
                 decoding="async"
-                className="h-full w-full object-cover transition-transform duration-500 hover:scale-[1.03]"
+                className="h-full w-full object-cover"
               />
             </div>
             <div className="flex flex-1 flex-col justify-between px-4 py-4">

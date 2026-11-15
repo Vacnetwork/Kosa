@@ -10,7 +10,7 @@ import { EASE_OUT, prefersReducedMotion } from "@/components/motion/motion-polic
  * The number is the section's whole claim, so it is the one value on the site
  * worth animating: a reader watching "0 → 47" understands it as a count of
  * people rather than a piece of decoration. The server-rendered markup already
- * holds the final figure — this only replays it — so no JavaScript, no reduced
+ * holds the final figure, this only replays it, so no JavaScript, no reduced
  * motion and any failed bundle all show the real number immediately.
  */
 export function CountUp({

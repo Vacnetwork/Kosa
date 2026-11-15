@@ -75,7 +75,7 @@ export default function VerifyEmailPage() {
           The link returns you here and signs you in; it can only be used once.
         </li>
         <li className="border-l-2 border-paper-dim pl-4">
-          If it has expired, send yourself a fresh one below. Nothing is lost — your account stays as it is.
+          If it has expired, send yourself a fresh one below. Nothing is lost, your account stays as it is.
         </li>
       </ol>
 

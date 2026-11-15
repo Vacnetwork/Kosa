@@ -56,7 +56,7 @@ export default function AdminReportsPage() {
     <AdminGate screen="Reports">
       <AdminPageHeader
         title="Reports"
-        description="Plain tables for the committee. Every figure is a count or a sum of rows the database returned — there are no charts and no modelled projections."
+        description="Plain tables for the committee. Every figure is a count or a sum of rows the database returned, there are no charts and no modelled projections."
         meta={
           <>
             <span>Each table exports exactly its own rows.</span>

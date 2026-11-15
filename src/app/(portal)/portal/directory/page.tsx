@@ -81,19 +81,19 @@ function MemberDetail({ id, onClose }: { id: string; onClose: () => void }) {
             <div className="flex flex-col gap-4">
               <dl className="grid gap-x-6 gap-y-2 text-[15px] sm:grid-cols-2">
                 <div>
-                  <dt className="text-[13px] font-semibold uppercase tracking-wide text-slate">Year</dt>
+                  <dt className="text-[13px] font-semibold tracking-wide text-slate">Year</dt>
                   <dd className="text-navy">{member.graduation_year ?? "Not recorded"}</dd>
                 </div>
                 <div>
-                  <dt className="text-[13px] font-semibold uppercase tracking-wide text-slate">Profession</dt>
+                  <dt className="text-[13px] font-semibold tracking-wide text-slate">Profession</dt>
                   <dd className="text-navy">{member.profession ?? "Not recorded"}</dd>
                 </div>
                 <div>
-                  <dt className="text-[13px] font-semibold uppercase tracking-wide text-slate">Employer</dt>
+                  <dt className="text-[13px] font-semibold tracking-wide text-slate">Employer</dt>
                   <dd className="text-navy">{member.employer ?? "Not recorded"}</dd>
                 </div>
                 <div>
-                  <dt className="text-[13px] font-semibold uppercase tracking-wide text-slate">Location</dt>
+                  <dt className="text-[13px] font-semibold tracking-wide text-slate">Location</dt>
                   <dd className="text-navy">
                     {[member.city, member.country].filter(Boolean).join(", ") || "Not recorded"}
                   </dd>
@@ -102,7 +102,7 @@ function MemberDetail({ id, onClose }: { id: string; onClose: () => void }) {
 
               {member.bio ? (
                 <div>
-                  <p className="text-[13px] font-semibold uppercase tracking-wide text-slate">About</p>
+                  <p className="text-[13px] font-semibold tracking-wide text-slate">About</p>
                   <p className="mt-1 max-w-prose whitespace-pre-line text-[15px] leading-relaxed text-navy">
                     {member.bio}
                   </p>
@@ -112,7 +112,7 @@ function MemberDetail({ id, onClose }: { id: string; onClose: () => void }) {
               )}
 
               <div>
-                <p className="text-[13px] font-semibold uppercase tracking-wide text-slate">Interests</p>
+                <p className="text-[13px] font-semibold tracking-wide text-slate">Interests</p>
                 {member.interests.length > 0 ? (
                   <ul className="mt-2 flex flex-wrap gap-2">
                     {member.interests.map((interest) => (
@@ -130,7 +130,7 @@ function MemberDetail({ id, onClose }: { id: string; onClose: () => void }) {
               </div>
 
               <div className="border-t border-paper-dim pt-4">
-                <p className="text-[13px] font-semibold uppercase tracking-wide text-slate">Contact</p>
+                <p className="text-[13px] font-semibold tracking-wide text-slate">Contact</p>
                 {member.canContact ? (
                   <div className="mt-1 flex flex-col gap-1 text-[15px] text-navy">
                     {member.email ? (

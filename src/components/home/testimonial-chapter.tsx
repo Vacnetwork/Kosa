@@ -3,7 +3,7 @@ import { Reveal } from "@/components/motion/reveal";
 /**
  * Two flat blocks butted together: who is being quoted in the ink block, the
  * quotation in the gold block. The association closes its own prospectus with
- * this line, so it is used here as it was printed, attributed and dated — not
+ * this line, so it is used here as it was printed, attributed and dated, not
  * an invented member testimonial. The quotation does the work of a heading, so
  * it is set as a statement at 34px and never larger.
  */

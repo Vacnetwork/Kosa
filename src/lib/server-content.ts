@@ -2,7 +2,7 @@
  * Build-time content for the public pages.
  *
  * Public pages are pre-rendered at build time (static export), so they read
- * published content straight from Supabase's REST API using the anon key —
+ * published content straight from Supabase's REST API using the anon key,
  * which is itself subject to RLS. If no backend is configured at build time,
  * the clearly-labelled demo fixtures are used instead, and the site still
  * builds and deploys.

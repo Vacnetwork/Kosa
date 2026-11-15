@@ -3,10 +3,10 @@ import { cn } from "@/lib/cn";
 type Tone = "positive" | "negative" | "pending" | "attention" | "neutral" | "confidential";
 
 const TONES: Record<Tone, string> = {
-  positive: "border-[#276b40] bg-[#eaf2ec] text-[#1c4a2c]",
+  positive: "border-[#276b40] bg-[#eaf2ec] text-success",
   negative: "border-[#8f2018] bg-[#fbeceb] text-[#7c1d16]",
   pending: "border-navy/30 bg-paper text-navy",
-  attention: "border-gold bg-[#fdf6e3] text-[#5a4408]",
+  attention: "border-gold bg-paper-warm text-notice-ink",
   neutral: "border-paper-dim bg-white text-slate",
   confidential: "border-navy bg-navy text-white",
 };

@@ -249,7 +249,7 @@ export default function MembershipPage() {
               {KOSA.payments.note}
             </p>
             <p className="mt-4 max-w-[38ch] text-[16px] leading-relaxed text-slate">
-              {KOSA.payments.receiptNote} Pay the association directly — this site collects no money and
+              {KOSA.payments.receiptNote} Pay the association directly, this site collects no money and
               stores no card details.
             </p>
           </Reveal>
@@ -345,14 +345,11 @@ export default function MembershipPage() {
       <section aria-labelledby="legacy-heading" className="bg-gold px-[var(--margin)] py-16 md:py-24">
         <div className="mx-auto grid w-full max-w-[1440px] gap-10 md:grid-cols-12 md:gap-12">
           <Reveal className="md:col-span-7">
-            <p className="text-[13px] font-bold uppercase tracking-[0.16em] text-navy/70">Be part of the legacy</p>
             <h2
               id="legacy-heading"
-              className="mt-4 text-[clamp(30px,5.2vw,64px)] font-extrabold uppercase leading-[0.95] tracking-[-0.02em] text-navy"
+              className="max-w-[16ch] text-[clamp(30px,5.2vw,64px)] font-extrabold uppercase leading-[0.98] tracking-[-0.02em] text-navy"
             >
-              <span className="block">Connect</span>
-              <span className="block">Support</span>
-              <span className="block">Empower</span>
+              Be part of the legacy
             </h2>
             <p className="mt-6 max-w-[46ch] text-[18px] leading-relaxed text-navy md:text-[19px]">
               Join hands with fellow Old Students to transform our school and create a better future for

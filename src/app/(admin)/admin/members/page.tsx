@@ -131,7 +131,7 @@ function MembersScreen() {
         </div>
       </div>
 
-      <div className="grid gap-4 lg:grid-cols-[1fr_340px]">
+      <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_340px]">
         <TableSection
           caption="Register"
           description={filtered ? "Filtered view. The CSV export matches these rows." : "Every membership record, most recently updated first."}

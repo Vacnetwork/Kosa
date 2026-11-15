@@ -81,7 +81,7 @@ export default function ContactPage() {
                 </address>
                 <p className="mt-4 max-w-[36ch] text-[14px] leading-relaxed text-white/70">
                   Registered postal address and telephone number as published by the association. Payments
-                  go to the association&rsquo;s account — see the membership page for the bank and mobile
+                  go to the association&rsquo;s account, see the membership page for the bank and mobile
                   money details.
                 </p>
               </div>

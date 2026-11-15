@@ -4,9 +4,9 @@
  * The app's whole data contract.
  *
  * Every function has two paths:
- *   • configured  — talks to Supabase; authorisation is enforced by RLS and by
+ *   • configured: talks to Supabase; authorisation is enforced by RLS and by
  *                   SECURITY DEFINER functions in supabase/migrations.
- *   • unconfigured — returns clearly-labelled demo fixtures so the deployed
+ *   • unconfigured, returns clearly-labelled demo fixtures so the deployed
  *                   static site is demonstrable without a backend.
  *
  * Pages never call `supabase.from(...)` directly, so the security-critical

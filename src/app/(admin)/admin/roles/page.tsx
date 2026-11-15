@@ -139,7 +139,7 @@ function RolesScreen() {
         description="Choose an account from the member register, then the role. The grant is confirmed before it is sent."
         className="mb-4"
       >
-        <div className="grid gap-3 sm:grid-cols-[1fr_1fr_auto] sm:items-end">
+        <div className="grid gap-3 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto] sm:items-end">
           <div className="flex flex-col gap-1">
             <label htmlFor="grant-member" className="text-[13px] font-semibold text-navy">
               Member

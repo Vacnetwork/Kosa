@@ -5,9 +5,9 @@ type Tone = "info" | "warning" | "error" | "success";
 
 const TONES: Record<Tone, string> = {
   info: "bg-paper text-navy border-l-4 border-navy",
-  warning: "bg-[#fdf6e3] text-[#5a4408] border-l-4 border-gold",
+  warning: "bg-paper-warm text-notice-ink border-l-4 border-gold",
   error: "bg-[#fbeceb] text-[#7c1d16] border-l-4 border-[#8f2018]",
-  success: "bg-[#eaf2ec] text-[#1c4a2c] border-l-4 border-[#276b40]",
+  success: "bg-[#eaf2ec] text-success border-l-4 border-[#276b40]",
 };
 
 export function Notice({

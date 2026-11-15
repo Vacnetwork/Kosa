@@ -1,7 +1,7 @@
 /**
  * The association's alumni register, as counts.
  *
- * These are AGGREGATES ONLY — a year of completion and how many people the
+ * These are AGGREGATES ONLY, a year of completion and how many people the
  * association has for it. No names, no phone numbers: personal data belongs in
  * the database (`public.alumni_roster`, readable by the committee alone), never
  * in this repository.

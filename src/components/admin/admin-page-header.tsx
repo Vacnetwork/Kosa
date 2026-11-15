@@ -71,7 +71,7 @@ export function Panel({
 export function DetailItem({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="py-1.5">
-      <dt className="text-[13px] font-semibold uppercase tracking-[0.08em] text-slate">{label}</dt>
+      <dt className="text-[13px] font-semibold text-slate">{label}</dt>
       <dd className="mt-0.5 text-[14px] leading-relaxed text-navy">{children}</dd>
     </div>
   );

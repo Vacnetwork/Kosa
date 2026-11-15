@@ -1,3 +1,11 @@
+/* Hallmark v2.0.0 · audit + fix pass (no redesign): floor only, identity kept
+ * critique: editorial register site; navy/gold/paper fields, Manrope/Inter, one
+ *   authored hero seam. This pass removes tracked small-caps labels, colour
+ *   literals, copied dashes and pure-white bases without touching the world.
+ */
+/* Hallmark · dismissed 28a · the membership QR and the project thumb sit below the fold, the LCP image is eager */
+/* Hallmark · dismissed 58 · the two article templates open on the story lede, which is the story, not a hero claim */
+/* Hallmark · dismissed 70 · every action calls src/lib/api.ts, which wraps the Supabase client; there is no bare fetch to see */
 @import "tailwindcss";
 
 /* ------------------------------------------------------------------ *
@@ -9,10 +17,19 @@
   --color-navy-deep: #0b1f47;
   --color-gold: #c99a20;
   --color-gold-soft: #e0b84d;
-  --color-white: #ffffff;
+  --color-white: #fbfcfe;
   --color-paper: #f3f5f9;
   --color-paper-dim: #e4e8f0;
   --color-slate: #4a5a78;
+
+  /* Status and paper tokens. Lifted out of component classes so no colour is a
+     literal in a template: success (a completed payment), danger (a refusal or
+     an error), danger-deep (its pressed state), paper-warm (the quiet notice). */
+  --color-success: #1c4a2c;
+  --color-danger: #8f2018;
+  --color-danger-deep: #74170f;
+  --color-paper-warm: #fdf6e3;
+  --color-notice-ink: #5a4408;
 
   --font-display: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
@@ -42,9 +59,13 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
+  /* Rule 34: never a horizontal scrollbar from a wide child; clip, not hidden,
+     so sticky positioning keeps working. */
+  overflow-x: clip;
 }
 
 body {
+  overflow-x: clip;
   background: var(--ground);
   color: var(--ink);
   font-family: var(--font-body);
@@ -146,7 +167,6 @@ p { text-wrap: pretty; }
    whole so a numbered block never splits across two sheets. */
 @media print {
   header, footer, nav, .no-print { display: none !important; }
-  html, body { background: #fff !important; }
   .print-sheet {
     max-width: none !important;
     margin: 0 !important;

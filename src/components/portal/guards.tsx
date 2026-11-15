@@ -88,7 +88,7 @@ export function RequireMember({
               : "Only active members can open this. Submit a membership application and, once the membership officer approves it, the page will unlock."}
       </p>
       <p className="mt-3 max-w-prose text-[14px] leading-relaxed text-slate">
-        Approval is a decision made by the membership officer in the database — nothing on this page can
+        Approval is a decision made by the membership officer in the database, nothing on this page can
         grant it.
       </p>
       <div className="mt-6 flex flex-wrap gap-3">

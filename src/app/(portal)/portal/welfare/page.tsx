@@ -257,7 +257,7 @@ function WelfareScreen() {
                   <ul className="mt-2 flex flex-col gap-1.5 text-[14px] leading-relaxed text-navy">
                     <li>You, whenever you open this page.</li>
                     <li>The treasurer and the association&apos;s administrators, who decide on welfare.</li>
-                    <li>Other members cannot read welfare requests — not even their summary.</li>
+                    <li>Other members cannot read welfare requests, not even their summary.</li>
                     <li>
                       Nothing is published, and approving a request does not publish anything either.
                     </li>

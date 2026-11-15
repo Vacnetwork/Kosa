@@ -112,7 +112,7 @@ export default function RegisterPage() {
 
         <Notice tone="info" className="mt-6">
           If an account already exists for that address, Supabase sends no new verification message and
-          shows no error — that is deliberate, so nobody can test which addresses are registered. Try
+          shows no error, that is deliberate, so nobody can test which addresses are registered. Try
           signing in instead.
         </Notice>
       </AuthCard>

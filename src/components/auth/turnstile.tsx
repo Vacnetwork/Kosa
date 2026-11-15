@@ -16,7 +16,7 @@ declare global {
 }
 
 /**
- * Cloudflare Turnstile — free, unlimited bot protection.
+ * Cloudflare Turnstile, free, unlimited bot protection.
  *
  * The widget writes its token into the DOM; src/lib/supabase.ts#getCaptchaToken
  * reads it with turnstile.getResponse() and passes it as `captchaToken` on each

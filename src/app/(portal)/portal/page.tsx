@@ -178,7 +178,7 @@ function Dashboard() {
             ) : nextEvent ? (
               <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6">
                 <div className="flex w-20 shrink-0 flex-col items-center border border-paper-dim px-3 py-2 text-center">
-                  <span className="font-[family-name:var(--font-display)] text-[13px] font-bold uppercase tracking-wide text-slate">
+                  <span className="font-[family-name:var(--font-display)] text-[13px] font-bold tracking-wide text-slate">
                     {dayParts(nextEvent.starts_at).weekday}
                   </span>
                   <span className="font-[family-name:var(--font-display)] text-[28px] font-extrabold leading-none text-navy">

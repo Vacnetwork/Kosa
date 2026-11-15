@@ -37,7 +37,8 @@ export function AboutChapter() {
                   alt={photo.alt}
                   width={photo.width}
                   height={photo.height}
-                  loading="lazy"
+                  loading="eager"
+                  fetchPriority="high"
                   decoding="async"
                   className="drift h-[300px] w-full object-cover md:h-[380px]"
                 />

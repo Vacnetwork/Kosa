@@ -281,7 +281,7 @@ function EventsScreen() {
             <div className="flex items-end pb-1">
               <Checkbox
                 id="event-published"
-                label="Published — show this event on the public events page"
+                label="Published, show this event on the public events page"
                 checked={isPublished}
                 onChange={(event) => setIsPublished(event.target.checked)}
               />

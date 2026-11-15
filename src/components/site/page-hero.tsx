@@ -14,7 +14,7 @@ const TONE: Record<Tone, { field: string; head: string; lede: string; credit: st
  * The opening chapter of an inner page.
  *
  * The page's name is set as an authored block of one or two lines at display
- * size — the page's focal point — with the sentence that explains it directly
+ * size, the page's focal point, with the sentence that explains it directly
  * beneath (never off-screen on a phone, so a bare name is never the whole
  * first screen). An image, credited, fills the right third of the
  * chapter; it is the same picture language as the homepage's chapters.

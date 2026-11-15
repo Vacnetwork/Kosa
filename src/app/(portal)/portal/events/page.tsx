@@ -147,7 +147,7 @@ function EventsScreen() {
                 >
                   <div className="flex flex-col gap-5 px-5 py-5 md:flex-row md:items-start">
                     <div className="flex w-20 shrink-0 flex-col items-center border border-paper-dim px-3 py-2 text-center">
-                      <span className="font-[family-name:var(--font-display)] text-[13px] font-bold uppercase tracking-wide text-slate">
+                      <span className="font-[family-name:var(--font-display)] text-[13px] font-bold tracking-wide text-slate">
                         {date.weekday}
                       </span>
                       <span className="font-[family-name:var(--font-display)] text-[28px] font-extrabold leading-none text-navy">

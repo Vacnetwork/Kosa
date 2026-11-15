@@ -222,7 +222,7 @@ function MentorshipScreen() {
 
               {!myOffer ? (
                 <p className="text-[13px] leading-relaxed text-slate">
-                  If you already have an offer that is paused, it is not shown in the list — re-enter your
+                  If you already have an offer that is paused, it is not shown in the list, re-enter your
                   expertise here and tick the box to bring it back.
                 </p>
               ) : null}

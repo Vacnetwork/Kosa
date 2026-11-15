@@ -1,9 +1,9 @@
 /**
- * DEMO CONTENT — every value in this file is sample content for a working
+ * DEMO CONTENT, every value in this file is sample content for a working
  * demonstration of the site. It is labelled "Demo" wherever it is rendered,
  * and none of it is an official KOSA record: no real committee members, no
  * real fees, no real contact addresses, no invented testimonials presented as
- * genuine. Replace it by seeding the database (supabase/seed.sql) — the app
+ * genuine. Replace it by seeding the database (supabase/seed.sql), the app
  * reads from Supabase as soon as it is configured, and falls back to these
  * fixtures only when it is not.
  */
@@ -20,7 +20,7 @@ import type {
  * Illustrations, generated with AI for this build.
  *
  * These are NOT photographs of Kakoma Senior Secondary School, of its students
- * or of its alumni — no such photographs were supplied, and inventing a
+ * or of its alumni, no such photographs were supplied, and inventing a
  * documentary record of a real school would misrepresent it. They are
  * AI-generated images (Pollinations, Sana model, free tier), used as editorial
  * illustration and labelled as such wherever they appear. Replace them with the
@@ -238,7 +238,7 @@ export const DEMO_NEWS: NewsPost[] = [
     slug: "mentorship-clinic-report",
     title: "What came out of the first mentorship clinic (demo)",
     excerpt:
-      "Forty-two recent leavers met alumni volunteers across six fields. The most common request was not a job — it was a conversation about which course to take.",
+      "Forty-two recent leavers met alumni volunteers across six fields. The most common request was not a job, it was a conversation about which course to take.",
     body:
       "This is demo content.\n\nForty-two recent leavers joined the first clinic. Six alumni volunteers covered teaching, nursing, law, engineering, business and public service.\n\nTwo patterns stood out. First, most questions were about course and institution choices rather than employment. Second, almost every student asked for a follow-up conversation, which the association can answer by pairing people by field rather than running a single large event.",
     cover_image_url: PHOTOS.classroom.src,
@@ -334,7 +334,7 @@ export interface Achievement {
   note: string;
 }
 
-/** Placeholder achievements — shown as demo so no real person is misrepresented. */
+/** Placeholder achievements, shown as demo so no real person is misrepresented. */
 export const DEMO_ACHIEVEMENTS: Achievement[] = [
   { name: "Class of 1999 (demo)", year: 1999, field: "Public health", note: "Two members now lead district health programmes." },
   { name: "Class of 2007 (demo)", year: 2007, field: "Engineering", note: "Solar mini-grid team serving three sub-counties." },

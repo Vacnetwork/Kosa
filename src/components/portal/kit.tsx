@@ -80,7 +80,7 @@ export function Panel({
 export function MetaRow({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="flex flex-col gap-1 border-b border-paper-dim py-3 last:border-b-0 sm:flex-row sm:items-baseline sm:gap-6">
-      <dt className="w-44 shrink-0 font-[family-name:var(--font-display)] text-[13px] font-bold uppercase tracking-[0.08em] text-slate">
+      <dt className="w-44 shrink-0 font-[family-name:var(--font-display)] text-[13px] font-bold text-slate">
         {label}
       </dt>
       <dd className="min-w-0 text-[15px] leading-relaxed text-navy">{children}</dd>
@@ -94,8 +94,8 @@ type PillTone = "neutral" | "positive" | "warning" | "negative";
 
 const PILL_TONES: Record<PillTone, string> = {
   neutral: "border-navy/30 bg-paper text-navy",
-  positive: "border-[#276b40]/35 bg-[#eaf2ec] text-[#1c4a2c]",
-  warning: "border-[#8a6a12]/35 bg-[#fdf6e3] text-[#5a4408]",
+  positive: "border-[#276b40]/35 bg-[#eaf2ec] text-success",
+  warning: "border-[#8a6a12]/35 bg-paper-warm text-notice-ink",
   negative: "border-[#8f2018]/35 bg-[#fbeceb] text-[#7c1d16]",
 };
 

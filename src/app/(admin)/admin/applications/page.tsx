@@ -141,7 +141,7 @@ function ApplicationsScreen() {
             </span>
           ) : (
             <span>
-              The decision is recorded. The database function creates or reactivates the membership record — open{" "}
+              The decision is recorded. The database function creates or reactivates the membership record, open{" "}
               <Link href="/admin/members/" className="underline decoration-2 underline-offset-2">
                 Members
               </Link>{" "}
@@ -232,13 +232,13 @@ function ApplicationsScreen() {
                   </div>
 
                   <div className="px-4 py-3">
-                    <p className="text-[13px] font-semibold uppercase tracking-[0.08em] text-slate">Motivation</p>
+                    <p className="text-[13px] font-semibold text-slate">Motivation</p>
                     <p className="mt-1 whitespace-pre-line text-[15px] leading-relaxed text-navy">{application.motivation}</p>
                   </div>
 
                   {application.reviewed_at || application.review_note ? (
                     <div className="border-t border-paper-dim px-4 py-3">
-                      <p className="text-[13px] font-semibold uppercase tracking-[0.08em] text-slate">
+                      <p className="text-[13px] font-semibold text-slate">
                         Previous decision {application.reviewed_at ? `· ${formatDateTime(application.reviewed_at)}` : ""}
                       </p>
                       <p className="mt-1 text-[14px] leading-relaxed text-navy">

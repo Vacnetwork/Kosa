@@ -144,7 +144,7 @@ export default async function AboutPage() {
             <Reveal delay={200} className="mt-5">
               <p className="max-w-[44ch] text-[17px] leading-relaxed text-white/80">
                 None of them is presented as a KOSA event or as a real photograph. When the association
-                sends its own pictures, they replace these — the labelling is driven by the data, so
+                sends its own pictures, they replace these, the labelling is driven by the data, so
                 swapping the files and their credits is all it takes.
               </p>
             </Reveal>
@@ -218,7 +218,7 @@ export default async function AboutPage() {
                 Our objectives
               </h2>
               <p className="mt-4 max-w-[34ch] text-[16px] leading-relaxed text-slate">
-                As published by the association — the ten things KOSA exists to do, from welfare and
+                As published by the association, the ten things KOSA exists to do, from welfare and
                 mentorship to governance and the school&rsquo;s own development.
               </p>
             </Reveal>
@@ -289,7 +289,7 @@ export default async function AboutPage() {
                 stay with the committee, and nobody is published here.
               </p>
               <p className="mt-4 max-w-[44ch] text-[16px] leading-relaxed text-slate">
-                What is published is the shape of the register — how many people it holds for each
+                What is published is the shape of the register, how many people it holds for each
                 year, and how many of those the committee can still reach by telephone. That is what
                 tells the association which years to go looking for.
               </p>
@@ -319,7 +319,7 @@ export default async function AboutPage() {
               </dl>
 
               <Reveal delay={120} className="mt-8">
-                <h3 className="font-[family-name:var(--font-display)] text-[15px] font-bold uppercase tracking-[0.12em] text-slate">
+                <h3 className="font-[family-name:var(--font-display)] text-[15px] font-bold text-slate">
                   By year of completion
                 </h3>
                 <ul className="mt-4 grid gap-x-8 gap-y-1 sm:grid-cols-2">

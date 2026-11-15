@@ -88,7 +88,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
         body={
           <>
             You are signed in as <span className="font-semibold text-navy">{profile?.full_name ?? session.user.email}</span>
-            , but no administrator role is attached to this account — or the role list could not be read just now. Roles
+            {", "}but no administrator role is attached to this account, or the role list could not be read just now. Roles
             are granted by a super administrator.
           </>
         }
@@ -177,7 +177,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
               if (items.length === 0) return null;
               return (
                 <div key={group} className="md:mb-3">
-                  <p className="hidden px-4 pb-1 text-[13px] font-semibold uppercase tracking-[0.1em] text-slate md:block">
+                  <p className="hidden px-4 pb-1 text-[13px] font-semibold text-slate md:block">
                     {group}
                   </p>
                   <ul className="flex gap-1 md:block">

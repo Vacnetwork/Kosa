@@ -4,7 +4,7 @@ import { KOSA } from "@/lib/brand";
 
 /**
  * The hero: two flat fields meeting at a hard seam, and one headline that
- * crosses it — navy above the waterline, gold below. Built from two identical
+ * crosses it, navy above the waterline, gold below. Built from two identical
  * copies of the headline, the lower one clipped to the navy field and hidden
  * from assistive technology, so the letterforms split exactly at the seam at
  * every width. The navigation above carries the mark and the one action.

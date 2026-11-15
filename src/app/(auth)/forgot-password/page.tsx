@@ -68,7 +68,7 @@ export default function ForgotPasswordPage() {
           </Notice>
           {sent.uncertain ? (
             <Notice tone="warning" title="The request could not be confirmed">
-              The browser did not get a clear answer from the server — this can happen on a weak
+              The browser did not get a clear answer from the server, this can happen on a weak
               connection. If no email arrives within a few minutes, submit the form again.
             </Notice>
           ) : null}

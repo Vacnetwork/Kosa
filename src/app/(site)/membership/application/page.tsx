@@ -48,7 +48,7 @@ export const metadata: Metadata = {
  * It is deliberately a document, not a second web form: the portal's own
  * application (`/portal/application/`) is the path that creates an account, and
  * this page exists so the committee can print the same sheet it has always
- * handed out — for a reunion, a funeral, a WhatsApp group — and so a member
+ * handed out, for a reunion, a funeral, a WhatsApp group, and so a member
  * without an email address is not shut out of joining.
  *
  * Every field, option, box and line of the printed form is here in its order.
@@ -60,7 +60,7 @@ export default function ApplicationFormPage() {
       <div className="no-print bg-paper px-[var(--margin)] pb-6 pt-10">
         <div className="mx-auto flex w-full max-w-[900px] flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="text-[13px] font-bold uppercase tracking-[0.14em] text-slate">Membership</p>
+            <p className="text-[13px] font-bold text-slate">Membership</p>
             <h1 className="mt-2 t-h2 text-navy">The printed application form</h1>
             <p className="mt-3 max-w-[58ch] text-[16px] leading-relaxed text-slate">
               This is the association&rsquo;s own form, word for word. Print it, complete it in block letters and
@@ -78,12 +78,12 @@ export default function ApplicationFormPage() {
       </div>
 
       <div className="bg-paper px-[var(--margin)] pb-16 print:bg-white print:p-0">
-        <article className="print-sheet mx-auto w-full max-w-[900px] bg-white px-8 py-10 shadow-[0_1px_0_rgba(16,43,96,0.12)] md:px-12 md:py-14 print:max-w-none print:px-0 print:py-0 print:shadow-none">
+        <article className="print-sheet mx-auto w-full max-w-[900px] bg-white px-8 py-10  md:px-12 md:py-14 print:max-w-none print:px-0 print:py-0 print:shadow-none">
           <div className="flex flex-wrap items-start justify-between gap-6 border-b-2 border-navy pb-6">
             <div className="flex items-center gap-4">
               <Crest className="h-20 w-auto md:h-24" />
               <div>
-                <p className="font-[family-name:var(--font-display)] text-[13px] font-bold uppercase tracking-[0.16em] text-gold">
+                <p className="font-[family-name:var(--font-display)] text-[13px] font-bold text-gold">
                   Kakoma Old Students&rsquo; Association
                 </p>
                 <h2 className="mt-1 font-[family-name:var(--font-display)] text-[26px] font-extrabold leading-none tracking-tight text-navy md:text-[32px]">
@@ -104,7 +104,7 @@ export default function ApplicationFormPage() {
           </div>
 
           <div className="mt-6 bg-navy px-4 py-3 text-center">
-            <p className="font-[family-name:var(--font-display)] text-[17px] font-extrabold uppercase tracking-[0.12em] text-white">
+            <p className="font-[family-name:var(--font-display)] text-[17px] font-extrabold text-white">
               Membership application form
             </p>
           </div>
@@ -212,7 +212,7 @@ export default function ApplicationFormPage() {
           </Section>
 
           <div className="mt-8 border-2 border-navy">
-            <p className="bg-navy px-4 py-2 font-[family-name:var(--font-display)] text-[15px] font-bold uppercase tracking-[0.1em] text-white">
+            <p className="bg-navy px-4 py-2 font-[family-name:var(--font-display)] text-[15px] font-bold text-white">
               Payment information
             </p>
             <div className="grid gap-6 px-4 py-4 sm:grid-cols-2">
@@ -258,7 +258,7 @@ export default function ApplicationFormPage() {
               <p>KOSA, {KOSA.contact.postal}</p>
               <p>{PAPER_APPLICATION_EMAIL}</p>
               <p className="mt-2">
-                Or apply online at kosa-website.pages.dev/register — the same questions, read by the
+                Or apply online at kosa-website.pages.dev/register, the same questions, read by the
                 membership officer straight away.
               </p>
             </div>
@@ -270,7 +270,7 @@ export default function ApplicationFormPage() {
                 <p className="font-[family-name:var(--font-display)] text-[14px] font-bold text-navy">
                   a lifelong community.
                 </p>
-                <p className="mt-1 font-[family-name:var(--font-display)] text-[13px] font-bold uppercase tracking-[0.1em] text-gold">
+                <p className="mt-1 font-[family-name:var(--font-display)] text-[13px] font-bold text-gold">
                   {KOSA.tagline}
                 </p>
               </div>
@@ -303,7 +303,7 @@ function Section({
 }) {
   return (
     <section className="form-section mt-7 border-t border-paper-dim pt-5">
-      <h3 className="flex items-center gap-3 font-[family-name:var(--font-display)] text-[16px] font-extrabold uppercase tracking-[0.08em] text-navy">
+      <h3 className="flex items-center gap-3 font-[family-name:var(--font-display)] text-[16px] font-extrabold text-navy">
         <span aria-hidden="true" className="flex h-6 w-6 items-center justify-center bg-navy text-[13px] text-white">
           {number}
         </span>
@@ -321,7 +321,7 @@ function Section({
 function Field({ label, className }: { label: string; className?: string }) {
   return (
     <div className={className}>
-      <span className="block text-[12px] font-semibold uppercase tracking-[0.08em] text-slate">{label}:</span>
+      <span className="block text-[12px] font-semibold text-slate">{label}:</span>
       <span aria-hidden="true" className="mt-1 block h-6 border-b border-navy/45" />
     </div>
   );
@@ -340,7 +340,7 @@ function Tick({ label }: { label: string }) {
 function Ticks({ label, options }: { label: string; options: string[] }) {
   return (
     <div>
-      <span className="block text-[12px] font-semibold uppercase tracking-[0.08em] text-slate">{label}:</span>
+      <span className="block text-[12px] font-semibold text-slate">{label}:</span>
       <ul className="mt-2 flex flex-wrap gap-x-6 gap-y-1">
         {options.map((option) => (
           <Tick key={option} label={option} />

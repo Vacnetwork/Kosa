@@ -25,7 +25,7 @@ export default async function GalleryPage() {
       <PageHero
         id="gallery-title"
         lines={["Gallery"]}
-        lede="Illustrations of the school, the town around it and the gatherings that bring members back — sorted into albums, and labelled so nobody mistakes them for photographs."
+        lede="Illustrations of the school, the town around it and the gatherings that bring members back, sorted into albums, and labelled so nobody mistakes them for photographs."
         photo={PHOTOS.classroom}
       >
         {demo ? <DemoTag label="Demo pictures" /> : null}
@@ -39,7 +39,7 @@ export default async function GalleryPage() {
             </h2>
             <p className="mt-4 max-w-[54ch] text-[17px] leading-relaxed text-slate md:text-[18px]">
               Choose an album to narrow the wall, or read all of it. Every tile is an AI-generated
-              illustration made for this demonstration build — none is a photograph of the school or its
+              illustration made for this demonstration build, none is a photograph of the school or its
               members, and each says so beneath it.
             </p>
           </Reveal>

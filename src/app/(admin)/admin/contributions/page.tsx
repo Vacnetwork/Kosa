@@ -215,7 +215,7 @@ function ContributionsScreen() {
               <Field
                 id="contribution-member"
                 label="Member"
-                hint={members.error ? "The member register could not be read; record without a member." : "Optional — leave blank for an unattributed receipt."}
+                hint={members.error ? "The member register could not be read; record without a member." : "Optional, leave blank for an unattributed receipt."}
                 error={form.formState.errors.memberId?.message}
               >
                 {(field) => (
@@ -257,7 +257,7 @@ function ContributionsScreen() {
                   <Input
                     {...field}
                     {...form.register("currency")}
-                    className="text-[15px] uppercase"
+                    className="text-[15px]"
                     maxLength={3}
                     list="currency-codes"
                   />
@@ -305,10 +305,11 @@ function ContributionsScreen() {
 
             {review ? (
               <div className="mt-3 border border-navy bg-paper p-3">
-                <p className="text-[13px] font-semibold uppercase tracking-[0.08em] text-slate">Check before recording</p>
+                <p className="text-[13px] font-semibold text-slate">Check before recording</p>
                 <p className="mt-1 text-[15px] font-semibold text-navy">
-                  {formatMoney(review.amount, review.currency.trim().toUpperCase())} — {review.campaign}
+                  {formatMoney(review.amount, review.currency.trim().toUpperCase())}
                 </p>
+                <p className="mt-0.5 text-[14px] text-navy/80">{review.campaign}</p>
                 <p className="mt-1 text-[13px] leading-relaxed text-navy">
                   {memberName(review.memberId || null)} · received {review.receivedAt}
                   {review.reference ? ` · reference ${review.reference}` : ""}

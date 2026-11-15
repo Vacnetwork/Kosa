@@ -4,7 +4,7 @@ import { cn } from "@/lib/cn";
 
 /**
  * Five real figures in a row. A figure the viewer may not read is shown as a
- * dash with the reason — never as a zero, which would be a lie about the books.
+ * dash with the reason, never as a zero, which would be a lie about the books.
  */
 export function StatRow({ children }: { children: React.ReactNode }) {
   return <ul className="grid gap-3 sm:grid-cols-2 xl:grid-cols-5">{children}</ul>;
@@ -25,7 +25,7 @@ export function Stat({
 }) {
   const body = (
     <>
-      <p className="text-[13px] font-semibold uppercase tracking-[0.08em] text-slate">{label}</p>
+      <p className="text-[13px] font-semibold text-slate">{label}</p>
       <p
         className={cn(
           "mt-2 font-[family-name:var(--font-display)] text-[30px] font-extrabold leading-none tabular-nums",

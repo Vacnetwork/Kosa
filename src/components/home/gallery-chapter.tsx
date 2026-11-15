@@ -11,7 +11,7 @@ import type { GalleryItem } from "@/lib/types";
  *
  * Pick a graduation year and the wall changes to that year: how many members
  * it holds on the register, and the pictures tagged to it. It is the page's
- * one interactive device, and it is built from the subject itself — an alumni
+ * one interactive device, and it is built from the subject itself, an alumni
  * association is organised by year. Without JavaScript the full wall still
  * renders (the filter is additive, never required to read anything).
  */
@@ -40,7 +40,7 @@ export function GalleryChapter({
             </h2>
             <p className="mt-3 max-w-[44ch] text-[17px] leading-relaxed text-slate">
               The wall changes with the year you choose. Every tile is an AI-generated illustration for this
-              demonstration build, labelled as such — not a photograph of the school or its members.
+              demonstration build, labelled as such, not a photograph of the school or its members.
             </p>
           </Reveal>
           <div className="flex items-center gap-3">
@@ -84,7 +84,7 @@ export function GalleryChapter({
         ) : (
           <ul className="mt-6 grid grid-cols-2 gap-2 md:grid-cols-4">
             {visible.map((item, index) => (
-              <Reveal as="li" key={item.id} delay={index * 40} className="flex flex-col">
+              <Reveal as="li" key={item.id} delay={index * 40} className="group flex flex-col">
                 <div className="aspect-square overflow-hidden bg-paper">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -94,10 +94,10 @@ export function GalleryChapter({
                     height={800}
                     loading={index === 0 ? "eager" : "lazy"}
                     decoding="async"
-                    className="h-full w-full object-cover transition-transform duration-500 hover:scale-[1.03]"
+                    className="h-full w-full object-cover"
                   />
                 </div>
-                <div className="flex items-baseline justify-between gap-2 bg-paper px-3 py-2">
+                <div className="flex items-baseline justify-between gap-2 bg-paper px-3 py-2 transition-colors group-hover:bg-paper-dim">
                   <p className="truncate font-[family-name:var(--font-display)] text-[14px] font-bold text-navy">
                     {item.title}
                   </p>

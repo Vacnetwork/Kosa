@@ -37,7 +37,7 @@ export function Field({ id, label, hint, error, required, children, className }:
         </p>
       ) : null}
       {error ? (
-        <p id={errorId} role="alert" className="t-small font-semibold text-[#8f2018]">
+        <p id={errorId} role="alert" className="t-small font-semibold text-danger">
           {error}
         </p>
       ) : null}

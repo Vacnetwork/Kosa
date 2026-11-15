@@ -3,7 +3,7 @@ import { DemoTag } from "@/components/ui/demo-tag";
 import type { Achievement } from "@/content/demo";
 
 /**
- * Alumni achievements as a plain list of years — no cards, no icons, no
+ * Alumni achievements as a plain list of years, no cards, no icons, no
  * rules: rows are separated by a step in tone.
  */
 export function AchievementsChapter({ achievements }: { achievements: Achievement[] }) {

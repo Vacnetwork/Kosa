@@ -76,8 +76,8 @@ function MembershipBanner({ state }: { state: BannerState }) {
       <Notice tone="warning" title="Your application is with the membership officer">
         <span className="flex flex-wrap items-center gap-x-3 gap-y-1">
           <span>
-            Only the membership officer can approve it. You will get member access — the directory,
-            mentorship and welfare — once it is approved; your profile and this dashboard already work.
+            Only the membership officer can approve it. You will get member access, the directory,
+            mentorship and welfare, once it is approved; your profile and this dashboard already work.
           </span>
           <Link href="/portal/application/" className="underline decoration-2 underline-offset-4">
             See your application
@@ -196,7 +196,7 @@ export function PortalShell({ children }: { children: React.ReactNode }) {
     const current = titled.find((item) =>
       item.href === "/portal/" ? pathname === "/portal/" : pathname.startsWith(item.href),
     );
-    document.title = current ? `${current.label} — KOSA member portal` : "Member portal — KOSA";
+    document.title = current ? `${current.label}. KOSA member portal` : "Member portal. KOSA";
   }, [pathname]);
 
   async function handleSignOut() {

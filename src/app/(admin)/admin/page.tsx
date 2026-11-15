@@ -177,10 +177,10 @@ export default function AdminOverviewPage() {
         })}
       </StatRow>
 
-      <div className="mt-4 grid gap-4 lg:grid-cols-[1fr_320px]">
+      <div className="mt-4 grid gap-4 lg:grid-cols-[minmax(0,1fr)_320px]">
         <AuditPanel
           limit={10}
-          title="Audit log — last 10 entries"
+          title="Audit log, last 10 entries"
           description="Written by the database on every privileged change. Newest first."
         />
 
@@ -207,7 +207,7 @@ export default function AdminOverviewPage() {
                   <span
                     className={cn(
                       "mt-0.5 shrink-0 text-[13px] font-semibold",
-                      held ? "text-[#1c4a2c]" : "text-slate/70",
+                      held ? "text-success" : "text-slate/70",
                     )}
                   >
                     {held ? "Held" : "—"}

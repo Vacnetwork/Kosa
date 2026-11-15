@@ -7,7 +7,7 @@ import { EASE_OUT, prefersReducedMotion } from "@/components/motion/motion-polic
 /**
  * A picture that arrives the way a press photograph is put down: the frame
  * opens across the image (a clip wipe) while the picture itself settles from a
- * slightly closer crop. Used for the lead story on the homepage — the one place
+ * slightly closer crop. Used for the lead story on the homepage, the one place
  * on the site where a whole photograph is the subject.
  *
  * The finished state is the stylesheet's default, so the picture is fully

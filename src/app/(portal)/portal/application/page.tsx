@@ -38,7 +38,7 @@ const NEXT_STEP: Record<ApplicationStatus, string> = {
   needs_info:
     "The membership officer needs the information in their note. Update your application below and send it again.",
   approved:
-    "It is approved. Member areas unlock as soon as your membership record exists — if this page still says otherwise, sign out and back in.",
+    "It is approved. Member areas unlock as soon as your membership record exists, if this page still says otherwise, sign out and back in.",
   rejected:
     "The application was not approved. If you want the reason in more detail, write to the association through the public contact page.",
 };
@@ -178,7 +178,7 @@ function ApplicationScreen() {
             </dl>
 
             <div className="mt-5">
-              <p className="font-[family-name:var(--font-display)] text-[13px] font-bold uppercase tracking-[0.08em] text-slate">
+              <p className="font-[family-name:var(--font-display)] text-[13px] font-bold text-slate">
                 Why you are joining
               </p>
               <p className="mt-2 max-w-prose whitespace-pre-line text-[15px] leading-relaxed text-navy">
@@ -243,7 +243,7 @@ function ApplicationScreen() {
                 <Field
                   id="cohortNote"
                   label="Class or house"
-                  hint="Optional — helps the officer place you with the right year."
+                  hint="Optional, helps the officer place you with the right year."
                   error={errors.cohortNote?.message}
                 >
                   {(props) => <Input {...props} {...register("cohortNote")} placeholder="e.g. S6 Sciences, 2004" />}
@@ -323,7 +323,7 @@ function ApplicationScreen() {
                   })}
                 </div>
                 {errors.areasOfInterest?.message ? (
-                  <p role="alert" className="text-[14px] font-semibold text-[#8f2018]">
+                  <p role="alert" className="text-[14px] font-semibold text-danger">
                     {errors.areasOfInterest.message}
                   </p>
                 ) : null}
@@ -353,7 +353,7 @@ function ApplicationScreen() {
                 label="I confirm that I attended Kakoma and that the details above are true. I understand that the membership officer will review them and that the decision is theirs."
               />
               {errors.consent?.message ? (
-                <p role="alert" className="text-[14px] font-semibold text-[#8f2018]">
+                <p role="alert" className="text-[14px] font-semibold text-danger">
                   {errors.consent.message}
                 </p>
               ) : null}
@@ -383,7 +383,7 @@ function ApplicationScreen() {
               </li>
               <li className="border-l-2 border-paper-dim pl-4">
                 <strong className="font-[family-name:var(--font-display)]">2. A decision is recorded.</strong>{" "}
-                Approved, sent back for information, or not approved — with a note here either way.
+                Approved, sent back for information, or not approved, with a note here either way.
               </li>
               <li className="border-l-2 border-paper-dim pl-4">
                 <strong className="font-[family-name:var(--font-display)]">3. Access follows.</strong> An

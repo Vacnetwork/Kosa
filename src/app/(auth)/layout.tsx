@@ -4,7 +4,7 @@ import { KOSA } from "@/lib/brand";
 
 /**
  * The auth shell: one navy field, one paper field. No portal navigation, no
- * sign-out button — nobody is signed in yet.
+ * sign-out button, nobody is signed in yet.
  */
 export default function AuthLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -31,7 +31,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
         </div>
 
         <div className="mt-12 hidden max-w-md lg:block">
-          <p className="font-[family-name:var(--font-display)] text-[13px] font-bold uppercase tracking-[0.18em] text-white/60">
+          <p className="font-[family-name:var(--font-display)] text-[13px] font-bold text-white/60">
             Member portal
           </p>
           <p className="mt-4 font-[family-name:var(--font-display)] text-[30px] font-bold leading-[1.1] tracking-tight">

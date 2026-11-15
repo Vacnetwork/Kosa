@@ -29,7 +29,7 @@ export function AdminGate({
 export function NotYourArea({ screen, permission }: { screen: string; permission?: Permission }) {
   return (
     <div className="bg-white p-6 quiet-border">
-      <p className="text-[13px] font-semibold uppercase tracking-[0.12em] text-slate">Not your area</p>
+      <p className="text-[13px] font-semibold text-slate">Not your area</p>
       <h1 className="mt-2 font-[family-name:var(--font-display)] text-[24px] font-extrabold leading-tight text-navy">
         {screen}
       </h1>

@@ -6,7 +6,7 @@ import { createClient, type SupabaseClient } from "@supabase/supabase-js";
  * Browser-only Supabase client.
  *
  * There is no server in this deployment (Next.js static export on Cloudflare
- * Pages), so the anon key ships to the browser — which is exactly what it is
+ * Pages), so the anon key ships to the browser, which is exactly what it is
  * designed for. Every read and write is authorised by PostgreSQL Row Level
  * Security (supabase/migrations), never by anything in this file.
  *

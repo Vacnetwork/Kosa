@@ -18,7 +18,7 @@ export function errorMessage(error: unknown, fallback = "Something went wrong.")
 
 /**
  * One fetch per screen (or per panel), with loading, error and a reload that
- * re-runs the same call. Server rejections are shown as they arrive — an
+ * re-runs the same call. Server rejections are shown as they arrive, an
  * administrator whose role does not permit the read sees the database's own
  * refusal rather than an empty table that looks like "no records".
  */
