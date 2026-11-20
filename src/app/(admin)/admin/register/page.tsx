@@ -130,7 +130,10 @@ function RegisterScreen() {
         </div>
       </div>
 
-      <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_340px]">
+      <div
+        className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_340px]"
+        data-scene={selectedId ? "focused" : undefined}
+      >
         <TableSection
           caption="Register"
           description={
@@ -153,7 +156,11 @@ function RegisterScreen() {
           {data.map((person) => {
             const active = person.id === selectedId;
             return (
-              <tr key={person.id} className={cn(active ? "bg-paper" : undefined)}>
+              <tr
+                key={person.id}
+                data-selected={active ? "true" : undefined}
+                data-dim={selectedId && !active ? "true" : undefined}
+              >
                 <Td>
                   <button
                     type="button"

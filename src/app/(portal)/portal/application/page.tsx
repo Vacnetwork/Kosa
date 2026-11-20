@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import type { Resolver } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
+import { FlowSteps } from "@/components/portal/flow-steps";
 import { RequireAuth } from "@/components/portal/guards";
 import {
   APPLICATION_LABELS,
@@ -74,6 +75,22 @@ function ApplicationScreen() {
 
   const consent = watch("consent");
   const motivation = watch("motivation") ?? "";
+  const category = watch("membershipCategory");
+
+  // Parkinson's law: the account already knows the name and the year, so they
+  // are stated once and folded away instead of being asked for again. Everything
+  // the form does not need to ask is one less field between a member and a
+  // decision.
+  const known = Boolean(profile?.full_name && profile?.graduation_year);
+  const [overrideKnown, setOverrideKnown] = React.useState(false);
+  const showKnownFields = !known || overrideKnown;
+
+  // Choice overload: two categories cover almost every applicant; the other two
+  // wait behind a disclosure instead of being four equal options at once.
+  const [showOtherCategories, setShowOtherCategories] = React.useState(false);
+  const commonCategories = MEMBERSHIP_CATEGORIES.slice(0, 2);
+  const otherCategories = MEMBERSHIP_CATEGORIES.slice(2);
+  const [showAllInterests, setShowAllInterests] = React.useState(false);
 
   const record = application.data;
 
@@ -137,6 +154,11 @@ function ApplicationScreen() {
       <PageTitle
         title="Membership application"
         lede="Membership is a decision, not a sign-up. The membership officer reads every application and records the outcome here."
+      />
+
+      <FlowSteps
+        current={record?.status === "approved" ? "member" : record ? "review" : "application"}
+        className="mb-6"
       />
 
       {application.error ? (
@@ -216,11 +238,33 @@ function ApplicationScreen() {
             description="The membership officer uses these answers to confirm your year and to welcome you properly."
           >
             <div className="flex flex-col gap-5">
-              <Field id="fullName" label="Full name" required error={errors.fullName?.message}>
-                {(props) => <Input {...props} {...register("fullName")} autoComplete="name" />}
-              </Field>
+              {known && !overrideKnown ? (
+                <div className="flex flex-wrap items-center justify-between gap-3 border-t border-paper-dim pt-3">
+                  <p className="text-[15px] leading-relaxed text-navy">
+                    Applying as{" "}
+                    <span className="font-[family-name:var(--font-display)] font-bold">
+                      {profile?.full_name}
+                    </span>
+                    , Class of{" "}
+                    <span className="font-[family-name:var(--font-display)] font-bold">
+                      {profile?.graduation_year}
+                    </span>
+                    . We already hold both from your account.
+                  </p>
+                  <Button type="button" variant="quiet" size="sm" onClick={() => setOverrideKnown(true)}>
+                    Change
+                  </Button>
+                </div>
+              ) : null}
+
+              <div className={known && !overrideKnown ? "hidden" : "flex flex-col gap-5"}>
+                <Field id="fullName" label="Full name" required error={errors.fullName?.message}>
+                  {(props) => <Input {...props} {...register("fullName")} autoComplete="name" />}
+                </Field>
+              </div>
 
               <div className="grid gap-5 sm:grid-cols-2">
+                <div className={known && !overrideKnown ? "hidden" : undefined}>
                 <Field
                   id="graduationYear"
                   label="Graduation year"
@@ -239,6 +283,7 @@ function ApplicationScreen() {
                     </Select>
                   )}
                 </Field>
+                </div>
 
                 <Field
                   id="cohortNote"
@@ -259,13 +304,63 @@ function ApplicationScreen() {
                   error={errors.membershipCategory?.message}
                 >
                   {(props) => (
-                    <Select {...props} {...register("membershipCategory")}>
-                      {MEMBERSHIP_CATEGORIES.map((category) => (
-                        <option key={category.value} value={category.value}>
-                          {category.label}
-                        </option>
-                      ))}
-                    </Select>
+                    <>
+                      <div className="grid gap-2">
+                        {commonCategories.map((option) => {
+                          const selected = category === option.value;
+                          return (
+                            <label
+                              key={option.value}
+                              className={`flex cursor-pointer items-center gap-3 px-4 py-3 text-[15px] leading-snug quiet-border ${
+                                selected ? "bg-paper text-navy" : "bg-white text-navy"
+                              }`}
+                            >
+                              <input
+                                type="radio"
+                                value={option.value}
+                                checked={selected}
+                                onChange={() => setValue("membershipCategory", option.value, { shouldValidate: true })}
+                                className="h-4 w-4 shrink-0 accent-[var(--color-navy)]"
+                              />
+                              {option.label}
+                            </label>
+                          );
+                        })}
+                      </div>
+                      {showOtherCategories ? (
+                        <div className="mt-2 grid gap-2">
+                          {otherCategories.map((option) => {
+                            const selected = category === option.value;
+                            return (
+                              <label
+                                key={option.value}
+                                className={`flex cursor-pointer items-center gap-3 px-4 py-3 text-[15px] leading-snug quiet-border ${
+                                  selected ? "bg-paper text-navy" : "bg-white text-navy"
+                                }`}
+                              >
+                                <input
+                                  type="radio"
+                                  value={option.value}
+                                  checked={selected}
+                                  onChange={() => setValue("membershipCategory", option.value, { shouldValidate: true })}
+                                  className="h-4 w-4 shrink-0 accent-[var(--color-navy)]"
+                                />
+                                {option.label}
+                              </label>
+                            );
+                          })}
+                        </div>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={() => setShowOtherCategories(true)}
+                          className="mt-2 min-h-11 text-left text-[14px] font-semibold text-navy underline decoration-2 underline-offset-4"
+                        >
+                          I am neither: associate, friend or former staff
+                        </button>
+                      )}
+                      <input type="hidden" {...props} {...register("membershipCategory")} />
+                    </>
                   )}
                 </Field>
 
@@ -296,7 +391,7 @@ function ApplicationScreen() {
                   know who to ask.
                 </p>
                 <div className="grid gap-2 sm:grid-cols-2">
-                  {AREAS_OF_INTEREST.map((area) => {
+                  {(showAllInterests ? AREAS_OF_INTEREST : AREAS_OF_INTEREST.slice(0, 4)).map((area) => {
                     const selected = (watch("areasOfInterest") ?? []).includes(area);
                     return (
                       <label
@@ -322,6 +417,15 @@ function ApplicationScreen() {
                     );
                   })}
                 </div>
+                {!showAllInterests && AREAS_OF_INTEREST.length > 4 ? (
+                  <button
+                    type="button"
+                    onClick={() => setShowAllInterests(true)}
+                    className="min-h-11 self-start text-[14px] font-semibold text-navy underline decoration-2 underline-offset-4"
+                  >
+                    Show {AREAS_OF_INTEREST.length - 4} more programme areas
+                  </button>
+                ) : null}
                 {errors.areasOfInterest?.message ? (
                   <p role="alert" className="text-[14px] font-semibold text-danger">
                     {errors.areasOfInterest.message}

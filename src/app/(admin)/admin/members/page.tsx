@@ -131,7 +131,10 @@ function MembersScreen() {
         </div>
       </div>
 
-      <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_340px]">
+      <div
+        className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_340px]"
+        data-scene={selectedUser ? "focused" : undefined}
+      >
         <TableSection
           caption="Register"
           description={filtered ? "Filtered view. The CSV export matches these rows." : "Every membership record, most recently updated first."}
@@ -151,7 +154,11 @@ function MembersScreen() {
             const active = member.user_id === selectedUser;
             const name = member.profiles?.full_name ?? "Unnamed profile";
             return (
-              <tr key={member.id} className={cn(active ? "bg-paper" : undefined)}>
+              <tr
+                key={member.id}
+                data-selected={active ? "true" : undefined}
+                data-dim={selectedUser && !active ? "true" : undefined}
+              >
                 <Td>
                   <button
                     type="button"

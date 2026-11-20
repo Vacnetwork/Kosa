@@ -34,6 +34,10 @@
      paper it measures 2.5:1, so small gold type on white uses this darker step
      (5.7:1) and the field gold stays reserved for surfaces and the dark chapters. */
   --color-gold-ink: #7a5c0f;
+  --color-danger-wash: #fbeceb;
+  --color-danger-ink: #7c1d16;
+  --color-success-wash: #eaf2ec;
+  --color-success-ink: #276b40;
 
   --font-display: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
@@ -204,6 +208,21 @@ p { text-wrap: pretty; }
 }
 .drift { animation: kosa-drift 26s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) { .drift { animation: none; } }
+
+/* Figure-ground: while a row is open in a register table, the other rows step
+   back (navy on paper falls from 12.5:1 to about 2.5:1) so the chosen record is
+   the only thing at full strength. Desktop only, and only while a selection
+   exists, so nothing is ever permanently dimmed. */
+@media (min-width: 1024px) {
+  [data-scene="focused"] tr[data-dim="true"] {
+    opacity: 0.44;
+    transition: opacity 180ms ease-out;
+  }
+  [data-scene="focused"] tr[data-selected="true"] {
+    background: var(--color-white);
+    box-shadow: inset 3px 0 0 var(--color-navy);
+  }
+}
 
 /* Browser surfaces: the parts the design did not draw still carry it. */
 ::selection {
